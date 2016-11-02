@@ -1,0 +1,28 @@
+@media (max-width: @breakpoint-sm) {
+  .hide-xs { display: none; }
+}
+@media (min-width: @breakpoint-sm) and (max-width: @breakpoint-md) {
+  .hide-sm { display: none; }
+}
+@media (min-width: @breakpoint-md) and (max-width: @breakpoint-lg) {
+  .hide-md { display: none; }
+}
+@media (min-width: @breakpoint-lg) {
+  .hide-lg { display: none; }
+}
+
+.hide {
+  display: none !important;
+}
+
+// screan readers only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
