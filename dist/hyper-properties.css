@@ -650,6 +650,17 @@ a.display-block {
 .font-weight-900 {
   font-weight: 900;
 }
+.list-unstyled,
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+}
+.list-inline > li {
+  display: inline-block;
+}
+.list-inline > li:not(:last-child) {
+  margin-right: 1rem;
+}
 @media (max-width: 34em) {
   .hide-xs {
     display: none;
