@@ -3,19 +3,29 @@
 @breakpoint-lg: 64em; // 1024px
 // @breakpoint-xl: 76em; // 1216px
 
+@font-size-p:    1rem;
+@font-size-lead: 1.4rem;
+
 @font-size-h1: 2rem;
 @font-size-h2: 1.8rem;
 @font-size-h3: 1.6rem;
 @font-size-h4: 1.4rem;
 @font-size-h5: 1.2rem;
 @font-size-h6: 1rem;
-@font-size-p:  1rem;
-@font-size-lead: @font-size-h4;
 
 @font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-@font-family-serif: Georgia, "Times New Roman", Times, serif;
-@font-family-monospace: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+@font-family-serif:      Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+// for actions
+@color-primary:    #0275d8;
+@color-gray:       #d3d3d8;
+@color-gray-light: lighten(@color-gray, 10%);
+
+// for text
+@color-paragraph:  #50525e;
+@color-muted:      lighten(@color-paragraph, 15%);
 
 @border-width-default:  1px;
-@border-color-default:  #b2bec3;
+@border-color-default:  @color-gray;
 @border-radius-default: 3px;

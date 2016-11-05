@@ -462,27 +462,27 @@
 .border {
   border-width: 1px;
   border-style: solid;
-  border-color: #b2bec3;
+  border-color: #d3d3d8;
 }
 .border-top {
   border-top-width: 1px;
   border-top-style: solid;
-  border-top-color: #b2bec3;
+  border-top-color: #d3d3d8;
 }
 .border-right {
   border-right-width: 1px;
   border-right-style: solid;
-  border-right-color: #b2bec3;
+  border-right-color: #d3d3d8;
 }
 .border-bottom {
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #b2bec3;
+  border-bottom-color: #d3d3d8;
 }
 .border-left {
   border-left-width: 1px;
   border-left-style: solid;
-  border-left-color: #b2bec3;
+  border-left-color: #d3d3d8;
 }
 .border-0 {
   border: 0 solid transparent;
@@ -620,12 +620,13 @@ a.display-block {
 .text-align-justify {
   text-align: justify;
 }
-.sans-serif {
+.ff-sans-serif {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
-.serif {
+.ff-serif {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+.ff-mono,
 .code {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
@@ -649,6 +650,12 @@ a.display-block {
 }
 .font-weight-900 {
   font-weight: 900;
+}
+.color-primary {
+  color: #0275d8;
+}
+.color-muted {
+  color: #737687;
 }
 .list-unstyled,
 .list-inline {
