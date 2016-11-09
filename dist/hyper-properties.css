@@ -1,6 +1,6 @@
 /**
  * hyper-properties
- * https://heyallan.github.io/hyper-properties/
+ * https://github.com/heyallan/hyper-properties#readme
  * License MIT Copyright (c) 2016-2016
  */
 .margin-xs {
@@ -661,6 +661,9 @@ a.display-block {
 .list-inline {
   padding-left: 0;
   list-style: none;
+}
+.list-inline {
+  margin-bottom: 0;
 }
 .list-inline > li {
   display: inline-block;

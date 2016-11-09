@@ -1,18 +1,17 @@
 <header role="banner">
   <h1>
-    {# Logo glyphs:⦵⚝∅▵◒○∴⧨⬔◮ #}
-    <svg width="38" height="30" viewBox="0 0 38 30" style="margin-top:5px;transform:translateY(4px);">
+    <svg width="30" height="30" viewBox="0 0 38 30" style="transform:translateY(5px);">
       <defs>
         <linearGradient id="gradient">
-          <stop offset="0%"  stop-color="#3498db"/>
-          <stop offset="70%" stop-color="#9b59b6"/>
+          <stop offset="0%"  stop-color="#1abc9c"/>
+          <stop offset="70%" stop-color="#3498db"/>
         </linearGradient>
       </defs>
-      <text x="0" y="40" fill="url(#gradient)" style="font-weight:700;font-size:60px;">
-        ◮
+      <text x="0" y="30" fill="url(#gradient)" style="font-weight:700;font-size:42px;">
+        ◉
       </text>
     </svg>
-    {% raw %}{{% endraw %}{{ package.name }}{% raw %}}{% endraw %}
+    {% raw %} {{ {% endraw %}{{ package.name }}{% raw %} }} {% endraw %}
   </h1>
   {% include "nav-global.njk" %}
 </header>
