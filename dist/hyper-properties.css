@@ -793,3 +793,6 @@ a.display-block {
 .bg-repeat-0 {
   background-repeat: no-repeat;
 }
+.img-fluid {
+  width: 100%;
+}
