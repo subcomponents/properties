@@ -524,6 +524,30 @@ figure.float-right {
   margin-left: 1rem;
   margin-bottom: 0.4rem;
 }
+.display-inline {
+  display: inline;
+}
+.display-inline-block {
+  display: inline-block;
+}
+.display-block {
+  display: block !important;
+}
+a.display-block {
+  border-bottom: 0;
+}
+.btn.display-block {
+  width: 100%;
+}
+.position-relative {
+  position: relative;
+}
+.position-absolute {
+  position: absolute;
+}
+.position-fixed {
+  position: fixed;
+}
 .top-0 {
   top: 0;
 }
@@ -536,29 +560,14 @@ figure.float-right {
 .left-0 {
   left: 0;
 }
-.display-block {
-  display: block !important;
+.overflow-hidden {
+  overflow: hidden;
 }
-a.display-block {
-  border-bottom: 0;
+.overflow-scroll {
+  overflow: scroll;
 }
-.btn.display-block {
-  width: 100%;
-}
-.display-inline {
-  display: inline;
-}
-.display-inline-block {
-  display: inline-block;
-}
-.position-relative {
-  position: relative;
-}
-.position-absolute {
-  position: absolute;
-}
-.position-fixed {
-  position: fixed;
+.overflow-auto {
+  overflow: auto;
 }
 .index-1 {
   z-index: 1;
