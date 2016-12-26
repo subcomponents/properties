@@ -630,6 +630,9 @@ a.display-block {
 .lead {
   font-size: 1.4rem;
 }
+.nowrap {
+  white-space: nowrap;
+}
 .text-italic {
   font-style: italic;
 }
