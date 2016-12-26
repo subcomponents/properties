@@ -1,9 +1,6 @@
 .display-inline       { display: inline; }
 .display-inline-block { display: inline-block; }
-.display-block        { display: block !important;
-  a& { border-bottom: 0; }
-  .btn& { width: 100%; }
-}
+.display-block        { display: block !important; }
 
 .position-relative { position: relative; }
 .position-absolute { position: absolute; }
@@ -23,3 +20,10 @@
 .index-3 { z-index: 3; }
 .index-4 { z-index: 4; }
 .index-5 { z-index: 5; }
+
+.float-left  { float: left; }
+.float-right { float: right; }
+
+.clearfix:before,
+.clearfix:after { content: " "; display: table }
+.clearfix:after { clear: both }
