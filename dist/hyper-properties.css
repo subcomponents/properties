@@ -613,6 +613,10 @@
 .display-block {
   display: block !important;
 }
+.display-flex {
+  display: -ms-flexbox;
+  display: flex;
+}
 .position-relative {
   position: relative;
 }
