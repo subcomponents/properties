@@ -3,20 +3,28 @@
  * https://github.com/heyallan/hyper-properties#readme
  * License MIT Copyright (c) 2016-2016
  */
-.margin-xs {
+.margin-0\.5 {
   margin: 0.5rem;
 }
-.margin-top-xs {
+.margin-top-0\.5 {
   margin-top: 0.5rem;
 }
-.margin-right-xs {
+.margin-right-0\.5 {
   margin-right: 0.5rem;
 }
-.margin-bottom-xs {
+.margin-bottom-0\.5 {
   margin-bottom: 0.5rem;
 }
-.margin-left-xs {
+.margin-left-0\.5 {
   margin-left: 0.5rem;
+}
+.margin-x-0\.5 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.margin-y-0\.5 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .margin-1 {
   margin: 1rem;
@@ -33,6 +41,14 @@
 .margin-left-1 {
   margin-left: 1rem;
 }
+.margin-x-1 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.margin-y-1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 .margin-2 {
   margin: 2rem;
 }
@@ -47,6 +63,14 @@
 }
 .margin-left-2 {
   margin-left: 2rem;
+}
+.margin-x-2 {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.margin-y-2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 .margin-3 {
   margin: 3rem;
@@ -63,6 +87,14 @@
 .margin-left-3 {
   margin-left: 3rem;
 }
+.margin-x-3 {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+.margin-y-3 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
 .margin-4 {
   margin: 4rem;
 }
@@ -77,6 +109,14 @@
 }
 .margin-left-4 {
   margin-left: 4rem;
+}
+.margin-x-4 {
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+.margin-y-4 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 .margin-5 {
   margin: 5rem;
@@ -93,6 +133,14 @@
 .margin-left-5 {
   margin-left: 5rem;
 }
+.margin-x-5 {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+.margin-y-5 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
 .margin-6 {
   margin: 6rem;
 }
@@ -107,6 +155,14 @@
 }
 .margin-left-6 {
   margin-left: 6rem;
+}
+.margin-x-6 {
+  margin-left: 6rem;
+  margin-right: 6rem;
+}
+.margin-y-6 {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
 }
 .margin-7 {
   margin: 7rem;
@@ -123,6 +179,14 @@
 .margin-left-7 {
   margin-left: 7rem;
 }
+.margin-x-7 {
+  margin-left: 7rem;
+  margin-right: 7rem;
+}
+.margin-y-7 {
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+}
 .margin-8 {
   margin: 8rem;
 }
@@ -137,6 +201,14 @@
 }
 .margin-left-8 {
   margin-left: 8rem;
+}
+.margin-x-8 {
+  margin-left: 8rem;
+  margin-right: 8rem;
+}
+.margin-y-8 {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
 }
 .margin-9 {
   margin: 9rem;
@@ -153,6 +225,14 @@
 .margin-left-9 {
   margin-left: 9rem;
 }
+.margin-x-9 {
+  margin-left: 9rem;
+  margin-right: 9rem;
+}
+.margin-y-9 {
+  margin-top: 9rem;
+  margin-bottom: 9rem;
+}
 .margin-10 {
   margin: 10rem;
 }
@@ -167,6 +247,14 @@
 }
 .margin-left-10 {
   margin-left: 10rem;
+}
+.margin-x-10 {
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+.margin-y-10 {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
 }
 .margin-0 {
   margin-top: 0;
@@ -186,26 +274,34 @@
 .margin-left-0 {
   margin-left: 0;
 }
-.padding-xs {
+.margin-x-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+.margin-y-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.padding-0\.5 {
   padding: 0.5rem;
 }
-.padding-top-xs {
+.padding-top-0\.5 {
   padding-top: 0.5rem;
 }
-.padding-right-xs {
+.padding-right-0\.5 {
   padding-right: 0.5rem;
 }
-.padding-bottom-xs {
+.padding-bottom-0\.5 {
   padding-bottom: 0.5rem;
 }
-.padding-left-xs {
+.padding-left-0\.5 {
   padding-left: 0.5rem;
 }
-.padding-y-xs {
+.padding-y-0\.5 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.padding-x-xs {
+.padding-x-0\.5 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
