@@ -15,6 +15,13 @@
 .overflow-scroll { overflow: scroll }
 .overflow-auto   { overflow: auto }
 
+.overflow-scroll,
+.overflow-auto {
+  // native mobile scroll
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
 .index-1 { z-index: 1; }
 .index-2 { z-index: 2; }
 .index-3 { z-index: 3; }

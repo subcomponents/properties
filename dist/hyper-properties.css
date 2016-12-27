@@ -547,6 +547,11 @@
 .overflow-auto {
   overflow: auto;
 }
+.overflow-scroll,
+.overflow-auto {
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
 .index-1 {
   z-index: 1;
 }
