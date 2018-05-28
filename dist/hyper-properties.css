@@ -1,8 +1,4 @@
-/**
- * hyper-properties
- * https://github.com/heyallan/hyper-properties#readme
- * License MIT Copyright (c) 2016-2018
- */
+/** hyper-properties | https://heyallan.github.io/hyper-properties */
 .margin-0 {
   margin-top: 0;
   margin-right: 0;
@@ -729,7 +725,6 @@
   display: block !important;
 }
 .display-flex {
-  display: -ms-flexbox;
   display: flex;
 }
 .position-relative {

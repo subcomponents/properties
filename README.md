@@ -2,12 +2,12 @@
 
 > CSS properties library
 
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
-[![Support](https://img.shields.io/badge/_Support-❤︎_Development-9b59b6.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MAURFPVLDCF64)
+![License][LicenseBadgeURL]
+[![Donate][DonateBadgeURL]][DonateURL]
 
 ## Docs
 
-Visit the project website to see demo or documentation
+Visit the project website to see demo and/or documentation
 
 ## Contribute
 
@@ -19,3 +19,7 @@ Be my guest:
 ## MIT License
 
 The MIT License is a permissive license. It lets you do anything you want with the code as long as you provide attribution back to the author and don’t hold him/her liable. jQuery, .NET Core, and Rails use the MIT License.
+
+[LicenseBadgeURL]: https://img.shields.io/badge/License-MIT-blue.svg
+[DonateBadgeURL]: https://img.shields.io/badge/Support_Active-Development-blue.svg
+[DonateURL]: https://www.paypal.me/heyallan/10

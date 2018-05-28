@@ -6,38 +6,46 @@ var minify       = require('gulp-minify-css');
 var rename       = require('gulp-rename');
 var header       = require('gulp-header');
 var nunjucks     = require('gulp-nunjucks-render');
-var pkgJson      = require('./package.json');
-var banner = ['/**',
-  ' * <%= package.name %>',
-  ' * <%= package.homepage %>',
-  ' * License <%= package.license %> Copyright (c) 2016-<%= new Date().getFullYear() %>',
-  ' */',
-  ''].join('\n');
+var pkgData      = require('./package.json');
+var argv         = require('yargs').argv;
+var baseUrlFlag  = (argv.production) ? pkgData.demo.url : '';
+var banner       = ['/** <%= package.name %> | <%= package.demo.url %> */\n'];
+var fs           = require('fs');
+var lessPaths    = fs.readdirSync('./src/less');
+var lessData     = {};
 
-gulp.task('styles', function() {
+lessPaths.forEach(function(fileName) {
+  fs.readFile('./src/less/' + fileName, 'utf8', function (error, fileContent) {
+    if (error) { throw error; }
+    var fileBaseName = fileName.slice(0, -5);
+    lessData[fileBaseName] = fileContent;
+  })
+});
+
+gulp.task('css', function() {
   return gulp.src('src/less/bundle.less')
     .pipe(less())
-    .pipe(autoprefix({browsers: ['last 2 versions']}))
-    .pipe(rename(pkgJson.name + '.css'))
-    .pipe(header(banner, {package: pkgJson}))
-    .pipe(gulp.dest('dist/')) // <-- deliver expanded for dist
+    .pipe(autoprefix())
+    .pipe(rename(pkgData.name + '.css'))
+    .pipe(header(banner, { package: pkgData }))
+    .pipe(gulp.dest('dist')) // <-- deliver expanded for dist
     .pipe(minify())
-    .pipe(rename(pkgJson.name + '.min.css'))
-    .pipe(header(banner, {package: pkgJson}))
-    .pipe(gulp.dest('dist/')) // <-- deliver compressed for dist
-    .pipe(gulp.dest('docs/')) // <-- deliver extra copy for docs
+    .pipe(rename(pkgData.name + '.min.css'))
+    .pipe(header(banner, { package: pkgData }))
+    .pipe(gulp.dest('dist')) // <-- deliver compressed for dist
+    .pipe(gulp.dest('docs')) // <-- deliver extra copy for docs
 })
 
-gulp.task('docs', function() {
-  return gulp.src('src/docs/pages/*.njk')
+gulp.task('html', function() {
+  return gulp.src('src/docs/pages/**/*.njk')
     .pipe(nunjucks({
-      path: 'src/docs/partials/',
-      data: {package: pkgJson}
+      path: 'src/docs/partials',
+      data: { package: pkgData, baseURL: baseUrlFlag, timestamp: Date.now(), less: lessData }
     }))
-    .pipe(gulp.dest('docs/'));
+    .pipe(gulp.dest('docs'));
 })
 
-gulp.task('default', ['styles', 'docs'], function() {
-  gulp.watch('src/less/*', ['styles']),
-  gulp.watch('src/docs/**/*', ['docs'])
+gulp.task('default', ['css', 'html'], function() {
+  gulp.watch('src/less/*', ['css']),
+  gulp.watch('src/docs/**/*', ['html'])
 })

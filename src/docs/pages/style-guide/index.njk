@@ -1,0 +1,28 @@
+{% extends "template-default.njk" %}
+
+{% block content %}
+
+<style>pre, pre code { background-color: transparent; padding: 0; }</style>
+
+<section>
+  <p>
+    {% for fileName, fileContent in less %}
+      {% if fileContent %}
+        <a href="#{{ fileName }}">{{ fileName | center }}</a> ·
+      {% endif %}
+    {% endfor %}
+  </p>
+</section>
+
+<main>
+  {% for fileName, fileContent in less %}
+    {% if fileContent %}
+      <section>
+        <h2 id="{{ fileName }}">{{ fileName }}</h2>
+        <pre><code>{{ fileContent }}</code></pre>
+      </section>
+    {% endif %}
+  {% endfor %}
+</main>
+
+{% endblock %}

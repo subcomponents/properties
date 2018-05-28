@@ -1,6 +1,6 @@
 {
   "name": "hyper-properties",
-  "version": "1.6.2",
+  "version": "1.7.0",
   "description": "CSS properties library",
   "repository": {
     "type": "git",
@@ -9,13 +9,14 @@
   "keywords": [
     "html",
     "css",
-    "markdown"
+    "properties",
+    "hyper",
+    "atomic"
   ],
   "author": {
-    "name": "Allan Moreno",
-    "email": "hello@heyallan.com",
+    "username": "heyallan",
     "twitter": {
-      "url": "http://twitter.com/heyallanmoreno",
+      "url": "https://twitter.com/heyallanmoreno",
       "username": "heyallanmoreno"
     }
   },
@@ -23,22 +24,28 @@
   "bugs": {
     "url": "https://github.com/heyallan/hyper-properties/issues"
   },
+  "homepage": "https://heyallan.github.io/hyper-properties/",
   "repo": {
-    "url": "https://github.com/heyallan/hyper-properties/"
+    "url": "https://github.com/heyallan/hyper-properties"
   },
   "demo": {
-    "url": "https://heyallan.github.io/hyper-properties/"
+    "url": "https://heyallan.github.io/hyper-properties"
   },
-  "homepage": "https://github.com/heyallan/hyper-properties#readme",
+  "keyword": "properties",
+  "scope": "@hypercss",
   "devDependencies": {
-    "autoprefixer": "^6.4.1",
+    "directory-tree": "^2.1.0",
+    "fs": "0.0.1-security",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-header": "^1.8.8",
-    "gulp-less": "^3.1.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-header": "^2.0.5",
+    "gulp-less": "^3.5.0",
     "gulp-minify-css": "^1.2.4",
-    "gulp-nunjucks-render": "^2.0.0",
+    "gulp-nunjucks-render": "^2.2.2",
     "gulp-rename": "^1.2.2",
-    "gulp-sourcemaps": "^1.6.0"
+    "gulp-sourcemaps": "^2.6.4",
+    "path": "^0.12.7",
+    "recursive-readdir": "^2.2.2",
+    "yargs": "^11.0.0"
   }
 }
