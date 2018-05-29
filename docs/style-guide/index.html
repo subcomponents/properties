@@ -2,21 +2,21 @@
 <html lang="en-US" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>hyper-properties - CSS properties library</title>
+    <title>hyper-properties-css - CSS properties library</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/hyper-reset/dist/hyper-reset.min.css"/>
-    <link rel="stylesheet" href="https://unpkg.com/hyper-auto-layout/dist/hyper-auto-layout.min.css"/>
-    <link rel="stylesheet" href="https://heyallan.github.io/hyper-properties/hyper-properties.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/hyper-reset-css/dist/reset.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/hyper-layout-css/dist/layout.min.css"/>
+    <link rel="stylesheet" href="https://heyallan.github.io/hyper-properties-css/properties.min.css"/>
   </head>
   <body>
     <header role="banner">
-  <h1>@hyper-properties</h1>
+  <h1>@hyper-properties-css</h1>
   <nav role="navigation">
-  <a href="https://heyallan.github.io/hyper-properties/">Home</a>
+  <a href="https://heyallan.github.io/hyper-properties-css/">Home</a>
   ·
-  <a href="https://heyallan.github.io/hyper-properties/style-guide/">Style guide</a>
+  <a href="https://heyallan.github.io/hyper-properties-css/style-guide/">Style guide</a>
   ·
-  <a href="https://github.com/heyallan/hyper-properties">Repository</a>
+  <a href="https://github.com/heyallan/hyper-properties-css">Repository</a>
   ·
   Author
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300.00006 244.18703" width="15">
@@ -43,13 +43,9 @@
       
     
       
-        <a href="#layout">                                     layout                                     </a> ·
-      
-    
-      
-    
-      
         <a href="#border">                                     border                                     </a> ·
+      
+    
       
     
       
@@ -65,11 +61,11 @@
       
     
       
-        <a href="#radius">                                     radius                                     </a> ·
+        <a href="#padding">                                    padding                                     </a> ·
       
     
       
-        <a href="#padding">                                    padding                                     </a> ·
+        <a href="#radius">                                     radius                                     </a> ·
       
     
       
@@ -82,6 +78,10 @@
     
       
         <a href="#visibility">                                   visibility                                   </a> ·
+      
+    
+      
+        <a href="#layout">                                     layout                                     </a> ·
       
     
   </p>
@@ -132,52 +132,6 @@
   
     
       <section>
-        <h2 id="layout">layout</h2>
-        <pre><code>.display-inline       { display: inline; }
-.display-inline-block { display: inline-block; }
-.display-block        { display: block !important; }
-.display-flex         { display: flex; }
-
-.position-relative { position: relative; }
-.position-absolute { position: absolute; }
-.position-fixed    { position: fixed; }
-
-.top-0    { top:    0; }
-.right-0  { right:  0; }
-.bottom-0 { bottom: 0; }
-.left-0   { left:   0; }
-
-.overflow-hidden { overflow: hidden }
-.overflow-scroll { overflow: scroll }
-.overflow-auto   { overflow: auto }
-
-.overflow-scroll,
-.overflow-auto {
-  // native mobile scroll
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
-.index-1 { z-index: 1; }
-.index-2 { z-index: 2; }
-.index-3 { z-index: 3; }
-.index-4 { z-index: 4; }
-.index-5 { z-index: 5; }
-
-.float-left  { float: left; }
-.float-right { float: right; }
-
-.clearfix:before,
-.clearfix:after { content: &quot; &quot;; display: table }
-.clearfix:after { clear: both }
-</code></pre>
-      </section>
-    
-  
-    
-  
-    
-      <section>
         <h2 id="border">border</h2>
         <pre><code>.border {
   border-width: @border-width-default;
@@ -214,6 +168,8 @@
 .box-shadow { box-shadow: 0 2px 2px rgba(0,0,0,0.2); }
 </code></pre>
       </section>
+    
+  
     
   
     
@@ -392,19 +348,6 @@
   
     
       <section>
-        <h2 id="radius">radius</h2>
-        <pre><code>.border-radius {
-  border-radius: @border-radius-default;
-}
-.border-radius-circle {
-  border-radius: 100%;
-}
-</code></pre>
-      </section>
-    
-  
-    
-      <section>
         <h2 id="padding">padding</h2>
         <pre><code>.padding-0\.5          { padding:          0.5rem; }
 .padding-top-0\.5      { padding-top:      0.5rem; }
@@ -501,6 +444,19 @@
 .padding-left-0     { padding-left:     0; }
 .padding-y-0        { padding-top:      0; padding-bottom: 0; }
 .padding-x-0        { padding-left:     0; padding-right:  0; }
+</code></pre>
+      </section>
+    
+  
+    
+      <section>
+        <h2 id="radius">radius</h2>
+        <pre><code>.border-radius {
+  border-radius: @border-radius-default;
+}
+.border-radius-circle {
+  border-radius: 100%;
+}
 </code></pre>
       </section>
     
@@ -636,6 +592,50 @@
   clip: rect(0,0,0,0);
   border: 0;
 }
+</code></pre>
+      </section>
+    
+  
+    
+      <section>
+        <h2 id="layout">layout</h2>
+        <pre><code>.display-inline       { display: inline; }
+.display-inline-block { display: inline-block; }
+.display-block        { display: block !important; }
+.display-flex         { display: flex; }
+
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+.position-fixed    { position: fixed; }
+
+.top-0    { top:    0; }
+.right-0  { right:  0; }
+.bottom-0 { bottom: 0; }
+.left-0   { left:   0; }
+
+.overflow-hidden { overflow: hidden }
+.overflow-scroll { overflow: scroll }
+.overflow-auto   { overflow: auto }
+
+.overflow-scroll,
+.overflow-auto {
+  // native mobile scroll
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.index-1 { z-index: 1; }
+.index-2 { z-index: 2; }
+.index-3 { z-index: 3; }
+.index-4 { z-index: 4; }
+.index-5 { z-index: 5; }
+
+.float-left  { float: left; }
+.float-right { float: right; }
+
+.clearfix:before,
+.clearfix:after { content: &quot; &quot;; display: table }
+.clearfix:after { clear: both }
 </code></pre>
       </section>
     

@@ -1,10 +1,10 @@
 {
-  "name": "hyper-properties",
-  "version": "1.7.0",
+  "name": "hyper-properties-css",
+  "version": "1.7.1",
   "description": "CSS properties library",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heyallan/hyper-properties.git"
+    "url": "git+https://github.com/heyallan/hyper-properties-css.git"
   },
   "keywords": [
     "html",
@@ -22,14 +22,15 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/heyallan/hyper-properties/issues"
+    "url": "https://github.com/heyallan/hyper-properties-css/issues"
   },
-  "homepage": "https://heyallan.github.io/hyper-properties/",
+  "homepage": "https://heyallan.github.io/hyper-properties-css",
+  "main": "dist/properties.min.css",
   "repo": {
-    "url": "https://github.com/heyallan/hyper-properties"
+    "url": "https://github.com/heyallan/hyper-properties-css"
   },
   "demo": {
-    "url": "https://heyallan.github.io/hyper-properties"
+    "url": "https://heyallan.github.io/hyper-properties-css"
   },
   "keyword": "properties",
   "scope": "@hypercss",
