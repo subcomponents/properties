@@ -39,13 +39,17 @@
       
     
       
+        <a href="#border">                                     border                                     </a> ·
+      
+    
+      
         <a href="#bundle">                                     bundle                                     </a> ·
       
     
       
-        <a href="#border">                                     border                                     </a> ·
-      
     
+      
+        <a href="#layout">                                     layout                                     </a> ·
       
     
       
@@ -80,10 +84,6 @@
         <a href="#visibility">                                   visibility                                   </a> ·
       
     
-      
-        <a href="#layout">                                     layout                                     </a> ·
-      
-    
   </p>
 </section>
 
@@ -107,25 +107,6 @@
 .bg-repeat-x { background-repeat: repeat-x; }
 .bg-repeat-y { background-repeat: repeat-y; }
 .bg-repeat-0 { background-repeat: no-repeat; }
-</code></pre>
-      </section>
-    
-  
-    
-      <section>
-        <h2 id="bundle">bundle</h2>
-        <pre><code>@import &#39;variables&#39;;
-@import &#39;margin&#39;;
-@import &#39;padding&#39;;
-@import &#39;border&#39;;
-@import &#39;layout&#39;;
-@import &#39;radius&#39;;
-@import &#39;typography&#39;;
-@import &#39;buttons&#39;;
-@import &#39;lists&#39;;
-@import &#39;visibility&#39;;
-@import &#39;background&#39;;
-@import &#39;misc&#39;;
 </code></pre>
       </section>
     
@@ -170,6 +151,69 @@
       </section>
     
   
+    
+      <section>
+        <h2 id="bundle">bundle</h2>
+        <pre><code>@import &#39;variables&#39;;
+@import &#39;margin&#39;;
+@import &#39;padding&#39;;
+@import &#39;border&#39;;
+@import &#39;layout&#39;;
+@import &#39;radius&#39;;
+@import &#39;typography&#39;;
+@import &#39;buttons&#39;;
+@import &#39;lists&#39;;
+@import &#39;visibility&#39;;
+@import &#39;background&#39;;
+@import &#39;misc&#39;;
+</code></pre>
+      </section>
+    
+  
+    
+  
+    
+      <section>
+        <h2 id="layout">layout</h2>
+        <pre><code>.display-inline       { display: inline; }
+.display-inline-block { display: inline-block; }
+.display-block        { display: block !important; }
+.display-flex         { display: flex; }
+
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+.position-fixed    { position: fixed; }
+
+.top-0    { top:    0; }
+.right-0  { right:  0; }
+.bottom-0 { bottom: 0; }
+.left-0   { left:   0; }
+
+.overflow-hidden { overflow: hidden }
+.overflow-scroll { overflow: scroll }
+.overflow-auto   { overflow: auto }
+
+.overflow-scroll,
+.overflow-auto {
+  // native mobile scroll
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.index-1 { z-index: 1; }
+.index-2 { z-index: 2; }
+.index-3 { z-index: 3; }
+.index-4 { z-index: 4; }
+.index-5 { z-index: 5; }
+
+.float-left  { float: left; }
+.float-right { float: right; }
+
+.clearfix:before,
+.clearfix:after { content: &quot; &quot;; display: table }
+.clearfix:after { clear: both }
+</code></pre>
+      </section>
     
   
     
@@ -592,50 +636,6 @@
   clip: rect(0,0,0,0);
   border: 0;
 }
-</code></pre>
-      </section>
-    
-  
-    
-      <section>
-        <h2 id="layout">layout</h2>
-        <pre><code>.display-inline       { display: inline; }
-.display-inline-block { display: inline-block; }
-.display-block        { display: block !important; }
-.display-flex         { display: flex; }
-
-.position-relative { position: relative; }
-.position-absolute { position: absolute; }
-.position-fixed    { position: fixed; }
-
-.top-0    { top:    0; }
-.right-0  { right:  0; }
-.bottom-0 { bottom: 0; }
-.left-0   { left:   0; }
-
-.overflow-hidden { overflow: hidden }
-.overflow-scroll { overflow: scroll }
-.overflow-auto   { overflow: auto }
-
-.overflow-scroll,
-.overflow-auto {
-  // native mobile scroll
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
-.index-1 { z-index: 1; }
-.index-2 { z-index: 2; }
-.index-3 { z-index: 3; }
-.index-4 { z-index: 4; }
-.index-5 { z-index: 5; }
-
-.float-left  { float: left; }
-.float-right { float: right; }
-
-.clearfix:before,
-.clearfix:after { content: &quot; &quot;; display: table }
-.clearfix:after { clear: both }
 </code></pre>
       </section>
     

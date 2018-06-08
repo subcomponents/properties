@@ -40,7 +40,7 @@ gulp.task('html', function() {
   return gulp.src('src/docs/pages/**/*.njk')
     .pipe(nunjucks({
       path: 'src/docs/partials',
-      data: { package: pkgData, baseURL: baseUrlFlag, timestamp: Date.now(), less: lessData }
+      data: { package: pkgData, baseURL: baseUrlFlag, less: lessData }
     }))
     .pipe(gulp.dest('docs'));
 })
