@@ -1,0 +1,26 @@
+{% extends "template-default.njk" %}
+
+{% block content %}
+<main>
+  <section>
+    <p>
+      {% for fileName, fileContent in less %}
+        {% if fileContent %}
+          <a href="#{{ fileName }}">{{ fileName | capitalize }}</a> ·
+        {% endif %}
+      {% endfor %}
+    </p>
+  </section>
+  <section>
+    {% for fileName, fileContent in less %}
+      {% if fileContent %}
+        <section>
+          <h3 id="{{ fileName }}">{{ fileName | capitalize }}</h3>
+          <pre><code>{{ fileContent }}</code></pre>
+        </section>
+      {% endif %}
+    {% endfor %}
+  </section>
+</main>
+
+{% endblock %}

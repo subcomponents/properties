@@ -1,4 +1,5 @@
-/** hyper-properties-css | https://heyallan.github.io/hyper-properties-css */
+/** (C) License MIT | https://github.com/heyallan/hyper-properties-css */
+
 .margin-0 {
   margin-top: 0;
   margin-right: 0;
@@ -924,6 +925,9 @@
 }
 .color-current {
   color: currentColor;
+}
+.color-inherit {
+  color: inherit;
 }
 .color-default {
   color: #50525e;

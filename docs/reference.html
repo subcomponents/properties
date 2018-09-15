@@ -2,19 +2,19 @@
 <html lang="en-US" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>hyper-properties-css - CSS properties library</title>
+    <title>hyper-properties-css - CSS properties</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/hyper-reset-css"/>
     <link rel="stylesheet" href="https://unpkg.com/hyper-layout-css"/>
-    <link rel="stylesheet" href="https://heyallan.github.io/hyper-properties-css/properties.min.css"/>
+    <link rel="stylesheet" href="./properties.min.css"/>
   </head>
   <body>
     <header role="banner">
   <h1>@hyper-properties-css</h1>
   <nav role="navigation">
-  <a href="https://heyallan.github.io/hyper-properties-css/">Home</a>
+  <a href="./">Home</a>
   ·
-  <a href="https://heyallan.github.io/hyper-properties-css/style-guide/">Style guide</a>
+  <a href="./reference.html">Reference</a>
   ·
   <a href="https://github.com/heyallan/hyper-properties-css">Repository</a>
   ·
@@ -28,71 +28,114 @@
 
 
     
-
-<style>pre, pre code { background-color: transparent; padding: 0; }</style>
-
-<section>
-  <p>
-    
-      
-        <a href="#background">                                   background                                   </a> ·
-      
-    
-      
-        <a href="#border">                                     border                                     </a> ·
-      
-    
-      
-        <a href="#bundle">                                     bundle                                     </a> ·
-      
-    
-      
-    
-      
-        <a href="#layout">                                     layout                                     </a> ·
-      
-    
-      
-        <a href="#lists">                                     lists                                      </a> ·
-      
-    
-      
-        <a href="#margin">                                     margin                                     </a> ·
-      
-    
-      
-        <a href="#misc">                                      misc                                      </a> ·
-      
-    
-      
-        <a href="#padding">                                    padding                                     </a> ·
-      
-    
-      
-        <a href="#radius">                                     radius                                     </a> ·
-      
-    
-      
-        <a href="#typography">                                   typography                                   </a> ·
-      
-    
-      
-        <a href="#variables">                                   variables                                    </a> ·
-      
-    
-      
-        <a href="#visibility">                                   visibility                                   </a> ·
-      
-    
-  </p>
-</section>
-
 <main>
-  
+  <section>
+    <p>
+      
+        
+      
+        
+          <a href="#layout">Layout</a> ·
+        
+      
+        
+          <a href="#background">Background</a> ·
+        
+      
+        
+          <a href="#bundle">Bundle</a> ·
+        
+      
+        
+          <a href="#border">Border</a> ·
+        
+      
+        
+          <a href="#lists">Lists</a> ·
+        
+      
+        
+          <a href="#padding">Padding</a> ·
+        
+      
+        
+          <a href="#margin">Margin</a> ·
+        
+      
+        
+          <a href="#typography">Typography</a> ·
+        
+      
+        
+          <a href="#misc">Misc</a> ·
+        
+      
+        
+          <a href="#radius">Radius</a> ·
+        
+      
+        
+          <a href="#variables">Variables</a> ·
+        
+      
+        
+          <a href="#visibility">Visibility</a> ·
+        
+      
+    </p>
+  </section>
+  <section>
     
-      <section>
-        <h2 id="background">background</h2>
-        <pre><code>.bg-image    { background-position: center center; background-size: cover; }
+      
+    
+      
+        <section>
+          <h3 id="layout">Layout</h3>
+          <pre><code>.display-inline       { display: inline; }
+.display-inline-block { display: inline-block; }
+.display-block        { display: block !important; }
+.display-flex         { display: flex; }
+
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+.position-fixed    { position: fixed; }
+
+.top-0    { top:    0; }
+.right-0  { right:  0; }
+.bottom-0 { bottom: 0; }
+.left-0   { left:   0; }
+
+.overflow-hidden { overflow: hidden }
+.overflow-scroll { overflow: scroll }
+.overflow-auto   { overflow: auto }
+
+.overflow-scroll,
+.overflow-auto {
+  // native mobile scroll
+  -webkit-overflow-scrolling: touch; // ios safari momentum-based scrolling
+  -ms-overflow-style: -ms-autohiding-scrollbar; // ms autohide scrollbars
+}
+
+.index-1 { z-index: 1; }
+.index-2 { z-index: 2; }
+.index-3 { z-index: 3; }
+.index-4 { z-index: 4; }
+.index-5 { z-index: 5; }
+
+.float-left  { float: left; }
+.float-right { float: right; }
+
+.clearfix:before,
+.clearfix:after { content: &quot; &quot;; display: table }
+.clearfix:after { clear: both }
+</code></pre>
+        </section>
+      
+    
+      
+        <section>
+          <h3 id="background">Background</h3>
+          <pre><code>.bg-image    { background-position: center center; background-size: cover; }
 
 .bg-left     { background-position-x: left; }
 .bg-right    { background-position-x: right; }
@@ -108,13 +151,32 @@
 .bg-repeat-y { background-repeat: repeat-y; }
 .bg-repeat-0 { background-repeat: no-repeat; }
 </code></pre>
-      </section>
+        </section>
+      
     
-  
+      
+        <section>
+          <h3 id="bundle">Bundle</h3>
+          <pre><code>@import &#39;variables&#39;;
+@import &#39;margin&#39;;
+@import &#39;padding&#39;;
+@import &#39;border&#39;;
+@import &#39;layout&#39;;
+@import &#39;radius&#39;;
+@import &#39;typography&#39;;
+@import &#39;buttons&#39;;
+@import &#39;lists&#39;;
+@import &#39;visibility&#39;;
+@import &#39;background&#39;;
+@import &#39;misc&#39;;
+</code></pre>
+        </section>
+      
     
-      <section>
-        <h2 id="border">border</h2>
-        <pre><code>.border {
+      
+        <section>
+          <h3 id="border">Border</h3>
+          <pre><code>.border {
   border-width: @border-width-default;
   border-style: solid;
   border-color: @border-color-default;
@@ -148,78 +210,13 @@
 
 .box-shadow { box-shadow: 0 2px 2px rgba(0,0,0,0.2); }
 </code></pre>
-      </section>
+        </section>
+      
     
-  
-    
-      <section>
-        <h2 id="bundle">bundle</h2>
-        <pre><code>@import &#39;variables&#39;;
-@import &#39;margin&#39;;
-@import &#39;padding&#39;;
-@import &#39;border&#39;;
-@import &#39;layout&#39;;
-@import &#39;radius&#39;;
-@import &#39;typography&#39;;
-@import &#39;buttons&#39;;
-@import &#39;lists&#39;;
-@import &#39;visibility&#39;;
-@import &#39;background&#39;;
-@import &#39;misc&#39;;
-</code></pre>
-      </section>
-    
-  
-    
-  
-    
-      <section>
-        <h2 id="layout">layout</h2>
-        <pre><code>.display-inline       { display: inline; }
-.display-inline-block { display: inline-block; }
-.display-block        { display: block !important; }
-.display-flex         { display: flex; }
-
-.position-relative { position: relative; }
-.position-absolute { position: absolute; }
-.position-fixed    { position: fixed; }
-
-.top-0    { top:    0; }
-.right-0  { right:  0; }
-.bottom-0 { bottom: 0; }
-.left-0   { left:   0; }
-
-.overflow-hidden { overflow: hidden }
-.overflow-scroll { overflow: scroll }
-.overflow-auto   { overflow: auto }
-
-.overflow-scroll,
-.overflow-auto {
-  // native mobile scroll
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
-.index-1 { z-index: 1; }
-.index-2 { z-index: 2; }
-.index-3 { z-index: 3; }
-.index-4 { z-index: 4; }
-.index-5 { z-index: 5; }
-
-.float-left  { float: left; }
-.float-right { float: right; }
-
-.clearfix:before,
-.clearfix:after { content: &quot; &quot;; display: table }
-.clearfix:after { clear: both }
-</code></pre>
-      </section>
-    
-  
-    
-      <section>
-        <h2 id="lists">lists</h2>
-        <pre><code>.list-unstyled,
+      
+        <section>
+          <h3 id="lists">Lists</h3>
+          <pre><code>.list-unstyled,
 .list-inline {
   padding-left: 0;
   list-style: none;
@@ -235,13 +232,115 @@
   }
 }
 </code></pre>
-      </section>
+        </section>
+      
     
-  
+      
+        <section>
+          <h3 id="padding">Padding</h3>
+          <pre><code>.padding-0\.5          { padding:          0.5rem; }
+.padding-top-0\.5      { padding-top:      0.5rem; }
+.padding-right-0\.5    { padding-right:    0.5rem; }
+.padding-bottom-0\.5   { padding-bottom:   0.5rem; }
+.padding-left-0\.5     { padding-left:     0.5rem; }
+.padding-y-0\.5        { padding-top:      0.5rem; padding-bottom: 0.5rem; }
+.padding-x-0\.5        { padding-left:     0.5rem; padding-right:  0.5rem; }
+
+.padding-1          { padding:          1rem; }
+.padding-top-1      { padding-top:      1rem; }
+.padding-right-1    { padding-right:    1rem; }
+.padding-bottom-1   { padding-bottom:   1rem; }
+.padding-left-1     { padding-left:     1rem; }
+.padding-y-1        { padding-top:      1rem; padding-bottom: 1rem; }
+.padding-x-1        { padding-left:     1rem; padding-right:  1rem; }
+
+.padding-2          { padding:          2rem; }
+.padding-top-2      { padding-top:      2rem; }
+.padding-right-2    { padding-right:    2rem; }
+.padding-bottom-2   { padding-bottom:   2rem; }
+.padding-left-2     { padding-left:     2rem; }
+.padding-y-2        { padding-top:      2rem; padding-bottom: 2rem; }
+.padding-x-2        { padding-left:     2rem; padding-right:  2rem; }
+
+.padding-3          { padding:          3rem; }
+.padding-top-3      { padding-top:      3rem; }
+.padding-right-3    { padding-right:    3rem; }
+.padding-bottom-3   { padding-bottom:   3rem; }
+.padding-left-3     { padding-left:     3rem; }
+.padding-y-3        { padding-top:      3rem; padding-bottom: 3rem; }
+.padding-x-3        { padding-left:     3rem; padding-right:  3rem; }
+
+.padding-4          { padding:          4rem; }
+.padding-top-4      { padding-top:      4rem; }
+.padding-right-4    { padding-right:    4rem; }
+.padding-bottom-4   { padding-bottom:   4rem; }
+.padding-left-4     { padding-left:     4rem; }
+.padding-y-4        { padding-top:      4rem; padding-bottom: 4rem; }
+.padding-x-4        { padding-left:     4rem; padding-right:  4rem; }
+
+.padding-5          { padding:          5rem; }
+.padding-top-5      { padding-top:      5rem; }
+.padding-right-5    { padding-right:    5rem; }
+.padding-bottom-5   { padding-bottom:   5rem; }
+.padding-left-5     { padding-left:     5rem; }
+.padding-y-5        { padding-top:      5rem; padding-bottom: 5rem; }
+.padding-x-5        { padding-left:     5rem; padding-right:  5rem; }
+
+.padding-6          { padding:          6rem; }
+.padding-top-6      { padding-top:      6rem; }
+.padding-right-6    { padding-right:    6rem; }
+.padding-bottom-6   { padding-bottom:   6rem; }
+.padding-left-6     { padding-left:     6rem; }
+.padding-y-6        { padding-top:      6rem; padding-bottom: 6rem; }
+.padding-x-6        { padding-left:     6rem; padding-right:  6rem; }
+
+.padding-7          { padding:          7rem; }
+.padding-top-7      { padding-top:      7rem; }
+.padding-right-7    { padding-right:    7rem; }
+.padding-bottom-7   { padding-bottom:   7rem; }
+.padding-left-7     { padding-left:     7rem; }
+.padding-y-7        { padding-top:      7rem; padding-bottom: 7rem; }
+.padding-x-7        { padding-left:     7rem; padding-right:  7rem; }
+
+.padding-8          { padding:          8rem; }
+.padding-top-8      { padding-top:      8rem; }
+.padding-right-8    { padding-right:    8rem; }
+.padding-bottom-8   { padding-bottom:   8rem; }
+.padding-left-8     { padding-left:     8rem; }
+.padding-y-8        { padding-top:      8rem; padding-bottom: 8rem; }
+.padding-x-8        { padding-left:     8rem; padding-right:  8rem; }
+
+.padding-9          { padding:          9rem; }
+.padding-top-9      { padding-top:      9rem; }
+.padding-right-9    { padding-right:    9rem; }
+.padding-bottom-9   { padding-bottom:   9rem; }
+.padding-left-9     { padding-left:     9rem; }
+.padding-y-9        { padding-top:      9rem; padding-bottom: 9rem; }
+.padding-x-9        { padding-left:     9rem; padding-right:  9rem; }
+
+.padding-10         { padding:          10rem; }
+.padding-top-10     { padding-top:      10rem; }
+.padding-right-10   { padding-right:    10rem; }
+.padding-bottom-10  { padding-bottom:   10rem; }
+.padding-left-10    { padding-left:     10rem; }
+.padding-y-10       { padding-top:      10rem; padding-bottom: 10rem; }
+.padding-x-10       { padding-left:     10rem; padding-right:  10rem; }
+
+.padding-0          { padding-top:      0; padding-right: 0; padding-bottom: 0; padding-left: 0; }
+.padding-top-0      { padding-top:      0; }
+.padding-right-0    { padding-right:    0; }
+.padding-right-0    { padding-right:    0; }
+.padding-left-0     { padding-left:     0; }
+.padding-y-0        { padding-top:      0; padding-bottom: 0; }
+.padding-x-0        { padding-left:     0; padding-right:  0; }
+</code></pre>
+        </section>
+      
     
-      <section>
-        <h2 id="margin">margin</h2>
-        <pre><code>.margin-0         { margin-top:     0; margin-right: 0; margin-bottom: 0; margin-left: 0; }
+      
+        <section>
+          <h3 id="margin">Margin</h3>
+          <pre><code>.margin-0         { margin-top:     0; margin-right: 0; margin-bottom: 0; margin-left: 0; }
 .margin-top-0     { margin-top:     0; }
 .margin-right-0   { margin-right:   0; }
 .margin-bottom-0  { margin-bottom:  0; }
@@ -379,136 +478,13 @@
 .margin-x-10       { margin-left:    10rem; margin-right: 10rem; }
 .margin-y-10       { margin-top:     10rem; margin-bottom: 10rem; }
 </code></pre>
-      </section>
+        </section>
+      
     
-  
-    
-      <section>
-        <h2 id="misc">misc</h2>
-        <pre><code>.img-fluid { width: 100%; }
-</code></pre>
-      </section>
-    
-  
-    
-      <section>
-        <h2 id="padding">padding</h2>
-        <pre><code>.padding-0\.5          { padding:          0.5rem; }
-.padding-top-0\.5      { padding-top:      0.5rem; }
-.padding-right-0\.5    { padding-right:    0.5rem; }
-.padding-bottom-0\.5   { padding-bottom:   0.5rem; }
-.padding-left-0\.5     { padding-left:     0.5rem; }
-.padding-y-0\.5        { padding-top:      0.5rem; padding-bottom: 0.5rem; }
-.padding-x-0\.5        { padding-left:     0.5rem; padding-right:  0.5rem; }
-
-.padding-1          { padding:          1rem; }
-.padding-top-1      { padding-top:      1rem; }
-.padding-right-1    { padding-right:    1rem; }
-.padding-bottom-1   { padding-bottom:   1rem; }
-.padding-left-1     { padding-left:     1rem; }
-.padding-y-1        { padding-top:      1rem; padding-bottom: 1rem; }
-.padding-x-1        { padding-left:     1rem; padding-right:  1rem; }
-
-.padding-2          { padding:          2rem; }
-.padding-top-2      { padding-top:      2rem; }
-.padding-right-2    { padding-right:    2rem; }
-.padding-bottom-2   { padding-bottom:   2rem; }
-.padding-left-2     { padding-left:     2rem; }
-.padding-y-2        { padding-top:      2rem; padding-bottom: 2rem; }
-.padding-x-2        { padding-left:     2rem; padding-right:  2rem; }
-
-.padding-3          { padding:          3rem; }
-.padding-top-3      { padding-top:      3rem; }
-.padding-right-3    { padding-right:    3rem; }
-.padding-bottom-3   { padding-bottom:   3rem; }
-.padding-left-3     { padding-left:     3rem; }
-.padding-y-3        { padding-top:      3rem; padding-bottom: 3rem; }
-.padding-x-3        { padding-left:     3rem; padding-right:  3rem; }
-
-.padding-4          { padding:          4rem; }
-.padding-top-4      { padding-top:      4rem; }
-.padding-right-4    { padding-right:    4rem; }
-.padding-bottom-4   { padding-bottom:   4rem; }
-.padding-left-4     { padding-left:     4rem; }
-.padding-y-4        { padding-top:      4rem; padding-bottom: 4rem; }
-.padding-x-4        { padding-left:     4rem; padding-right:  4rem; }
-
-.padding-5          { padding:          5rem; }
-.padding-top-5      { padding-top:      5rem; }
-.padding-right-5    { padding-right:    5rem; }
-.padding-bottom-5   { padding-bottom:   5rem; }
-.padding-left-5     { padding-left:     5rem; }
-.padding-y-5        { padding-top:      5rem; padding-bottom: 5rem; }
-.padding-x-5        { padding-left:     5rem; padding-right:  5rem; }
-
-.padding-6          { padding:          6rem; }
-.padding-top-6      { padding-top:      6rem; }
-.padding-right-6    { padding-right:    6rem; }
-.padding-bottom-6   { padding-bottom:   6rem; }
-.padding-left-6     { padding-left:     6rem; }
-.padding-y-6        { padding-top:      6rem; padding-bottom: 6rem; }
-.padding-x-6        { padding-left:     6rem; padding-right:  6rem; }
-
-.padding-7          { padding:          7rem; }
-.padding-top-7      { padding-top:      7rem; }
-.padding-right-7    { padding-right:    7rem; }
-.padding-bottom-7   { padding-bottom:   7rem; }
-.padding-left-7     { padding-left:     7rem; }
-.padding-y-7        { padding-top:      7rem; padding-bottom: 7rem; }
-.padding-x-7        { padding-left:     7rem; padding-right:  7rem; }
-
-.padding-8          { padding:          8rem; }
-.padding-top-8      { padding-top:      8rem; }
-.padding-right-8    { padding-right:    8rem; }
-.padding-bottom-8   { padding-bottom:   8rem; }
-.padding-left-8     { padding-left:     8rem; }
-.padding-y-8        { padding-top:      8rem; padding-bottom: 8rem; }
-.padding-x-8        { padding-left:     8rem; padding-right:  8rem; }
-
-.padding-9          { padding:          9rem; }
-.padding-top-9      { padding-top:      9rem; }
-.padding-right-9    { padding-right:    9rem; }
-.padding-bottom-9   { padding-bottom:   9rem; }
-.padding-left-9     { padding-left:     9rem; }
-.padding-y-9        { padding-top:      9rem; padding-bottom: 9rem; }
-.padding-x-9        { padding-left:     9rem; padding-right:  9rem; }
-
-.padding-10         { padding:          10rem; }
-.padding-top-10     { padding-top:      10rem; }
-.padding-right-10   { padding-right:    10rem; }
-.padding-bottom-10  { padding-bottom:   10rem; }
-.padding-left-10    { padding-left:     10rem; }
-.padding-y-10       { padding-top:      10rem; padding-bottom: 10rem; }
-.padding-x-10       { padding-left:     10rem; padding-right:  10rem; }
-
-.padding-0          { padding-top:      0; padding-right: 0; padding-bottom: 0; padding-left: 0; }
-.padding-top-0      { padding-top:      0; }
-.padding-right-0    { padding-right:    0; }
-.padding-right-0    { padding-right:    0; }
-.padding-left-0     { padding-left:     0; }
-.padding-y-0        { padding-top:      0; padding-bottom: 0; }
-.padding-x-0        { padding-left:     0; padding-right:  0; }
-</code></pre>
-      </section>
-    
-  
-    
-      <section>
-        <h2 id="radius">radius</h2>
-        <pre><code>.border-radius {
-  border-radius: @border-radius-default;
-}
-.border-radius-circle {
-  border-radius: 100%;
-}
-</code></pre>
-      </section>
-    
-  
-    
-      <section>
-        <h2 id="typography">typography</h2>
-        <pre><code>.h1 { font-size: @font-size-h1; }
+      
+        <section>
+          <h3 id="typography">Typography</h3>
+          <pre><code>.h1 { font-size: @font-size-h1; }
 .h2 { font-size: @font-size-h2; }
 .h3 { font-size: @font-size-h3; }
 .h4 { font-size: @font-size-h4; }
@@ -559,17 +535,39 @@
 .font-weight-900 { font-weight: 900; } // black
 
 .color-current { color: currentColor; }
+.color-inherit { color: inherit; }
 .color-default { color: @color-paragraph; }
 .color-primary { color: @color-primary; }
 .color-muted   { color: @color-muted; }
 </code></pre>
-      </section>
+        </section>
+      
     
-  
+      
+        <section>
+          <h3 id="misc">Misc</h3>
+          <pre><code>.img-fluid { width: 100%; }
+</code></pre>
+        </section>
+      
     
-      <section>
-        <h2 id="variables">variables</h2>
-        <pre><code>@breakpoint-sm: 34em; // 544px
+      
+        <section>
+          <h3 id="radius">Radius</h3>
+          <pre><code>.border-radius {
+  border-radius: @border-radius-default;
+}
+.border-radius-circle {
+  border-radius: 100%;
+}
+</code></pre>
+        </section>
+      
+    
+      
+        <section>
+          <h3 id="variables">Variables</h3>
+          <pre><code>@breakpoint-sm: 34em; // 544px
 @breakpoint-md: 48em; // 768px
 @breakpoint-lg: 64em; // 1024px
 // @breakpoint-xl: 76em; // 1216px
@@ -602,13 +600,13 @@
 @border-color-default:  rgba(0,0,0,0.1);
 @border-radius-default: 3px;
 </code></pre>
-      </section>
+        </section>
+      
     
-  
-    
-      <section>
-        <h2 id="visibility">visibility</h2>
-        <pre><code>@media (max-width: @breakpoint-sm) {
+      
+        <section>
+          <h3 id="visibility">Visibility</h3>
+          <pre><code>@media (max-width: @breakpoint-sm) {
   .hide-xs { display: none; }
 }
 @media (min-width: @breakpoint-sm) and (max-width: @breakpoint-md) {
@@ -637,9 +635,10 @@
   border: 0;
 }
 </code></pre>
-      </section>
+        </section>
+      
     
-  
+  </section>
 </main>
 
 
