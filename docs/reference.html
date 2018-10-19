@@ -33,8 +33,6 @@
     <p>
       
         
-      
-        
           <a href="#background">Background</a> ·
         
       
@@ -47,15 +45,9 @@
         
       
         
+      
+        
           <a href="#layout">Layout</a> ·
-        
-      
-        
-          <a href="#misc">Misc</a> ·
-        
-      
-        
-          <a href="#margin">Margin</a> ·
         
       
         
@@ -63,15 +55,23 @@
         
       
         
+          <a href="#margin">Margin</a> ·
+        
+      
+        
+          <a href="#misc">Misc</a> ·
+        
+      
+        
           <a href="#padding">Padding</a> ·
         
       
         
-          <a href="#radius">Radius</a> ·
+          <a href="#typography">Typography</a> ·
         
       
         
-          <a href="#typography">Typography</a> ·
+          <a href="#radius">Radius</a> ·
         
       
         
@@ -85,8 +85,6 @@
     </p>
   </section>
   <section>
-    
-      
     
       
         <section>
@@ -170,6 +168,8 @@
       
     
       
+    
+      
         <section>
           <h3 id="layout">Layout</h3>
           <pre><code>.display-inline       { display: inline; }
@@ -220,8 +220,22 @@
     
       
         <section>
-          <h3 id="misc">Misc</h3>
-          <pre><code>.img-fluid { width: 100%; }
+          <h3 id="lists">Lists</h3>
+          <pre><code>.list-unstyled,
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline {
+  margin-bottom: 0;
+  &gt; li {
+    display: inline-block;
+  }
+  &gt; li:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+}
 </code></pre>
         </section>
       
@@ -372,22 +386,8 @@
     
       
         <section>
-          <h3 id="lists">Lists</h3>
-          <pre><code>.list-unstyled,
-.list-inline {
-  padding-left: 0;
-  list-style: none;
-}
-
-.list-inline {
-  margin-bottom: 0;
-  &gt; li {
-    display: inline-block;
-  }
-  &gt; li:not(:last-child) {
-    margin-right: 1rem;
-  }
-}
+          <h3 id="misc">Misc</h3>
+          <pre><code>.img-fluid { width: 100%; }
 </code></pre>
         </section>
       
@@ -496,19 +496,6 @@
     
       
         <section>
-          <h3 id="radius">Radius</h3>
-          <pre><code>.border-radius {
-  border-radius: @border-radius-default;
-}
-.border-radius-circle {
-  border-radius: 100%;
-}
-</code></pre>
-        </section>
-      
-    
-      
-        <section>
           <h3 id="typography">Typography</h3>
           <pre><code>.h1 { font-size: @font-size-h1; }
 .h2 { font-size: @font-size-h2; }
@@ -565,6 +552,19 @@
 .color-default { color: @color-paragraph; }
 .color-primary { color: @color-primary; }
 .color-muted   { color: @color-muted; }
+</code></pre>
+        </section>
+      
+    
+      
+        <section>
+          <h3 id="radius">Radius</h3>
+          <pre><code>.border-radius {
+  border-radius: @border-radius-default;
+}
+.border-radius-circle {
+  border-radius: 100%;
+}
 </code></pre>
         </section>
       
