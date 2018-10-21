@@ -33,7 +33,9 @@
     <p>
       
         
-          <a href="#background">Background</a> ·
+          <a href="#bundle">Bundle</a> ·
+        
+      
         
       
         
@@ -41,13 +43,7 @@
         
       
         
-          <a href="#bundle">Bundle</a> ·
-        
-      
-        
-      
-        
-          <a href="#layout">Layout</a> ·
+          <a href="#background">Background</a> ·
         
       
         
@@ -55,11 +51,11 @@
         
       
         
-          <a href="#margin">Margin</a> ·
+          <a href="#layout">Layout</a> ·
         
       
         
-          <a href="#misc">Misc</a> ·
+          <a href="#margin">Margin</a> ·
         
       
         
@@ -67,11 +63,15 @@
         
       
         
-          <a href="#typography">Typography</a> ·
+          <a href="#misc">Misc</a> ·
         
       
         
           <a href="#radius">Radius</a> ·
+        
+      
+        
+          <a href="#typography">Typography</a> ·
         
       
         
@@ -88,24 +88,23 @@
     
       
         <section>
-          <h3 id="background">Background</h3>
-          <pre><code>.bg-image    { background-position: center center; background-size: cover; }
-
-.bg-left     { background-position-x: left; }
-.bg-right    { background-position-x: right; }
-.bg-bottom   { background-position-y: bottom; }
-.bg-top      { background-position-y: top; }
-.bg-x-center { background-position-x: center; }
-.bg-y-center { background-position-y: center; }
-
-.bg-cover    { background-size: cover; }
-.bg-contain  { background-size: contain; }
-
-.bg-repeat-x { background-repeat: repeat-x; }
-.bg-repeat-y { background-repeat: repeat-y; }
-.bg-repeat-0 { background-repeat: no-repeat; }
+          <h3 id="bundle">Bundle</h3>
+          <pre><code>@import &#39;variables&#39;;
+@import &#39;typography&#39;;
+@import &#39;lists&#39;;
+@import &#39;buttons&#39;;
+@import &#39;border&#39;;
+@import &#39;layout&#39;;
+@import &#39;radius&#39;;
+@import &#39;background&#39;;
+@import &#39;margin&#39;;
+@import &#39;padding&#39;;
+@import &#39;visibility&#39;;
+@import &#39;misc&#39;;
 </code></pre>
         </section>
+      
+    
       
     
       
@@ -150,23 +149,46 @@
     
       
         <section>
-          <h3 id="bundle">Bundle</h3>
-          <pre><code>@import &#39;variables&#39;;
-@import &#39;margin&#39;;
-@import &#39;padding&#39;;
-@import &#39;border&#39;;
-@import &#39;layout&#39;;
-@import &#39;radius&#39;;
-@import &#39;typography&#39;;
-@import &#39;buttons&#39;;
-@import &#39;lists&#39;;
-@import &#39;visibility&#39;;
-@import &#39;background&#39;;
-@import &#39;misc&#39;;
+          <h3 id="background">Background</h3>
+          <pre><code>.bg-image    { background-position: center center; background-size: cover; }
+
+.bg-left     { background-position-x: left; }
+.bg-right    { background-position-x: right; }
+.bg-bottom   { background-position-y: bottom; }
+.bg-top      { background-position-y: top; }
+.bg-x-center { background-position-x: center; }
+.bg-y-center { background-position-y: center; }
+
+.bg-cover    { background-size: cover; }
+.bg-contain  { background-size: contain; }
+
+.bg-repeat-x { background-repeat: repeat-x; }
+.bg-repeat-y { background-repeat: repeat-y; }
+.bg-repeat-0 { background-repeat: no-repeat; }
 </code></pre>
         </section>
       
     
+      
+        <section>
+          <h3 id="lists">Lists</h3>
+          <pre><code>.list-unstyled,
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline {
+  margin-bottom: 0;
+  &gt; li {
+    display: inline-block;
+  }
+  &gt; li:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+}
+</code></pre>
+        </section>
       
     
       
@@ -214,28 +236,6 @@
 .clearfix:before,
 .clearfix:after { content: &quot; &quot;; display: table }
 .clearfix:after { clear: both }
-</code></pre>
-        </section>
-      
-    
-      
-        <section>
-          <h3 id="lists">Lists</h3>
-          <pre><code>.list-unstyled,
-.list-inline {
-  padding-left: 0;
-  list-style: none;
-}
-
-.list-inline {
-  margin-bottom: 0;
-  &gt; li {
-    display: inline-block;
-  }
-  &gt; li:not(:last-child) {
-    margin-right: 0.5rem;
-  }
-}
 </code></pre>
         </section>
       
@@ -386,14 +386,6 @@
     
       
         <section>
-          <h3 id="misc">Misc</h3>
-          <pre><code>.img-fluid { width: 100%; }
-</code></pre>
-        </section>
-      
-    
-      
-        <section>
           <h3 id="padding">Padding</h3>
           <pre><code>.padding-0\.5          { padding:          0.5rem; }
 .padding-top-0\.5      { padding-top:      0.5rem; }
@@ -496,6 +488,27 @@
     
       
         <section>
+          <h3 id="misc">Misc</h3>
+          <pre><code>.img-fluid { width: 100%; }
+</code></pre>
+        </section>
+      
+    
+      
+        <section>
+          <h3 id="radius">Radius</h3>
+          <pre><code>.border-radius {
+  border-radius: @border-radius-default;
+}
+.border-radius-circle {
+  border-radius: 100%;
+}
+</code></pre>
+        </section>
+      
+    
+      
+        <section>
           <h3 id="typography">Typography</h3>
           <pre><code>.h1 { font-size: @font-size-h1; }
 .h2 { font-size: @font-size-h2; }
@@ -552,19 +565,6 @@
 .color-default { color: @color-paragraph; }
 .color-primary { color: @color-primary; }
 .color-muted   { color: @color-muted; }
-</code></pre>
-        </section>
-      
-    
-      
-        <section>
-          <h3 id="radius">Radius</h3>
-          <pre><code>.border-radius {
-  border-radius: @border-radius-default;
-}
-.border-radius-circle {
-  border-radius: 100%;
-}
 </code></pre>
         </section>
       
