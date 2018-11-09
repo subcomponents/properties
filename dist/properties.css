@@ -205,9 +205,13 @@
 }
 .display-block {
   display: block !important;
+  width: 100%;
 }
 .display-flex {
   display: flex;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
 }
 .position-relative {
   position: relative;
