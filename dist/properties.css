@@ -150,9 +150,6 @@
   list-style: none;
 }
 /* list inline */
-.list-inline {
-  margin-bottom: 0;
-}
 .list-inline > li {
   display: inline;
 }

@@ -45,11 +45,11 @@
     <ul class="list-inline list-middot">
       
         
-          <li><a href="#border">Border</a></li>
+          <li><a href="#background">Background</a></li>
         
       
         
-          <li><a href="#background">Background</a></li>
+          <li><a href="#border">Border</a></li>
         
       
         
@@ -98,6 +98,28 @@
     
       
         <section>
+          <h3 id="background">Background <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
+          <pre><code>.bg-left     { background-position-x: left; }
+.bg-right    { background-position-x: right; }
+.bg-bottom   { background-position-y: bottom; }
+.bg-top      { background-position-y: top; }
+.bg-x-center { background-position-x: center; }
+.bg-y-center { background-position-y: center; }
+
+.bg-cover    { background-size: cover; }
+.bg-contain  { background-size: contain; }
+
+.bg-repeat-x { background-repeat: repeat-x; }
+.bg-repeat-y { background-repeat: repeat-y; }
+.bg-repeat-0 { background-repeat: no-repeat; }
+
+.bg-image    { background-position: center center; background-size: cover; }
+</code></pre>
+        </section>
+      
+    
+      
+        <section>
           <h3 id="border">Border <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
           <pre><code>.border {
   border-width: @border-width-default;
@@ -132,28 +154,6 @@
 .border-left-0   { border-left: 0 solid transparent; }
 
 .box-shadow { box-shadow: 0 2px 2px rgba(0,0,0,0.2); }
-</code></pre>
-        </section>
-      
-    
-      
-        <section>
-          <h3 id="background">Background <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre><code>.bg-left     { background-position-x: left; }
-.bg-right    { background-position-x: right; }
-.bg-bottom   { background-position-y: bottom; }
-.bg-top      { background-position-y: top; }
-.bg-x-center { background-position-x: center; }
-.bg-y-center { background-position-y: center; }
-
-.bg-cover    { background-size: cover; }
-.bg-contain  { background-size: contain; }
-
-.bg-repeat-x { background-repeat: repeat-x; }
-.bg-repeat-y { background-repeat: repeat-y; }
-.bg-repeat-0 { background-repeat: no-repeat; }
-
-.bg-image    { background-position: center center; background-size: cover; }
 </code></pre>
         </section>
       
@@ -222,9 +222,6 @@
 }
 
 /* list inline */
-.list-inline {
-  margin-bottom: 0;
-}
 .list-inline &gt; li {
   display: inline;
 }
