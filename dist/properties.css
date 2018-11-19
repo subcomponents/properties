@@ -301,10 +301,6 @@
 .border-radius-circle {
   border-radius: 100%;
 }
-.bg-image {
-  background-position: center center;
-  background-size: cover;
-}
 .bg-left {
   background-position-x: left;
 }
@@ -337,6 +333,10 @@
 }
 .bg-repeat-0 {
   background-repeat: no-repeat;
+}
+.bg-image {
+  background-position: center center;
+  background-size: cover;
 }
 .margin-0 {
   margin-top: 0;
