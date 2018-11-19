@@ -1,21 +1,22 @@
 {% extends "template-default.njk" %}
 
 {% block content %}
+
 <main>
-  <section>
-    <p>
-      {% for fileName, fileContent in less %}
-        {% if fileContent %}
-          <a href="#{{ fileName }}">{{ fileName | capitalize }}</a> ·
+  <section class="margin-bottom-2">
+    <ul class="list-inline list-middot">
+      {% for fileName, fileContent in lessFiles %}
+        {% if fileContent and (fileName !== "bundle") %}
+          <li><a href="#{{ fileName }}">{{ fileName | capitalize }}</a></li>
         {% endif %}
       {% endfor %}
-    </p>
+    </ul>
   </section>
   <section>
-    {% for fileName, fileContent in less %}
-      {% if fileContent %}
+    {% for fileName, fileContent in lessFiles %}
+      {% if fileContent and (fileName !== "bundle") %}
         <section>
-          <h3 id="{{ fileName }}">{{ fileName | capitalize }}</h3>
+          <h3 id="{{ fileName }}">{{ fileName | capitalize }} <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
           <pre><code>{{ fileContent }}</code></pre>
         </section>
       {% endif %}

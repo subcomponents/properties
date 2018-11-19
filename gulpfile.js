@@ -39,7 +39,7 @@ gulp.task('html', function() {
   return gulp.src('./src/docs/pages/**/*.njk')
     .pipe(nunjucks({
       path: './src/docs/partials',
-      data: { package: pkgJson, less: lessData }
+      data: { package: pkgJson, lessFiles: lessData }
     }))
     .pipe(gulp.dest('./docs'))
     .pipe(browserSync.stream())

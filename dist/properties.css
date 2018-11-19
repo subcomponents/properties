@@ -43,6 +43,9 @@
 .font-size-1\.5 {
   font-size: 1.5rem;
 }
+.demi-small {
+  font-size: 90%;
+}
 .small {
   font-size: 85%;
 }
@@ -55,7 +58,8 @@
 .text-italic {
   font-style: italic;
 }
-.text-bold {
+.text-bold,
+.strong {
   font-weight: bold;
 }
 .text-underline {
@@ -140,19 +144,25 @@
 .color-muted {
   color: #737687;
 }
-.list-unstyled,
-.list-inline {
+/* reset lists */
+[class*="list-"] {
   padding-left: 0;
   list-style: none;
 }
+/* list inline */
 .list-inline {
   margin-bottom: 0;
 }
 .list-inline > li {
-  display: inline-block;
+  display: inline;
 }
-.list-inline > li:not(:last-child) {
-  margin-right: 0.5rem;
+.list-inline > li:not(:last-child)::after {
+  content: "\00a0\00a0\00a0";
+}
+/* list middot */
+.list-middot > li:not(:last-child)::after {
+  content: " " "\00b7" " ";
+  /* collapsible white space */
 }
 .border {
   border-width: 1px;

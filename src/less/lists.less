@@ -1,15 +1,21 @@
-.list-unstyled,
-.list-inline {
+/* reset lists */
+[class*="list-"] {
   padding-left: 0;
   list-style: none;
 }
 
+/* list inline */
 .list-inline {
   margin-bottom: 0;
-  > li {
-    display: inline-block;
-  }
-  > li:not(:last-child) {
-    margin-right: 0.5rem;
-  }
+}
+.list-inline > li {
+  display: inline;
+}
+.list-inline > li:not(:last-child)::after {
+  content: "\00a0\00a0\00a0";
+}
+
+/* list middot */
+.list-middot > li:not(:last-child)::after {
+  content: " " "\00b7" " "; /* collapsible white space */
 }
