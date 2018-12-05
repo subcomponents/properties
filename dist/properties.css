@@ -1,22 +1,22 @@
 /** (C) License MIT | https://github.com/heyallan/hyper-properties-css */
 
 .h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 .h2 {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
 }
 .h3 {
   font-size: 1.6rem;
 }
 .h4 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 .h5 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 .h6 {
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 @media (min-width: 48em) {
   .font-size-4\.5 {
@@ -166,6 +166,11 @@
   /* collapsible white space */
 }
 .border {
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+.border-1 {
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.1);
@@ -334,6 +339,9 @@
 }
 .bg-repeat-0 {
   background-repeat: no-repeat;
+}
+.bg-highlight {
+  background-color: var(--color-gray-light);
 }
 .bg-image {
   background-position: center center;
