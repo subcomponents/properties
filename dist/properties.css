@@ -96,17 +96,17 @@
   vertical-align: text-bottom;
 }
 .ff-sans-serif {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 .ff-serif {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Charter, Utopia, Georgia, Times, "Times New Roman", serif;
 }
 .ff-script {
   font-family: cursive;
 }
 .ff-mono,
 .code {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 .font-weight-100 {
   font-weight: 100;
