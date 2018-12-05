@@ -15,7 +15,7 @@
   </head>
   <body>
     <header role="banner">
-  <h1>@hyper-properties-css <span class="color-primary">v1.8.3</span></h1>
+  <h1>@hyper-properties-css <span class="color-primary">v1.8.4</span></h1>
   <nav role="navigation">
   <ul class="list-inline list-middot">
     <li><a href="./">Home</a></li>
@@ -42,7 +42,9 @@
         
       
         
-          <li><a href="#border">Border</a></li>
+      
+        
+          <li><a href="#layout">Layout</a></li>
         
       
         
@@ -50,17 +52,7 @@
         
       
         
-          <li><a href="#layout">Layout</a></li>
-        
-      
-        
-      
-        
-          <li><a href="#media">Media</a></li>
-        
-      
-        
-          <li><a href="#margin">Margin</a></li>
+          <li><a href="#border">Border</a></li>
         
       
         
@@ -68,7 +60,11 @@
         
       
         
-          <li><a href="#radius">Radius</a></li>
+          <li><a href="#margin">Margin</a></li>
+        
+      
+        
+          <li><a href="#media">Media</a></li>
         
       
         
@@ -76,7 +72,11 @@
         
       
         
-          <li><a href="#typography">Typography</a></li>
+          <li><a href="#radius">Radius</a></li>
+        
+      
+        
+          <li><a href="#visibility">Visibility</a></li>
         
       
         
@@ -84,7 +84,7 @@
         
       
         
-          <li><a href="#visibility">Visibility</a></li>
+          <li><a href="#typography">Typography</a></li>
         
       
     </ul>
@@ -93,72 +93,6 @@
     
       
     
-      
-        <section>
-          <h3 id="border">Border <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre><code>.border {
-  border-width: @border-width-default;
-  border-style: solid;
-  border-color: @border-color-default;
-}
-.border-1 {
-  border-width: 1px;
-  border-style: solid;
-  border-color: @border-color-default;
-}
-.border-top {
-  border-top-width: @border-width-default;
-  border-top-style: solid;
-  border-top-color: @border-color-default;
-}
-.border-right {
-  border-right-width: @border-width-default;
-  border-right-style: solid;
-  border-right-color: @border-color-default;
-}
-.border-bottom {
-  border-bottom-width: @border-width-default;
-  border-bottom-style: solid;
-  border-bottom-color: @border-color-default;
-}
-.border-left {
-  border-left-width: @border-width-default;
-  border-left-style: solid;
-  border-left-color: @border-color-default;
-}
-
-.border-0        { border: 0 solid transparent; }
-.border-top-0    { border-top: 0 solid transparent; }
-.border-right-0  { border-right: 0 solid transparent; }
-.border-bottom-0 { border-bottom: 0 solid transparent; }
-.border-left-0   { border-left: 0 solid transparent; }
-
-.box-shadow { box-shadow: 0 2px 2px rgba(0,0,0,0.2); }
-</code></pre>
-        </section>
-      
-    
-      
-        <section>
-          <h3 id="background">Background <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre><code>.bg-left     { background-position-x: left; }
-.bg-right    { background-position-x: right; }
-.bg-bottom   { background-position-y: bottom; }
-.bg-top      { background-position-y: top; }
-.bg-x-center { background-position-x: center; }
-.bg-y-center { background-position-y: center; }
-
-.bg-cover    { background-size: cover; }
-.bg-contain  { background-size: contain; }
-
-.bg-repeat-x { background-repeat: repeat-x; }
-.bg-repeat-y { background-repeat: repeat-y; }
-.bg-repeat-0 { background-repeat: no-repeat; }
-
-.bg-highlight { background-color: var(--color-gray-light); }
-.bg-image     { background-position: center center; background-size: cover; }
-</code></pre>
-        </section>
       
     
       
@@ -212,11 +146,99 @@
       
     
       
+        <section>
+          <h3 id="background">Background <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
+          <pre><code>.bg-left     { background-position-x: left; }
+.bg-right    { background-position-x: right; }
+.bg-bottom   { background-position-y: bottom; }
+.bg-top      { background-position-y: top; }
+.bg-x-center { background-position-x: center; }
+.bg-y-center { background-position-y: center; }
+
+.bg-cover    { background-size: cover; }
+.bg-contain  { background-size: contain; }
+
+.bg-repeat-x { background-repeat: repeat-x; }
+.bg-repeat-y { background-repeat: repeat-y; }
+.bg-repeat-0 { background-repeat: no-repeat; }
+
+.bg-highlight { background-color: var(--color-gray-light); }
+.bg-image     { background-position: center center; background-size: cover; }
+</code></pre>
+        </section>
+      
     
       
         <section>
-          <h3 id="media">Media <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre><code>.img-fluid { width: 100%; }
+          <h3 id="border">Border <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
+          <pre><code>.border {
+  border-width: @border-width-default;
+  border-style: solid;
+  border-color: @border-color-default;
+}
+.border-1 {
+  border-width: 1px;
+  border-style: solid;
+  border-color: @border-color-default;
+}
+.border-top {
+  border-top-width: @border-width-default;
+  border-top-style: solid;
+  border-top-color: @border-color-default;
+}
+.border-right {
+  border-right-width: @border-width-default;
+  border-right-style: solid;
+  border-right-color: @border-color-default;
+}
+.border-bottom {
+  border-bottom-width: @border-width-default;
+  border-bottom-style: solid;
+  border-bottom-color: @border-color-default;
+}
+.border-left {
+  border-left-width: @border-width-default;
+  border-left-style: solid;
+  border-left-color: @border-color-default;
+}
+
+.border-0        { border: 0 solid transparent; }
+.border-top-0    { border-top: 0 solid transparent; }
+.border-right-0  { border-right: 0 solid transparent; }
+.border-bottom-0 { border-bottom: 0 solid transparent; }
+.border-left-0   { border-left: 0 solid transparent; }
+
+.box-shadow { box-shadow: 0 2px 2px rgba(0,0,0,0.2); }
+</code></pre>
+        </section>
+      
+    
+      
+        <section>
+          <h3 id="lists">Lists <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
+          <pre><code>/* reset lists */
+[class*=&quot;list-&quot;] {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+/* list inline */
+.list-inline &gt; li {
+  display: inline;
+}
+.list-inline &gt; li:not(:last-child)::after {
+  content: &quot;\00a0\00a0\00a0&quot;;
+}
+
+/* list middot */
+.list-middot &gt; li:not(:last-child)::after {
+  content: &quot; &quot; &quot;\00b7&quot; &quot; &quot;; /* collapsible white space */
+}
 </code></pre>
         </section>
       
@@ -367,43 +389,8 @@
     
       
         <section>
-          <h3 id="lists">Lists <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre><code>/* reset lists */
-[class*=&quot;list-&quot;] {
-  padding-left: 0;
-  list-style: none;
-}
-
-.list-inline {
-  display: inline-block;
-  margin-bottom: 0;
-}
-
-/* list inline */
-.list-inline &gt; li {
-  display: inline;
-}
-.list-inline &gt; li:not(:last-child)::after {
-  content: &quot;\00a0\00a0\00a0&quot;;
-}
-
-/* list middot */
-.list-middot &gt; li:not(:last-child)::after {
-  content: &quot; &quot; &quot;\00b7&quot; &quot; &quot;; /* collapsible white space */
-}
-</code></pre>
-        </section>
-      
-    
-      
-        <section>
-          <h3 id="radius">Radius <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre><code>.border-radius {
-  border-radius: @border-radius-default;
-}
-.border-radius-circle {
-  border-radius: 100%;
-}
+          <h3 id="media">Media <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
+          <pre><code>.img-fluid { width: 100%; }
 </code></pre>
         </section>
       
@@ -512,64 +499,48 @@
     
       
         <section>
-          <h3 id="typography">Typography <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre><code>.h1 { font-size: var(--font-size-h1, @font-size-h1); }
-.h2 { font-size: var(--font-size-h2, @font-size-h2); }
-.h3 { font-size: var(--font-size-h3, @font-size-h3); }
-.h4 { font-size: var(--font-size-h4, @font-size-h4); }
-.h5 { font-size: var(--font-size-h5, @font-size-h5); }
-.h6 { font-size: var(--font-size-h6, @font-size-h6); }
-
-@media (min-width: @breakpoint-md) {
-  .font-size-4\.5 { font-size: 4.5rem; line-height: 1.3; }
-  .font-size-4    { font-size: 4rem; line-height: 1.3; }
-  .font-size-3\.5 { font-size: 3.5rem; }
-  .font-size-3    { font-size: 3rem; }
-  .font-size-2\.5 { font-size: 2.5rem; }
+          <h3 id="radius">Radius <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
+          <pre><code>.border-radius {
+  border-radius: @border-radius-default;
+}
+.border-radius-circle {
+  border-radius: 100%;
+}
+</code></pre>
+        </section>
+      
+    
+      
+        <section>
+          <h3 id="visibility">Visibility <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
+          <pre><code>@media (max-width: @breakpoint-sm) {
+  .hide-xs { display: none; }
+}
+@media (min-width: @breakpoint-sm) and (max-width: @breakpoint-md) {
+  .hide-sm { display: none; }
+}
+@media (min-width: @breakpoint-md) and (max-width: @breakpoint-lg) {
+  .hide-md { display: none; }
+}
+@media (min-width: @breakpoint-lg) {
+  .hide-lg { display: none; }
 }
 
-.font-size-2    { font-size: 2rem; }
-.font-size-1\.5 { font-size: 1.5rem; }
+.hide {
+  display: none !important;
+}
 
-.demi-small  { font-size: 90%; }
-.small  { font-size: 85%; }
-.lead   { font-size: 1.4rem; }
-.nowrap { white-space: nowrap; }
-
-.text-italic     { font-style: italic; }
-.text-bold, .strong { font-weight: bold; }
-.text-underline  { text-decoration: underline; }
-.text-strike     { text-decoration: line-through; }
-.text-capitalize { text-transform: capitalize; }
-.text-uppercase  { text-transform: uppercase; }
-
-.text-align-left    { text-align: left; }
-.text-align-center  { text-align: center; }
-.text-align-right   { text-align: right; }
-.text-align-justify { text-align: justify; }
-
-.v-align-top    { vertical-align: text-top; }
-.v-align-middle { vertical-align: middle; }
-.v-align-bottom { vertical-align: text-bottom; }
-
-.ff-sans-serif  { font-family: @font-family-sans-serif; }
-.ff-serif       { font-family: @font-family-serif; }
-.ff-script      { font-family: @font-family-script; }
-.ff-mono, .code { font-family: @font-family-monospace; }
-
-.font-weight-100 { font-weight: 100; } // thin
-.font-weight-300 { font-weight: 300; } // light
-.font-weight-400 { font-weight: 400; } // normal
-.font-weight-600 { font-weight: 600; } // semibold
-.font-weight-700 { font-weight: 700; } // bold
-.font-weight-800 { font-weight: 800; } // extrabold
-.font-weight-900 { font-weight: 900; } // black
-
-.color-current { color: currentColor; }
-.color-inherit { color: inherit; }
-.color-default { color: @color-paragraph; }
-.color-primary { color: @color-primary; }
-.color-muted   { color: @color-muted; }
+// screan readers only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
 </code></pre>
         </section>
       
@@ -615,35 +586,64 @@
     
       
         <section>
-          <h3 id="visibility">Visibility <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre><code>@media (max-width: @breakpoint-sm) {
-  .hide-xs { display: none; }
-}
-@media (min-width: @breakpoint-sm) and (max-width: @breakpoint-md) {
-  .hide-sm { display: none; }
-}
-@media (min-width: @breakpoint-md) and (max-width: @breakpoint-lg) {
-  .hide-md { display: none; }
-}
-@media (min-width: @breakpoint-lg) {
-  .hide-lg { display: none; }
+          <h3 id="typography">Typography <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
+          <pre><code>.h1 { font-size: var(--font-size-h1, @font-size-h1); }
+.h2 { font-size: var(--font-size-h2, @font-size-h2); }
+.h3 { font-size: var(--font-size-h3, @font-size-h3); }
+.h4 { font-size: var(--font-size-h4, @font-size-h4); }
+.h5 { font-size: var(--font-size-h5, @font-size-h5); }
+.h6 { font-size: var(--font-size-h6, @font-size-h6); }
+
+@media (min-width: @breakpoint-md) {
+  .font-size-4\.5 { font-size: 4.5rem; line-height: 1.3; }
+  .font-size-4    { font-size: 4rem; line-height: 1.3; }
+  .font-size-3\.5 { font-size: 3.5rem; }
+  .font-size-3    { font-size: 3rem; }
+  .font-size-2\.5 { font-size: 2.5rem; }
 }
 
-.hide {
-  display: none !important;
-}
+.font-size-2    { font-size: 2rem; }
+.font-size-1\.5 { font-size: 1.5rem; }
 
-// screan readers only
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
-}
+.demi-small  { font-size: 0.9em; }
+.small  { font-size: 0.85em; }
+.lead   { font-size: 1.4rem; }
+.nowrap { white-space: nowrap; }
+
+.text-italic     { font-style: italic; }
+.text-bold, .strong { font-weight: bold; }
+.text-underline  { text-decoration: underline; }
+.text-strike     { text-decoration: line-through; }
+.text-capitalize { text-transform: capitalize; }
+.text-uppercase  { text-transform: uppercase; }
+
+.text-align-left    { text-align: left; }
+.text-align-center  { text-align: center; }
+.text-align-right   { text-align: right; }
+.text-align-justify { text-align: justify; }
+
+.v-align-top    { vertical-align: text-top; }
+.v-align-middle { vertical-align: middle; }
+.v-align-bottom { vertical-align: text-bottom; }
+
+.ff-sans-serif  { font-family: @font-family-sans-serif; }
+.ff-serif       { font-family: @font-family-serif; }
+.ff-script      { font-family: @font-family-script; }
+.ff-mono, .code { font-family: @font-family-monospace; }
+
+.font-weight-100 { font-weight: 100; } // thin
+.font-weight-300 { font-weight: 300; } // light
+.font-weight-400 { font-weight: 400; } // normal
+.font-weight-600 { font-weight: 600; } // semibold
+.font-weight-700 { font-weight: 700; } // bold
+.font-weight-800 { font-weight: 800; } // extrabold
+.font-weight-900 { font-weight: 900; } // black
+
+.color-current { color: currentColor; }
+.color-inherit { color: inherit; }
+.color-default { color: @color-paragraph; }
+.color-primary { color: @color-primary; }
+.color-muted   { color: @color-muted; }
 </code></pre>
         </section>
       
