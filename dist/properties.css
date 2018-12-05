@@ -1,22 +1,22 @@
 /** (C) License MIT | https://github.com/heyallan/hyper-properties-css */
 
 .h1 {
-  font-size: 1.8rem;
+  font-size: var(--font-size-h1, 1.8rem);
 }
 .h2 {
-  font-size: 1.7rem;
+  font-size: var(--font-size-h2, 1.64rem);
 }
 .h3 {
-  font-size: 1.6rem;
+  font-size: var(--font-size-h3, 1.48rem);
 }
 .h4 {
-  font-size: 1.5rem;
+  font-size: var(--font-size-h4, 1.23rem);
 }
 .h5 {
-  font-size: 1.4rem;
+  font-size: var(--font-size-h5, 1.16rem);
 }
 .h6 {
-  font-size: 1.3rem;
+  font-size: var(--font-size-h6, 1rem);
 }
 @media (min-width: 48em) {
   .font-size-4\.5 {
