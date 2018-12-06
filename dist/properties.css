@@ -252,9 +252,17 @@
 }
 .overflow-x {
   overflow-x: auto;
+  white-space: nowrap;
 }
 .overflow-y {
   overflow-y: auto;
+  white-space: nowrap;
+}
+.overflow-x::-webkit-scrollbar {
+  display: none;
+}
+.overflow-y::-webkit-scrollbar {
+  display: none;
 }
 .overflow-hidden {
   overflow: hidden;
