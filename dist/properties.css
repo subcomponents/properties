@@ -18,6 +18,14 @@
 .h6 {
   font-size: var(--font-size-h6, 1rem);
 }
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  line-height: var(--line-height-heading);
+}
 @media (min-width: 48em) {
   .font-size-4\.5 {
     font-size: 4.5rem;
