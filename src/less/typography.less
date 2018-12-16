@@ -57,5 +57,5 @@
 .color-current { color: currentColor; }
 .color-inherit { color: inherit; }
 .color-default { color: @color-paragraph; }
-.color-primary { color: @color-primary; }
-.color-muted   { color: @color-muted; }
+.color-primary { color: var(--color-primary, @color-primary); }
+.color-muted   { color: var(--color-muted, @color-muted); }

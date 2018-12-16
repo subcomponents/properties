@@ -15,7 +15,7 @@
   </head>
   <body>
     <header role="banner">
-  <h1>@hyper-properties-css <span class="color-primary">v1.9.1</span></h1>
+  <h1>@hyper-properties-css <span class="color-primary">v1.9.2</span></h1>
   <nav role="navigation">
   <ul class="list-inline list-middot">
     <li><a href="./">Home</a></li>
@@ -40,13 +40,13 @@
     <ul class="list-inline list-middot">
       
         
-      
-        
           <li><a href="#background">Background</a></li>
         
       
         
           <li><a href="#border">Border</a></li>
+        
+      
         
       
         
@@ -60,11 +60,11 @@
         
       
         
-          <li><a href="#media">Media</a></li>
+          <li><a href="#margin">Margin</a></li>
         
       
         
-          <li><a href="#margin">Margin</a></li>
+          <li><a href="#media">Media</a></li>
         
       
         
@@ -72,11 +72,7 @@
         
       
         
-          <li><a href="#visibility">Visibility</a></li>
-        
-      
-        
-          <li><a href="#typography">Typography</a></li>
+          <li><a href="#radius">Radius</a></li>
         
       
         
@@ -84,14 +80,16 @@
         
       
         
-          <li><a href="#radius">Radius</a></li>
+          <li><a href="#typography">Typography</a></li>
+        
+      
+        
+          <li><a href="#visibility">Visibility</a></li>
         
       
     </ul>
   </section>
   <section>
-    
-      
     
       
         <section>
@@ -159,6 +157,8 @@
 .box-shadow { box-shadow: 0 2px 2px rgba(0,0,0,0.2); }
 </code></pre>
         </section>
+      
+    
       
     
       
@@ -256,14 +256,6 @@
 .list-middot &gt; li:not(:last-child)::after {
   content: &quot; &quot; &quot;\00b7&quot; &quot; &quot;; /* collapsible white space */
 }
-</code></pre>
-        </section>
-      
-    
-      
-        <section>
-          <h3 id="media">Media <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre><code>.img-fluid { width: 100%; }
 </code></pre>
         </section>
       
@@ -414,6 +406,14 @@
     
       
         <section>
+          <h3 id="media">Media <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
+          <pre><code>.img-fluid { width: 100%; }
+</code></pre>
+        </section>
+      
+    
+      
+        <section>
           <h3 id="padding">Padding <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
           <pre><code>.padding-0\.5          { padding:          0.5rem; }
 .padding-top-0\.5      { padding-top:      0.5rem; }
@@ -516,35 +516,52 @@
     
       
         <section>
-          <h3 id="visibility">Visibility <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre><code>@media (max-width: @breakpoint-sm) {
-  .hide-xs { display: none; }
+          <h3 id="radius">Radius <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
+          <pre><code>.border-radius {
+  border-radius: @border-radius-default;
 }
-@media (min-width: @breakpoint-sm) and (max-width: @breakpoint-md) {
-  .hide-sm { display: none; }
+.border-radius-circle {
+  border-radius: 100%;
 }
-@media (min-width: @breakpoint-md) and (max-width: @breakpoint-lg) {
-  .hide-md { display: none; }
-}
-@media (min-width: @breakpoint-lg) {
-  .hide-lg { display: none; }
-}
+</code></pre>
+        </section>
+      
+    
+      
+        <section>
+          <h3 id="variables">Variables <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
+          <pre><code>@breakpoint-sm: 34em; // 544px
+@breakpoint-md: 48em; // 768px
+@breakpoint-lg: 64em; // 1024px
+// @breakpoint-xl: 76em; // 1216px
 
-.hide {
-  display: none !important;
-}
+@font-size-p:    1rem;
+@font-size-lead: 1.4rem;
 
-// screan readers only
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
-}
+@font-size-h1: 1.8rem;
+@font-size-h2: 1.64rem;
+@font-size-h3: 1.48rem;
+@font-size-h4: 1.23rem;
+@font-size-h5: 1.16rem;
+@font-size-h6: 1rem;
+
+@font-family-sans-serif: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;
+@font-family-serif:      Charter, Utopia, Georgia, Times, &quot;Times New Roman&quot;, serif;
+@font-family-script:     cursive;
+@font-family-monospace:  &quot;SFMono-Regular&quot;, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace;
+
+// for actions
+@color-primary:    #0275d8;
+@color-gray:       #d3d3d8;
+@color-gray-light: lighten(@color-gray, 10%);
+
+// for text
+@color-paragraph:  #50525e;
+@color-muted:      lighten(@color-paragraph, 15%);
+
+@border-width-default:  1px;
+@border-color-default:  rgba(0,0,0,0.1);
+@border-radius-default: 3px;
 </code></pre>
         </section>
       
@@ -611,59 +628,42 @@
 .color-current { color: currentColor; }
 .color-inherit { color: inherit; }
 .color-default { color: @color-paragraph; }
-.color-primary { color: @color-primary; }
-.color-muted   { color: @color-muted; }
+.color-primary { color: var(--color-primary, @color-primary); }
+.color-muted   { color: var(--color-muted, @color-muted); }
 </code></pre>
         </section>
       
     
       
         <section>
-          <h3 id="variables">Variables <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre><code>@breakpoint-sm: 34em; // 544px
-@breakpoint-md: 48em; // 768px
-@breakpoint-lg: 64em; // 1024px
-// @breakpoint-xl: 76em; // 1216px
-
-@font-size-p:    1rem;
-@font-size-lead: 1.4rem;
-
-@font-size-h1: 1.8rem;
-@font-size-h2: 1.64rem;
-@font-size-h3: 1.48rem;
-@font-size-h4: 1.23rem;
-@font-size-h5: 1.16rem;
-@font-size-h6: 1rem;
-
-@font-family-sans-serif: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;
-@font-family-serif:      Charter, Utopia, Georgia, Times, &quot;Times New Roman&quot;, serif;
-@font-family-script:     cursive;
-@font-family-monospace:  &quot;SFMono-Regular&quot;, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace;
-
-// for actions
-@color-primary:    #0275d8;
-@color-gray:       #d3d3d8;
-@color-gray-light: lighten(@color-gray, 10%);
-
-// for text
-@color-paragraph:  #50525e;
-@color-muted:      lighten(@color-paragraph, 15%);
-
-@border-width-default:  1px;
-@border-color-default:  rgba(0,0,0,0.1);
-@border-radius-default: 3px;
-</code></pre>
-        </section>
-      
-    
-      
-        <section>
-          <h3 id="radius">Radius <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre><code>.border-radius {
-  border-radius: @border-radius-default;
+          <h3 id="visibility">Visibility <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
+          <pre><code>@media (max-width: @breakpoint-sm) {
+  .hide-xs { display: none; }
 }
-.border-radius-circle {
-  border-radius: 100%;
+@media (min-width: @breakpoint-sm) and (max-width: @breakpoint-md) {
+  .hide-sm { display: none; }
+}
+@media (min-width: @breakpoint-md) and (max-width: @breakpoint-lg) {
+  .hide-md { display: none; }
+}
+@media (min-width: @breakpoint-lg) {
+  .hide-lg { display: none; }
+}
+
+.hide {
+  display: none !important;
+}
+
+// screan readers only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
 }
 </code></pre>
         </section>

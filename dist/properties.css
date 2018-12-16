@@ -147,10 +147,10 @@
   color: #50525e;
 }
 .color-primary {
-  color: #0275d8;
+  color: var(--color-primary, #0275d8);
 }
 .color-muted {
-  color: #737687;
+  color: var(--color-muted, #737687);
 }
 /* reset lists */
 [class*="list-"] {
