@@ -4,7 +4,7 @@
 
 <main>
   <section class="margin-bottom-2">
-    <ul class="list-inline list-middot">
+    <ul class="list-inline list-middot demi-small">
       {% for fileName, fileContent in lessFiles %}
         {% if fileContent and (fileName !== "bundle") %}
           <li><a href="#{{ fileName }}">{{ fileName | capitalize }}</a></li>

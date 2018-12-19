@@ -1,13 +1,13 @@
-@media (max-width: @breakpoint-sm) {
+@media (max-width: 544px) {
   .hide-xs { display: none; }
 }
-@media (min-width: @breakpoint-sm) and (max-width: @breakpoint-md) {
+@media (min-width: 544px) and (max-width: 768px) {
   .hide-sm { display: none; }
 }
-@media (min-width: @breakpoint-md) and (max-width: @breakpoint-lg) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .hide-md { display: none; }
 }
-@media (min-width: @breakpoint-lg) {
+@media (min-width: 1024px) {
   .hide-lg { display: none; }
 }
 
@@ -15,7 +15,7 @@
   display: none !important;
 }
 
-// screan readers only
+/* screan readers only */
 .sr-only {
   position: absolute;
   width: 1px;

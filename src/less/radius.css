@@ -1,0 +1,6 @@
+.border-radius {
+  border-radius: var(--border-radius-default, var(--fallback-border-radius-default));
+}
+.border-radius-circle {
+  border-radius: 100%;
+}

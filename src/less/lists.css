@@ -1,0 +1,41 @@
+/* reset lists */
+[class*="list-"],
+[style*="--bullet-type"] {
+  padding-left: 0;
+  list-style: none;
+}
+
+/* list inline */
+.list-inline {
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-inline > li {
+  margin-right: 1em;
+}
+
+/* list middot */
+.list-middot {
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-middot > li + li::before {
+  content: "\00a0" "·" " ";
+}
+.list-middot.list-inline > li {
+  margin-right: unset; /* backward compatibility */
+}
+
+/* custom bullet */
+[style*="--bullet-type"] > li::before {
+  content: var(--bullet-type) " ";
+}
+[style*="--bullet-type"].list-inline > li {
+  margin-right: 0.25em;
+}
+[style*="--bullet-type"].list-inline > li:first-child::before {
+  content: unset; /* if inline remove first bullet */
+}
+[style*="--bullet-font"] > li::before {
+  font-family: 'Bad Script'; /* support icon fonts */
+}

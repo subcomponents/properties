@@ -15,13 +15,13 @@ var lessData     = {};
 lessPaths.forEach(function(fileName) {
   fs.readFile('./src/less/' + fileName, 'utf8', function (error, fileContent) {
     if (error) { throw error; }
-    var fileBaseName = fileName.slice(0, -5);
+    var fileBaseName = fileName.slice(0, -4);
     lessData[fileBaseName] = fileContent;
   })
 });
 
 gulp.task('css', function() {
-  return gulp.src('./src/less/bundle.less')
+  return gulp.src('./src/less/bundle.css')
     .pipe(less())
     .pipe(autoprefix())
     .pipe(rename(pkgJson.keyword + '.css'))

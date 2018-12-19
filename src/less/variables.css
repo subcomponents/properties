@@ -1,0 +1,39 @@
+/* breakpoint-sm: 544px */
+/* breakpoint-md: 768px */
+/* breakpoint-lg: 1024px */
+/* breakpoint-xl: 1216px */
+
+:root {
+  --fallback-line-height-default: 1.625;
+  --fallback-line-height-heading: 1.3;
+
+  --fallback-border-width-default:  1px;
+  --fallback-border-color-default:  rgba(0,0,0,0.1);
+  --fallback-border-radius-default: 3px;
+
+  --fallback-font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --fallback-font-family-serif: Charter, Utopia, Georgia, Times, "Times New Roman", serif;
+  --fallback-font-family-script: cursive;
+  --fallback-font-family-monospace: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+  --fallback-size-h1: 1.8rem;
+  --fallback-size-h2: 1.64rem;
+  --fallback-size-h3: 1.48rem;
+  --fallback-size-h4: 1.23rem;
+  --fallback-size-h5: 1.16rem;
+  --fallback-size-h6: 1rem;
+
+  --fallback-color-default:    #50525e;
+  --fallback-color-muted:      #737687; /* lighten default by 15; */
+  --fallback-color-primary:    #0275d8;
+  --fallback-color-gray:       #d3d3d8;
+  --fallback-color-gray-light: #f6f6f9; /* lighten gray by 10; */
+
+  --fallback-button-line-height:   var(--fallback-line-height-default);
+  --fallback-button-padding-x:     1rem;
+  --fallback-button-padding-y:     0.5rem;
+  --fallback-button-border-width:  var(--fallback-border-width-default);
+  --fallback-button-border-rarius: var(--fallback-border-radius-default);
+  --fallback-button-border-color:  transparent;
+  --fallback-button-bg-color:      var(--fallback-color-primary);
+}

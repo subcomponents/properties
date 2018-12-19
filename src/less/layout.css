@@ -27,9 +27,9 @@
 .overflow-y,
 .overflow-scroll,
 .overflow-auto {
-  // native mobile scroll
-  -webkit-overflow-scrolling: touch; // ios safari momentum-based scrolling
-  -ms-overflow-style: -ms-autohiding-scrollbar; // ms autohide scrollbars
+  /* native mobile scroll */
+  -webkit-overflow-scrolling: touch; /* ios safari momentum-based scrolling */
+  -ms-overflow-style: -ms-autohiding-scrollbar; /* ms autohide scrollbars */
 }
 
 .overflow-hint {
