@@ -1,6 +1,6 @@
 {
   "name": "hyper-properties-css",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "description": "CSS properties",
   "repository": {
     "type": "git",
@@ -36,10 +36,12 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-header": "^2.0.5",
-    "gulp-less": "^3.5.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-nunjucks-render": "^2.2.2",
+    "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.2.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.5.0"
   }
 }

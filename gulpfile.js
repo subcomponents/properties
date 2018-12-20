@@ -1,5 +1,7 @@
 var gulp         = require('gulp');
-var less         = require('gulp-less');
+var postcss      = require('gulp-postcss');
+var nextcss      = require('postcss-preset-env');
+var atImport     = require('postcss-import');
 var autoprefix   = require('gulp-autoprefixer');
 var minify       = require('gulp-minify-css');
 var rename       = require('gulp-rename');
@@ -9,20 +11,10 @@ var pkgJson      = require('./package.json');
 var browserSync  = require('browser-sync').create();
 var banner       = ['/** (C) License <%= package.license %> | <%= package.repo.url %> */\n\n'];
 var fs           = require('fs');
-var lessPaths    = fs.readdirSync('./src/less');
-var lessData     = {};
-
-lessPaths.forEach(function(fileName) {
-  fs.readFile('./src/less/' + fileName, 'utf8', function (error, fileContent) {
-    if (error) { throw error; }
-    var fileBaseName = fileName.slice(0, -4);
-    lessData[fileBaseName] = fileContent;
-  })
-});
 
 gulp.task('css', function() {
-  return gulp.src('./src/less/bundle.css')
-    .pipe(less())
+  return gulp.src('./src/css/bundle.css')
+    .pipe(postcss([nextcss,atImport]))
     .pipe(autoprefix())
     .pipe(rename(pkgJson.keyword + '.css'))
     .pipe(header(banner, { package: pkgJson }))
@@ -36,10 +28,16 @@ gulp.task('css', function() {
 })
 
 gulp.task('html', function() {
+  var cssData = {};
+  fs.readdirSync('./src/css/').forEach(function(fileName) {
+    var cssFileName = fileName.slice(0, -4);
+    var cssContent = fs.readFileSync('./src/css/' + fileName);
+    cssData[cssFileName] = cssContent;
+  });
   return gulp.src('./src/docs/pages/**/*.njk')
     .pipe(nunjucks({
       path: './src/docs/partials',
-      data: { package: pkgJson, lessFiles: lessData }
+      data: { package: pkgJson, cssFiles: cssData }
     }))
     .pipe(gulp.dest('./docs'))
     .pipe(browserSync.stream())
@@ -59,7 +57,7 @@ gulp.task('server', function() {
 })
 
 gulp.task('watch', function() {
-  gulp.watch('./src/less/**/*', ['css']);
+  gulp.watch('./src/css/**/*', ['css','html']);
   gulp.watch('./src/docs/**/*', ['html']);
   gulp.watch('./src/readme/**/*', ['readme']);
 })

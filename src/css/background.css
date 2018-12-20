@@ -12,5 +12,5 @@
 .bg-repeat-y { background-repeat: repeat-y; }
 .bg-repeat-0 { background-repeat: no-repeat; }
 
-.bg-highlight { background-color: var(--color-gray-light); }
+.bg-highlight { background-color: var(--color-gray-light, var(--fallback-color-gray-light)); }
 .bg-image     { background-position: center center; background-size: cover; }

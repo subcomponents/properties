@@ -4,17 +4,17 @@
 
 <main>
   <section class="margin-bottom-2">
-    <ul class="list-inline list-middot demi-small">
-      {% for fileName, fileContent in lessFiles %}
-        {% if fileContent and (fileName !== "bundle") %}
+    <ul class="list-inline list-middot">
+      {% for fileName, fileContent in cssFiles %}
+        {% if fileContent and (fileName !== "bundle") and (fileName !== "variables") %}
           <li><a href="#{{ fileName }}">{{ fileName | capitalize }}</a></li>
         {% endif %}
       {% endfor %}
     </ul>
   </section>
   <section>
-    {% for fileName, fileContent in lessFiles %}
-      {% if fileContent and (fileName !== "bundle") %}
+    {% for fileName, fileContent in cssFiles %}
+      {% if fileContent and (fileName !== "bundle") and (fileName !== "variables") %}
         <section>
           <h3 id="{{ fileName }}">{{ fileName | capitalize }} <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
           <pre><code>{{ fileContent }}</code></pre>
