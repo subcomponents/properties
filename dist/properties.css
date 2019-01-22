@@ -1,4 +1,4 @@
-/** (C) License MIT | https://github.com/heyallan/hyper-properties-css */
+/** https://github.com/heyallan/hyper-properties-css */
 
 /* breakpoint-sm: 544px */
 /* breakpoint-md: 768px */
@@ -103,36 +103,32 @@
   list-style: none;
 }
 /* list inline */
-.list-inline {
+/* .list-inline {
   display: flex;
   flex-wrap: wrap;
 }
 .list-inline > li {
   margin-right: 1em;
+} */
+/* list inline */
+.list-inline > li {
+  display: inline-block;
 }
-/* list middot */
-.list-middot {
-  display: flex;
-  flex-wrap: wrap;
-}
-.list-middot > li + li::before {
-  content: "\00a0" "·" " ";
-}
-.list-middot.list-inline > li {
-  margin-right: unset; /* backward compatibility */
+.list-inline > li:not(:last-of-type) {
+  margin-right: 1em;
 }
 /* custom bullet */
 [style*="--bullet-type"] > li::before {
   content: var(--bullet-type) " ";
 }
 [style*="--bullet-type"].list-inline > li {
-  margin-right: 0.25em;
+  margin-right: unset;
 }
 [style*="--bullet-type"].list-inline > li:first-child::before {
-  content: unset; /* if inline remove first bullet */
+  content: unset;
 }
 [style*="--bullet-font"] > li::before {
-  font-family: 'Bad Script'; /* support icon fonts */
+  font-family: var(--bullet-font);
 }
 .btn {
   display: inline-block;
@@ -160,15 +156,14 @@
 a.btn:hover {
   text-decoration: none;
 }
-.border {
+.border,
+.border-1 {
   border-width: var(--border-width-default, 1px);
   border-style: solid;
   border-color: var(--border-color-default, rgba(0,0,0,0.1));
 }
 .border-1 {
   border-width: 1px;
-  border-style: solid;
-  border-color: var(--border-color-default, rgba(0,0,0,0.1));
 }
 .border-top,
 .border-top-1 {
@@ -241,16 +236,29 @@ a.btn:hover {
 }
 .overflow-hint {
   /* shadow */
-  background: radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.3), rgba(255,255,255,0)) 100% 0;
+  /* background: radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.3), rgba(255,255,255,0)) 100% 0;
   background-size: 10px 100%;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 .overflow-hint > * {
   /* shadow cover */
-  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1) 80%) 100% 0;
+  /* background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1) 80%) 100% 0;
   background-size: 35px 100%;
   background-repeat: no-repeat;
-  min-width: 100%;
+  min-width: 100%; */
+}
+.overflow-hint { position: relative; }
+.overflow-hint::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5rem;
+  height: calc(100% - 1px);
+  z-index: 100;
+  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+  pointer-events: none;
 }
 .index-1 { z-index: 1; }
 .index-2 { z-index: 2; }
@@ -365,6 +373,13 @@ a.btn:hover {
 .margin-left-n5    { margin-left:    -5rem; }
 .margin-x-n5       { margin-left:    -5rem; margin-right: -5rem; }
 .margin-y-n5       { margin-top:     -5rem; margin-bottom: -5rem; }
+.padding-0          { padding-top:      0; padding-right: 0; padding-bottom: 0; padding-left: 0; }
+.padding-top-0      { padding-top:      0; }
+.padding-right-0    { padding-right:    0; }
+.padding-bottom-0    { padding-bottom:    0; }
+.padding-left-0     { padding-left:     0; }
+.padding-y-0        { padding-top:      0; padding-bottom: 0; }
+.padding-x-0        { padding-left:     0; padding-right:  0; }
 .padding-0\.5          { padding:          0.5rem; }
 .padding-top-0\.5      { padding-top:      0.5rem; }
 .padding-right-0\.5    { padding-right:    0.5rem; }

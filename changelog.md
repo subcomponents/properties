@@ -1,6 +1,8 @@
+# changelog
+
 # 1.11.0
 
-- migrate preprocessor to postcss
+- sitch to postcss
 
 # 1.10.1
 

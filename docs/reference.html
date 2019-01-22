@@ -14,8 +14,9 @@
     </style>
   </head>
   <body>
+
     <header role="banner">
-  <h1>@hyper-properties-css <span class="color-primary">v1.11.0</span></h1>
+  <h1>@hyper-properties-css <span class="color-primary">v1.11.1</span></h1>
   <nav role="navigation">
   <ul class="list-inline list-middot">
     <li><a href="./">Home</a></li>
@@ -117,15 +118,14 @@
       
         <section>
           <h3 id="border">Border <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre><code>.border {
+          <pre><code>.border,
+.border-1 {
   border-width: var(--border-width-default, 1px);
   border-style: solid;
   border-color: var(--border-color-default, rgba(0,0,0,0.1));
 }
 .border-1 {
   border-width: 1px;
-  border-style: solid;
-  border-color: var(--border-color-default, rgba(0,0,0,0.1));
 }
 
 .border-top,
@@ -256,16 +256,30 @@ a.btn:hover {
 
 .overflow-hint {
   /* shadow */
-  background: radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.3), rgba(255,255,255,0)) 100% 0;
+  /* background: radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.3), rgba(255,255,255,0)) 100% 0;
   background-size: 10px 100%;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 .overflow-hint &gt; * {
   /* shadow cover */
-  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1) 80%) 100% 0;
+  /* background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1) 80%) 100% 0;
   background-size: 35px 100%;
   background-repeat: no-repeat;
-  min-width: 100%;
+  min-width: 100%; */
+}
+
+.overflow-hint { position: relative; }
+.overflow-hint::after {
+  content: &quot; &quot;;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5rem;
+  height: calc(100% - 1px);
+  z-index: 100;
+  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+  pointer-events: none;
 }
 
 .index-1 { z-index: 1; }
@@ -295,24 +309,20 @@ a.btn:hover {
 }
 
 /* list inline */
-.list-inline {
+/* .list-inline {
   display: flex;
   flex-wrap: wrap;
 }
 .list-inline &gt; li {
   margin-right: 1em;
-}
+} */
 
-/* list middot */
-.list-middot {
-  display: flex;
-  flex-wrap: wrap;
+/* list inline */
+.list-inline &gt; li {
+  display: inline-block;
 }
-.list-middot &gt; li + li::before {
-  content: &quot;\00a0&quot; &quot;·&quot; &quot; &quot;;
-}
-.list-middot.list-inline &gt; li {
-  margin-right: unset; /* backward compatibility */
+.list-inline &gt; li:not(:last-of-type) {
+  margin-right: 1em;
 }
 
 /* custom bullet */
@@ -320,13 +330,13 @@ a.btn:hover {
   content: var(--bullet-type) &quot; &quot;;
 }
 [style*=&quot;--bullet-type&quot;].list-inline &gt; li {
-  margin-right: 0.25em;
+  margin-right: unset;
 }
 [style*=&quot;--bullet-type&quot;].list-inline &gt; li:first-child::before {
-  content: unset; /* if inline remove first bullet */
+  content: unset;
 }
 [style*=&quot;--bullet-font&quot;] &gt; li::before {
-  font-family: &#39;Bad Script&#39;; /* support icon fonts */
+  font-family: var(--bullet-font);
 }
 </code></pre>
         </section>
@@ -445,7 +455,15 @@ a.btn:hover {
       
         <section>
           <h3 id="padding">Padding <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre><code>.padding-0\.5          { padding:          0.5rem; }
+          <pre><code>.padding-0          { padding-top:      0; padding-right: 0; padding-bottom: 0; padding-left: 0; }
+.padding-top-0      { padding-top:      0; }
+.padding-right-0    { padding-right:    0; }
+.padding-bottom-0    { padding-bottom:    0; }
+.padding-left-0     { padding-left:     0; }
+.padding-y-0        { padding-top:      0; padding-bottom: 0; }
+.padding-x-0        { padding-left:     0; padding-right:  0; }
+
+.padding-0\.5          { padding:          0.5rem; }
 .padding-top-0\.5      { padding-top:      0.5rem; }
 .padding-right-0\.5    { padding-right:    0.5rem; }
 .padding-bottom-0\.5   { padding-bottom:   0.5rem; }

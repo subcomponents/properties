@@ -1,12 +1,11 @@
-.border {
+.border,
+.border-1 {
   border-width: var(--border-width-default, 1px);
   border-style: solid;
   border-color: var(--border-color-default, rgba(0,0,0,0.1));
 }
 .border-1 {
   border-width: 1px;
-  border-style: solid;
-  border-color: var(--border-color-default, rgba(0,0,0,0.1));
 }
 
 .border-top,

@@ -34,16 +34,30 @@
 
 .overflow-hint {
   /* shadow */
-  background: radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.3), rgba(255,255,255,0)) 100% 0;
+  /* background: radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.3), rgba(255,255,255,0)) 100% 0;
   background-size: 10px 100%;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 .overflow-hint > * {
   /* shadow cover */
-  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1) 80%) 100% 0;
+  /* background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1) 80%) 100% 0;
   background-size: 35px 100%;
   background-repeat: no-repeat;
-  min-width: 100%;
+  min-width: 100%; */
+}
+
+.overflow-hint { position: relative; }
+.overflow-hint::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5rem;
+  height: calc(100% - 1px);
+  z-index: 100;
+  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+  pointer-events: none;
 }
 
 .index-1 { z-index: 1; }

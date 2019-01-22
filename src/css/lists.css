@@ -6,24 +6,20 @@
 }
 
 /* list inline */
-.list-inline {
+/* .list-inline {
   display: flex;
   flex-wrap: wrap;
 }
 .list-inline > li {
   margin-right: 1em;
-}
+} */
 
-/* list middot */
-.list-middot {
-  display: flex;
-  flex-wrap: wrap;
+/* list inline */
+.list-inline > li {
+  display: inline-block;
 }
-.list-middot > li + li::before {
-  content: "\00a0" "·" " ";
-}
-.list-middot.list-inline > li {
-  margin-right: unset; /* backward compatibility */
+.list-inline > li:not(:last-of-type) {
+  margin-right: 1em;
 }
 
 /* custom bullet */
@@ -31,11 +27,11 @@
   content: var(--bullet-type) " ";
 }
 [style*="--bullet-type"].list-inline > li {
-  margin-right: 0.25em;
+  margin-right: unset;
 }
 [style*="--bullet-type"].list-inline > li:first-child::before {
-  content: unset; /* if inline remove first bullet */
+  content: unset;
 }
 [style*="--bullet-font"] > li::before {
-  font-family: 'Bad Script'; /* support icon fonts */
+  font-family: var(--bullet-font);
 }
