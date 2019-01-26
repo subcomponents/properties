@@ -16,7 +16,7 @@
   <body>
 
     <header role="banner">
-  <h1>@hyper-properties-css <span class="color-primary">v1.11.2</span></h1>
+  <h1>@hyper-properties-css <span class="color-primary">v1.11.3</span></h1>
   <nav role="navigation">
   <ul class="list-inline list-middot">
     <li><a href="./">Home</a></li>
@@ -236,7 +236,7 @@ a.btn:hover {
 .left-0   { left:   0; }
 
 .overflow-x { overflow-x: auto; white-space: nowrap; }
-.overflow-y { overflow-y: auto; white-space: nowrap; }
+.overflow-y { overflow-y: auto; white-space: nowrap; max-width: 100%; }
 
 .overflow-x::-webkit-scrollbar { display: none; }
 .overflow-y::-webkit-scrollbar { display: none; }
@@ -307,15 +307,6 @@ a.btn:hover {
   padding-left: 0;
   list-style: none;
 }
-
-/* list inline */
-/* .list-inline {
-  display: flex;
-  flex-wrap: wrap;
-}
-.list-inline &gt; li {
-  margin-right: 1em;
-} */
 
 /* list inline */
 .list-inline &gt; li {

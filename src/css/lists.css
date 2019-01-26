@@ -6,15 +6,6 @@
 }
 
 /* list inline */
-/* .list-inline {
-  display: flex;
-  flex-wrap: wrap;
-}
-.list-inline > li {
-  margin-right: 1em;
-} */
-
-/* list inline */
 .list-inline > li {
   display: inline-block;
 }
