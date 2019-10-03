@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="https://unpkg.com/hyper-reset-css"/>
     <link rel="stylesheet" href="https://unpkg.com/hyper-layout-css"/>
     <link rel="stylesheet" href="./properties.min.css"/>
-    <style media="screen">
+    <link rel="stylesheet" href="https://unpkg.com/prismjs-themes@1.0.2/dist/midnight.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+    <style>
       .extra-small {
         font-size: 0.6em;
       }
@@ -16,7 +18,7 @@
   <body>
 
     <header role="banner">
-  <h1>@hyper-properties-css <span class="color-primary">v1.11.4</span></h1>
+  <h1>@hyper-properties-css <span class="color-primary">v1.2.1</span></h1>
   <nav role="navigation">
   <ul class="list-inline list-middot">
     <li><a href="./">Home</a></li>
@@ -36,101 +38,104 @@
 
     
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-12 padding-x-0 overflow-hint">
-      <nav class="overflow-x border-bottom-1 demi-small">
-        <ul class="display-inline-block list-inline padding-1 margin-0">
-          <!-- logo -->
-          <li><a class="" href="//localhost:3000/en"><img class="v-align-middle" style="max-width:initial; max-height:35px; height:35px;" src="//localhost:3000/content/logo-hyperkirby.svg" alt="Hyper Kirby"></a></li>
-          <!-- title -->
-          <li><a class="color-inherit" href="//localhost:3000/en">Hyper Kirby</a></li>
-          <!-- pages -->
-          <li><a class="color-inherit" href="//localhost:3000/en">Home</a></li>
-          <li><a class="active" href="//localhost:3000/en/grid">Grid</a></li>
-          <li><a class="color-inherit" href="//localhost:3000/en/list">List</a></li>
-          <li><a class="color-inherit" href="//localhost:3000/en/page">Page</a></li>
-          <li><a class="color-inherit" href="//localhost:3000/en/features">Features</a></li>
-          <li><a class="color-inherit" href="//localhost:3000/en/search">Search</a></li>
-          <li><a class="color-inherit" href="//localhost:3000/en/shortcodes">Shortcodes</a></li>
-          <li><a class="color-inherit btn" href="//localhost:3000/en/contact">Engage</a></li>
-          <li>Text Node</li>
-        </ul>
-        <ul class="display-inline-block list-inline padding-y-1 margin-bottom-0 margin-right-2" style="--bullet-type:'/';">
-          <li><a class="" href="//localhost:3000/en/grid/article-4">EN</a></li>
-          <li><a class="color-inherit" href="//localhost:3000/es/cuadricula/article-4">ES</a></li>
-          <li><a class="color-inherit" href="//localhost:3000/de/gitter/article-4">DE</a></li>
-        </ul>
-      </nav>
-    </div><!-- /.col -->
-  </div><!-- /.row -->
-</div><!-- /.container -->
+<main>
+  <section>
+    <div class="row">
+      <div class="col-xs-12">
 
-  <main>
-    <section>
-      <ul class="list-inline">
-        <li><a href="#!">Home</a></li>
-        <li><a href="#!">Portfolio</a></li>
-        <li><a href="#!">About</a></li>
-        <li><a href="#!">Services</a></li>
-        <li><a href="#!">Clients</a></li>
-        <li><a href="#!">Docs</a></li>
-        <li><a href="#!">Contact</a></li>
-        <li><a href="#!">Support</a></li>
-        <li><a href="#!">Customers</a></li>
-      </ul>
-      <nav class="overflow-x overflow-hint border-1 demi-small">
-        <ul class="list-inline padding-1 margin-bottom-0">
-          <li><a href="#!">Home</a></li>
-          <li><a href="#!">Portfolio</a></li>
-          <li><a href="#!">About</a></li>
-          <li><a href="#!">Services</a></li>
-          <li><a href="#!">Clients</a></li>
-          <li><a href="#!">Docs</a></li>
-          <li><a href="#!">Contact</a></li>
-          <li><a href="#!">Support</a></li>
-          <li><a href="#!">Customers</a></li>
-        </ul>
-      </nav>
-      <ul class="list-inline" style="--bullet-type:'/';">
-        <li><a href="#!">Home</a></li>
-        <li><a href="#!">Portfolio</a></li>
-        <li><a href="#!">About</a></li>
-        <li><a href="#!">Services</a></li>
-        <li><a href="#!">Clients</a></li>
-        <li><a href="#!">Docs</a></li>
-        <li><a href="#!">Contact</a></li>
-        <li><a href="#!">Support</a></li>
-        <li><a href="#!">Customers</a></li>
-      </ul>
-      <ul class="list-inline" style="--bullet-type:'·';">
-        <li><a href="#!">Home</a></li>
-        <li><a href="#!">Portfolio</a></li>
-        <li><a href="#!">About</a></li>
-        <li><a href="#!">Services</a></li>
-        <li><a href="#!">Clients</a></li>
-        <li><a href="#!">Docs</a></li>
-        <li><a href="#!">Contact</a></li>
-        <li><a href="#!">Support</a></li>
-        <li><a href="#!">Customers</a></li>
-      </ul>
+        <style media="screen">
+        .align-center {
+          text-align: center;
+        }
+        /* align left | right */
+        @media (max-width: 544px) {
+          [class*="align-"] img {
+            width: 100%;
+          }
+        }
+        @media (min-width: 545px) {
+          /* figure */
+          .align-left {
+            float: left;
+            margin-right: 1em;
+          }
+          .align-right {
+            float: right;
+            margin-left: 1em;
+          }
+          /* caption */
+          .align-left,
+          .align-right {
+            display: table;
+          }
+          .align-left figcaption,
+          .align-right figcaption {
+            display: table-caption;
+            caption-side: bottom;
+          }
+        }
+        </style>
 
-      <div class="margin-bottom-1">
-        Language
-        <ul class="display-inline list-inline color-muted" style="--bullet-type:'|';">
-          <li><a href="#!">EN</a></li>
-          <li><a href="#!">ES</a></li>
-          <li><a href="#!">DE</a></li>
-        </ul>
+        <h2>figure > img</h2>
+
+        <figure class="align-left">
+          <img src="https://source.unsplash.com/random/300x200" alt="">
+          <figcaption>This is just a figure caption to describe this image</figcaption>
+        </figure>
+
+        <p>
+        Design can have different connotations in different fields of application (see design disciplines below), but there are two basic meanings of design: as a verb and as a noun.
+
+        Design (as a verb: to design) is the intentional creation of a plan or specification for the construction of an object or system or for the implementation of an activity or process.
+
+        Design (as a noun: a design) can refer to such a plan or specification (e.g. a drawing or other document) or to the created object, etc., and features of it such as aesthetic, functional, economic or socio-political.
+
+        The process of creating a design can be brief (a quick sketch) or lengthy and complicated, involving considerable research, negotiation, reflection, modeling, interactive adjustment and re-design. In some cases, the direct construction of an object without an explicit prior plan (such as in craftwork and some engineering, coding, and graphic design) is also considered to be a design activity.
+        </p>
+
+        <h2>figure > img</h2>
+
+        <figure class="align-right">
+          <img src="https://source.unsplash.com/random/300x200" alt="">
+          <figcaption>This is just a figure caption to describe this image</figcaption>
+        </figure>
+
+        <p>
+        "Everyone designs who devises courses of action aimed at changing existing situations into preferred ones."
+
+        More formally design has been defined as follows:
+
+        > (noun) a specification of an object, manifested by an agent, intended to accomplish goals, in a particular environment, using a set of primitive components, satisfying a set of requirements, subject to constraints; (verb, transitive) to create a design, in an environment (where the designer operates)
+
+        Another definition for design is "a roadmap or a strategic approach for someone to achieve a unique expectation. It defines the specifications, plans, parameters, costs, activities, processes and how and what to do within legal, political, social, environmental, safety and economic constraints in achieving that objective."
+
+        Here, a "specification" can be manifested as either a plan or a finished product, and "primitives" are the elements from which the design object is composed.
+
+        </p>
+
+        <h2>figure > img</h2>
+
+        <figure class="align-center">
+          <img src="https://source.unsplash.com/random/300x200" alt="">
+          <figcaption>This is just a figure caption to describe this image</figcaption>
+        </figure>
+
+        <p>
+        The person designing is called a designer, which is also a term used for people who work professionally in one of the various design areas usually specifying which area is being dealt with (such as a textile designer, fashion designer, product designer, concept designer, web designer or interior designer). A designer's sequence of activities is called a design process while the scientific study of design is called design science.
+
+        The rational model was independently developed by Herbert A. Simon, an American scientist, and Gerhard Pahl and Wolfgang Beitz, two German engineering design theorists. It posits that:
+
+        1. designers attempt to optimize a design candidate for known constraints and objectives,
+        2. the design process is plan-driven,
+        3. the design process is understood in terms of a discrete sequence of stages.
+
+        The rational model is based on a rationalist philosophy and underlies the waterfall model, systems development life cycle, and much of the engineering design literature. According to the rationalist philosophy, design is informed by research and knowledge in a predictable and controlled manner.
+        </p>
+
       </div>
-
-      <ul class="list- inline" style="--bullet-type:'👾';">
-        <li>item</li>
-        <li>item</li>
-        <li>item</li>
-      </ul>
-    </section>
-  </main><!-- role main -->
+    </div>
+  </section>
+</main>
 
 
 

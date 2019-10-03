@@ -12,5 +12,17 @@
 .bg-repeat-y { background-repeat: repeat-y; }
 .bg-repeat-0 { background-repeat: no-repeat; }
 
-.bg-highlight { background-color: var(--color-gray-light, var(--fallback-color-gray-light)); }
+.bg-highlight { background-color: var(--color-gray-light, var(--or-color-gray-light)); }
 .bg-image     { background-position: center center; background-size: cover; }
+
+.bg-shade {
+  background: linear-gradient(to bottom,
+    rgba(0, 0, 10, 0) 0%,
+    rgba(0, 0, 10, 0.05) 5%,
+    rgba(0, 0, 10, 0.1) 10%,
+    rgba(0, 0, 10, 0.15) 15%,
+    rgba(0, 0, 10, 0.2) 20%,
+    rgba(0, 0, 10, 0.65) 72%,
+    rgba(0, 0, 10, 0.85) 100%
+  );
+}

@@ -6,6 +6,14 @@
 .margin-x-0       { margin-left:    0; margin-right: 0; }
 .margin-y-0       { margin-top:     0; margin-bottom: 0; }
 
+.margin-0\.25         { margin:         0.25rem; }
+.margin-top-0\.25     { margin-top:     0.25rem; }
+.margin-right-0\.25   { margin-right:   0.25rem; }
+.margin-bottom-0\.25  { margin-bottom:  0.25rem; }
+.margin-left-0\.25    { margin-left:    0.25rem; }
+.margin-x-0\.25       { margin-left:    0.25rem; margin-right: 0.25rem; }
+.margin-y-0\.25       { margin-top:     0.25rem; margin-bottom: 0.25rem; }
+
 .margin-0\.5         { margin:         0.5rem; }
 .margin-top-0\.5     { margin-top:     0.5rem; }
 .margin-right-0\.5   { margin-right:   0.5rem; }

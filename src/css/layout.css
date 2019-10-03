@@ -32,20 +32,6 @@
   -ms-overflow-style: -ms-autohiding-scrollbar; /* ms autohide scrollbars */
 }
 
-.overflow-hint {
-  /* shadow */
-  /* background: radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.3), rgba(255,255,255,0)) 100% 0;
-  background-size: 10px 100%;
-  background-repeat: no-repeat; */
-}
-.overflow-hint > * {
-  /* shadow cover */
-  /* background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1) 80%) 100% 0;
-  background-size: 35px 100%;
-  background-repeat: no-repeat;
-  min-width: 100%; */
-}
-
 .overflow-hint { position: relative; }
 .overflow-hint::after {
   content: " ";
@@ -69,6 +55,6 @@
 .float-left  { float: left; }
 .float-right { float: right; }
 
-.clearfix:before,
-.clearfix:after { content: " "; display: table }
-.clearfix:after { clear: both }
+.clearfix::before,
+.clearfix::after { content: " "; display: table }
+.clearfix::after { clear: both }
