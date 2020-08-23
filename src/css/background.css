@@ -8,21 +8,57 @@
 .bg-cover    { background-size: cover; }
 .bg-contain  { background-size: contain; }
 
+.bg-image    { background-position: center center; background-size: cover; }
+
 .bg-repeat-x { background-repeat: repeat-x; }
 .bg-repeat-y { background-repeat: repeat-y; }
 .bg-repeat-0 { background-repeat: no-repeat; }
 
-.bg-highlight { background-color: var(--color-gray-light, var(--or-color-gray-light)); }
-.bg-image     { background-position: center center; background-size: cover; }
+.bg-white { background: #fff; }
+.bg-black { background: #000; }
 
-.bg-shade {
-  background: linear-gradient(to bottom,
-    rgba(0, 0, 10, 0) 0%,
-    rgba(0, 0, 10, 0.05) 5%,
-    rgba(0, 0, 10, 0.1) 10%,
-    rgba(0, 0, 10, 0.15) 15%,
-    rgba(0, 0, 10, 0.2) 20%,
-    rgba(0, 0, 10, 0.65) 72%,
-    rgba(0, 0, 10, 0.85) 100%
+.bg-default    { background: var(--background-color-default); }
+.bg-highlight  { background: var(--background-color-highlight); }
+
+.bg-primary    { background: var(--color-primary); }
+.bg-secondary  { background: var(--color-secondary); }
+.bg-tertiary   { background: var(--color-tertiary); }
+.bg-quaternary { background: var(--color-quaternary); }
+.bg-complementary { background: var(--color-complementary); }
+
+.bg-transparent {
+  background: transparent;
+}
+.bg-transparent:hover, .bg-transparent:focus {
+  background-image: none;
+}
+
+.bg-gradient {
+  --direction: to bottom;
+  --from: white;
+  --to: black;
+  background: linear-gradient(var(--direction), var(--from), var(--to));
+}
+
+.bg-stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--background-color-highlight),
+    var(--background-color-highlight) 10px,
+    var(--background-color-default) 10px,
+    var(--background-color-default) 20px
   );
+}
+
+.bg-squares {
+  background:
+    linear-gradient(45deg, var(--background-color-highlight) 25%, transparent 25%, transparent 75%, var(--background-color-highlight) 75%, var(--background-color-highlight)),
+    linear-gradient(45deg, var(--background-color-highlight) 25%, transparent 25%, transparent 75%, var(--background-color-highlight) 75%, var(--background-color-highlight));
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+/* fade with easing function */
+.bg-shade {
+  background: linear-gradient(to bottom, rgba(0, 0, 10, 0), ease-in-out, rgba(0, 0, 5, 0.8));
 }

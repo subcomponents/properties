@@ -1,18 +1,29 @@
-:root {
-  --aspect-ratio: 16/9; /* default aspect ratio */
-}
-
-[style*="--aspect-ratio"] {
+.aspect-ratio {
   display: block;
   position: relative;
-  padding-bottom: calc(100% / calc(var(--aspect-ratio)));
+  padding-bottom: calc(100% / (var(--aspect-ratio)));
   overflow: hidden; /* prevent video overflow in chrome */
 }
-
-[style*="--aspect-ratio"] > :first-child {
+.aspect-ratio > :first-child {
   position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
 }
+
+ /* modifiers */
+.aspect-ratio-1\/1 {
+  --aspect-ratio: 1/1;
+}
+.aspect-ratio-3\/2 {
+  --aspect-ratio: 3/2;
+}
+.aspect-ratio-4\/3 {
+  --aspect-ratio: 4/3;
+}
+.aspect-ratio-16\/9 {
+  --aspect-ratio: 16/9;
+}
+
+/* for custom ratios use .aspect-ratio[style="--aspect-ratio: x/y"] */

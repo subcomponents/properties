@@ -1,0 +1,18 @@
+.debug, .debug * {
+  outline: 2px solid rgba(0,10,200,0.2);
+}
+
+[style*="--before"]::before {
+	content: var(--before);
+}
+[style*="--after"]::after {
+	content: var(--after);
+}
+
+.cursor-zoom-in {
+  cursor: zoom-in;
+}
+
+.cursor-zoom-out {
+  cursor: zoom-out;
+}

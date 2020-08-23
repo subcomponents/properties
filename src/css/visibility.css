@@ -1,3 +1,4 @@
+/* hide from all */
 @media (max-width: 544px) {
   .hide-xs { display: none; }
 }
@@ -10,19 +11,21 @@
 @media (min-width: 1024px) {
   .hide-lg { display: none; }
 }
-
 .hide {
   display: none !important;
 }
 
-/* screan readers only */
-.sr-only {
-  position: absolute;
-  width: 1px;
+/* hide visually, show to screan readers only */
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
   height: 1px;
-  padding: 0;
-  margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
+
+/* to hide content from screen reades use [aria-hidden]="true" */
+
+/* reference: https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html */

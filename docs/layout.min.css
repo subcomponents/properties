@@ -1,0 +1,2 @@
+/** 1.4.1 https://github.com/heyallan/hyper-layout-css */
+:root{--gap:1rem;--main-width:70%;--aside-width:30%;--body-max-width:960px}body{margin:1rem auto;padding:0 1rem;max-width:960px;max-width:var(--body-max-width)}@media (min-width:850px){body{display:flex;flex-flow:row wrap}body>*{flex:1 1 100%;min-width:0}main{flex-basis:calc(70%);flex-basis:calc(var(--main-width))}body>aside{flex-basis:calc(30%);flex-basis:calc(var(--aside-width))}body>aside+main,body>main+aside{padding-left:1rem;padding-left:var(--gap)}}

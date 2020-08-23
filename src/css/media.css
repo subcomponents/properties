@@ -1,1 +1,6 @@
 .img-fluid { width: 100%; }
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}

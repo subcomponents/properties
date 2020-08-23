@@ -1,9 +1,0 @@
-.border-radius {
-  border-radius: var(--border-radius-default, var(--or-border-radius-default));
-}
-.border-radius-ellipsis {
-  border-radius: 100%;
-}
-.border-radius-full {
-  border-radius: 1000px;
-}

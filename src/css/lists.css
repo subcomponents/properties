@@ -1,28 +1,82 @@
-/* reset lists */
-[class*="list-"],
-[style*="--bullet-type"] {
-  padding-left: 0;
+/*
+  default style type
+  - accepts image marker
+  - accepts string marker
+  - poor browser support
+  https://developer.mozilla.org/en-US/docs/Web/CSS/list-style
+  https://caniuse.com/#feat=mdn-css_properties_list-style-type_string
+*/
+
+/*
+  @counter-style
+  - accepts array of symbols
+  https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style
+  https://caniuse.com/#feat=mdn-css_at-rules_counter-style
+*/
+
+/*
+  custom marker
+  - accepts string marker
+  - accepts font properties
+  https://developer.mozilla.org/en-US/docs/Web/CSS/%3A%3Amarker
+  https://caniuse.com/#feat=mdn-css_selectors_marker
+*/
+
+.list-unstyled,
+.list-inline,
+[style*="--marker"] {
   list-style: none;
+  padding-inline-start: 0;
+}
+
+[style*="--marker"]:not(.list-inline) ul {
+  padding-inline-start: 4ch;
 }
 
 /* list inline */
-.list-inline > li {
-  display: inline-block;
-}
-.list-inline > li:not(:last-of-type) {
-  margin-right: 1em;
+.list-inline {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-inline-start: 0;
 }
 
-/* custom bullet */
-[style*="--bullet-type"] > li::before {
-  content: var(--bullet-type) " ";
+/* marker */
+[style*="--marker"]:not(.list-inline) > li::before, /* list block, with marker */
+[style*="--marker"].list-inline > li + li::before /* list inline, with marker */ {
+  content: var(--marker);
 }
-[style*="--bullet-type"].list-inline > li {
-  margin-right: unset;
+
+/* remove marker whitespace */
+[style*="--marker"].list-inline > li {
+  display: inline-flex;
 }
-[style*="--bullet-type"].list-inline > li:first-child::before {
-  content: unset;
+
+/*
+  do not set --gap globally
+  each instance has unique context
+*/
+
+/* list gap, without marker */
+.list-inline:not([style*="--marker"]) {
+  --gap: 2ch; /* default */
 }
-[style*="--bullet-font"] > li::before {
-  font-family: var(--bullet-font);
+/* list gap, with marker */
+.list-inline[style*="--marker"] {
+  --gap: 0.5ch; /* default */
+}
+/* nested list gap, with marker > without marker */
+.list-inline[style*="--marker"] .list-inline:not([style*="--marker"]) {
+  --gap: 1ch; /* default */
+}
+
+/* list gap, without marker */
+.list-inline:not([style*="--marker"]) > li:not(:last-child) {
+  margin-right: var(--gap);
+}
+/* list gap, with marker */
+[style*="--marker"].list-inline > li:not(:last-child),
+[style*="--marker"].list-inline > li:not(:first-child)::before {
+  margin-right: var(--gap);
 }

@@ -2,97 +2,613 @@
 
 {% block content %}
 
-<main>
+<main class="container">
+
+  <h2>Border radious</h2>
+
+  <div class="margin-bottom-2">
+    <div class="flex gap-1">
+      <div class="width-12 width-3-md">
+        <div class="padding-1 border border-radius">border-radius</div>
+      </div>
+      <div class="width-9"></div>
+      <div class="width-12 width-3-md">
+        <div class="padding-1 border border-radius-0.1">border-radius-0.1</div>
+      </div>
+      <div class="width-12 width-3-md">
+        <div class="padding-1 border border-radius-0.2">border-radius-0.2</div>
+      </div>
+      <div class="width-12 width-3-md">
+        <div class="padding-1 border border-radius-0.3">border-radius-0.3</div>
+      </div>
+      <div class="width-12 width-3-md">
+        <div class="padding-1 border border-radius-0.4">border-radius-0.4</div>
+      </div>
+      <div class="width-12 width-3-md">
+        <div class="padding-1 border border-radius-0.5">border-radius-0.5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="margin-bottom-2">
+    <div class="padding-2 bg-shade">
+      <h1 class="color-white text-shadow">Title</h1>
+      <h2 class="color-white text-shadow">Subtitle</h2>
+    </div>
+    <h2>Colors</h2>
+    <ul>
+      <li>primary is the only variation included</li>
+      <li>add other variations manually</li>
+    </ul>
+    <style>
+      html {
+        --color-secondary: #FF686B;
+        --color-tertiary: #5F4842;
+        --color-quaternary: #5F5AA2;
+        --color-complementary: #60AB9A;
+      }
+    </style>
+    <p><code>[style="background: var(--color-*);"]</code></p>
+    <p>
+      <button>button (no attr)</button>
+      <button class="box-shadow" style="background-color: var(--color-primary); color: #fff;">primary</button>
+      <button class="box-shadow" style="background-color: var(--color-secondary); color: #fff;">secondary</button>
+      <button class="box-shadow" style="background-color: var(--color-tertiary); color: #fff;">tertiary</button>
+      <button class="box-shadow" style="background-color: var(--color-quaternary); color: #fff;">quaternary</button>
+      <button class="box-shadow" style="background-color: var(--color-complementary); color: #fff;">complementary</button>
+    </p>
+    <p><code>.bg-*</code></p>
+    <p>
+      <button>button (no attr)</button>
+      <button class="box-shadow bg-primary">primary</button>
+      <button class="box-shadow bg-secondary">secondary</button>
+      <button class="box-shadow bg-tertiary">tertiary</button>
+      <button class="box-shadow bg-quaternary">quaternary</button>
+      <button class="box-shadow bg-complementary">complementary</button>
+    </p>
+    <p>
+      <a href="#0">Link (default)</a>
+      <a class="button" href="#0">Link (button)</a>
+      <a class="button bg-transparent color-primary" href="#0">Link (transparent)</a>
+      <button class="">Button (default)</button>
+      <button class="bg-transparent color-current">Button (transparent)</button>
+    </p>
+    <h2>Links as button transparent</h2>
+    <p>
+      <a class="button bg-transparent color-primary" href="#0">Link</a>
+      <a class="button bg-transparent color-primary" href="#0">Link</a>
+      <a class="button bg-transparent color-primary" href="#0">Link</a>
+    </p>
+    <h2>Buttons transparent</h2>
+    <p>
+      <button class="bg-transparent color-current">Button</button>
+      <button class="bg-transparent color-current">Button</button>
+      <button class="bg-transparent color-current">Button</button>
+    </p>
+    <h2>Links and buttons</h2>
+    <p>
+      <a class="button bg-transparent color-primary" href="#0">Link</a>
+      <button class="bg-transparent color-current">Button</button>
+      <a class="button bg-transparent color-primary" href="#0">Link</a>
+      <button class="bg-transparent color-current">Button</button>
+    </p>
+  </div>
+
+  <a class="display-block border-1 hover-border-primary border-radius text-decoration-0 padding-1 margin-bottom-1" href="#!">
+    <div class="small color-muted text-uppercase">Layouts</div>
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="arcs"><path d="M5 12h13M12 5l7 7-7 7"></path></svg>
+    <span class="color-default">Medium</span>
+  </a>
+
+  <section class="row">
+
+    <div class="col-xs-4">
+      <div id="popupItem1" data-component="popup" class="small padding-1.5 border-1 border-radius bg-default box-shadow margin-bottom-1" style="transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s; position: relative;">
+        <p class="margin-bottom-0.5"><strong>🤖 Privacy Policy</strong></p>
+        <p>We use cookies to improve your experience. Find out more in our <a href="#!">privacy</a> page and <a href="#!">documentation</a> page.</p>
+        <button type="button" data-action="dismiss">Dismiss</button>
+        <button type="button" data-action="decline">Decline</button>
+        <button type="button" data-action="dismiss">Dismiss</button>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <h1>Lists + Custom marker + Custom gap</h1>
+<pre class="language-css"><code>/* css variables */
+--marker: '&lt;string&gt;';
+--gap: '&lt;length&gt;';
+</code></pre>
+
+<h2>Default</h2>
+<ol>
+	<li>
+		<a href="#!">Home</a>
+	</li>
+	<li>
+		<a href="#!">About</a>
+	</li>
+	<li>
+		<a href="#!">Services</a>
+    <ol>
+    	<li>
+    		<a href="#!">Home</a>
+    	</li>
+    	<li>
+    		<a href="#!">About</a>
+    	</li>
+    	<li>
+    		<a href="#!">Services</a>
+    	</li>
+    </ol>
+	</li>
+	<li>
+		<a href="#!">Team</a>
+	</li>
+	<li>
+		<span>Contact</span>
+	</li>
+</ol>
+<ul>
+	<li>
+		<a href="#!">Home</a>
+	</li>
+	<li>
+		<a href="#!">About</a>
+	</li>
+	<li>
+		<a href="#!">Services</a>
+    <ul>
+    	<li>
+    		<a href="#!">Home</a>
+    	</li>
+    	<li>
+    		<a href="#!">About</a>
+    	</li>
+    	<li>
+    		<a href="#!">Services</a>
+    	</li>
+    </ul>
+	</li>
+	<li>
+		<a href="#!">Team</a>
+	</li>
+	<li>
+		<span>Contact</span>
+	</li>
+</ul>
+
+<h2>Custom marker</h2>
+<ul style="--marker:'👾';">
+	<li>
+		<a href="#!">Home</a>
+	</li>
+	<li>
+		<a href="#!">About</a>
+	</li>
+	<li>
+		<a href="#!">Services</a>
+    <ul>
+      <li>
+    		<a href="#!">Home</a>
+    	</li>
+    	<li>
+    		<a href="#!">About</a>
+    	</li>
+    	<li>
+    		<a href="#!">Services</a>
+    	</li>
+    </ul>
+	</li>
+	<li>
+		<a href="#!">Team</a>
+	</li>
+	<li>
+		<a href="#!">Contact</a>
+	</li>
+</ul>
+
+<h2>Inline</h2>
+<ul class="list-inline">
+	<li>
+		<a href="#!">Home</a>
+	</li>
+	<li>
+		<a href="#!">About</a>
+	</li>
+	<li>
+		<a href="#!">Services</a>
+	</li>
+	<li>
+		<a href="#!">Team</a>
+	</li>
+	<li>
+		<a href="#!">Contact</a>
+	</li>
+</ul>
+
+<h2>Inline + Custom gap</h2>
+<ul class="list-inline" style="--gap: 3em;">
+	<li>
+		<a href="#!">Home</a>
+	</li>
+	<li>
+		<a href="#!">About</a>
+	</li>
+	<li>
+		<a href="#!">Services</a>
+	</li>
+	<li>
+		<a href="#!">Team</a>
+	</li>
+	<li>
+		<a href="#!">Contact</a>
+	</li>
+</ul>
+
+<h2>Inline + Custom marker</h2>
+<ul class="list-inline" style="--marker:'·';">
+	<li>
+		<a href="#!">Home</a>
+	</li>
+	<li>
+		<a href="#!">About</a>
+	</li>
+	<li>
+		<a href="#!">Services</a>
+	</li>
+	<li>
+		<a href="#!">Team</a>
+	</li>
+	<li>
+		<a href="#!">Contact</a>
+	</li>
+</ul>
+
+<h2>Inline + Custom marker + Custom gap</h2>
+<ul class="list-inline" style="--marker:'/'; --gap: 2em;">
+	<li>
+		<a href="#!">Home</a>
+	</li>
+	<li>
+		<a href="#!">About</a>
+	</li>
+	<li>
+		<a href="#!">Services</a>
+	</li>
+	<li>
+		<a href="#!">Team</a>
+	</li>
+	<li>
+		<a href="#!">Contact</a>
+	</li>
+</ul>
+
+<h2>Mixed</h2>
+<div class="padding-1 border margin-bottom-1">
+	<ul class="list-inline small margin-bottom-0 border color-muted" style="--marker:'·'">
+		<li>
+
+			Lucida Sans</li>
+		<li>
+
+			<time datetime="2019-05-04">2019/05/04</time></li>
+		<li>
+
+			<a class="color-inherit" href="https://heyallan.com/kiii/en/layouts/grid">Grid</a></li>
+		<li>
+			<ul class="list-inline">
+				<li><a class="color-inherit" href="https://heyallan.com/kiii/en/search?tags=process">#process</a></li>
+				<li><a class="color-inherit" href="https://heyallan.com/kiii/en/search?tags=markdown">#markdown</a></li>
+				<li><a class="color-inherit" href="https://heyallan.com/kiii/en/search?tags=component">#component</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<ul class="list-inline small margin-bottom-1 color-muted" style="--marker:'·'">
+  <li>Lucida Sans</li>
+  <li><time datetime="2019-04-18">2019/04/18</time></li>
+  <li><a class="color-inherit" href="http://localhost:8888/en/layouts">Layouts</a></li>
+  <li>
+    <ul class="list-inline" style="--marker: '';">
+      <li><a class="color-inherit" href="http://localhost:8888/en/search?tags=layout">#layout</a></li>
+      <li><a class="color-inherit" href="http://localhost:8888/en/search?tags=style">#style</a></li>
+      <li><a class="color-inherit" href="http://localhost:8888/en/search?tags=page">#page</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2>Mixed</h2>
+<ul class="list-inline">
+	<li>
+		<a href="http://localhost:8888/en">
+				<svg class="vertical-align-middle" id="logo" xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 800 800"><path id="logo-background" fill="var(--color-primary)" d="M769.6,800H30.4C13.6,800,0,786.4,0,769.6V30.4C0,13.6,13.6,0,30.4,0h739.3 C786.4,0,800,13.6,800,30.4v739.3C800,786.4,786.4,800,769.6,800z"></path><g id="logo-elements" fill="#fff"><path id="logo-K" d="M210.6,436.5l-28.3,31v75.4h-68.9V257.1h68.9v126l23.9-36.3l61.6-89.7h85.2l-96.6,126.4l96.6,159.4h-81.6 L210.6,436.5z"></path><path id="logo-I1" d="M444,542.9h-68.7V257.1H444V542.9z"></path><path id="logo-I2" d="M565.3,542.9h-68.7V257.1h68.7V542.9z"></path><path id="logo-I3" d="M686.6,542.9h-68.7V257.1h68.7V542.9z"></path></g></svg>
+			</a>
+	</li>
+	<li>
+
+		<a href="#!">Home</a></li>
+	<li>
+
+		<a href="#!">About</a></li>
+	<li><a href="#!">Services</a></li>
+	<li><a href="#!">Team</a></li>
+	<li><a href="#!">Contact</a></li>
+	<li>
+		<ul class="list-inline" style="--marker:'/';">
+			<li>ES</li>
+			<li>EN</li>
+		</ul>
+  </li>
+  <li><button class="">Button</button></li>
+</ul>
+
+<h2>Mixed + Overflow</h2>
+<div class="overflow-hint debug">
+  <div class="overflow-x padding-1">
+  	<ul class="list-inline nowrap margin-0">
+  		<li>
+
+  			<a href="#!">Item</a></li>
+  		<li>
+
+  			<a href="#!">Item</a></li>
+  		<li>
+
+  			<a href="#!">Item</a></li>
+  		<li><a href="#!">Item</a></li>
+  		<li><a href="#!">Item</a></li>
+  		<li><a href="#!">Item</a></li>
+  		<li><a href="#!">Item</a></li>
+  		<li><a href="#!">Item</a></li>
+  		<li><a href="#!">Item</a></li>
+  		<li><a href="#!">Item</a></li>
+  		<li><a href="#!">Item</a></li>
+  		<li><a href="#!">Item</a></li>
+  		<li><a href="#!">Item</a></li>
+  		<li><a href="#!">Item</a></li>
+  		<li><a href="#!">Item</a></li>
+  	</ul>
+  </div>
+</div>
+<br>
+
+<h2>Mixed + Padding</h2>
+<ul>
+  <li>@hyper-reset should make links inline-block to take their own space</li>
+</ul>
+<div class="overflow-hint debug">
+  <div class="overflow-x">
+  	<ul class="list-inline nowrap margin-0">
+  		<li>
+
+  			<a class="padding-y-0.5 padding-x-1" href="#!">Item</a></li>
+  		<li>
+
+  			<a class="padding-y-0.5 padding-x-1" href="#!">Item</a></li>
+  		<li>
+
+  			<a class="padding-y-0.5 padding-x-1" href="#!">Item</a></li>
+  		<li><a class="padding-y-0.5 padding-x-1" href="#!">Item</a></li>
+  		<li><a class="padding-y-0.5 padding-x-1" href="#!">Item</a></li>
+  		<li><a class="padding-y-0.5 padding-x-1" href="#!">Item</a></li>
+  		<li><a class="padding-y-0.5 padding-x-1" href="#!">Item</a></li>
+  		<li><a class="padding-y-0.5 padding-x-1" href="#!">Item</a></li>
+  		<li><a class="padding-y-0.5 padding-x-1" href="#!">Item</a></li>
+  		<li><a class="padding-y-0.5 padding-x-1" href="#!">Item</a></li>
+  		<li><a class="padding-y-0.5 padding-x-1" href="#!">Item</a></li>
+  		<li><a class="padding-y-0.5 padding-x-1" href="#!">Item</a></li>
+  		<li><a class="padding-y-0.5 padding-x-1" href="#!">Item</a></li>
+  		<li><a class="padding-y-0.5 padding-x-1" href="#!">Item</a></li>
+  		<li><a class="padding-y-0.5 padding-x-1" href="#!">Item</a></li>
+  	</ul>
+  </div>
+</div>
+<br>
+
+  </section>
+
+  <section>
+    <h1>Font sizes</h1>
+    <div class="row align-xs-center">
+      <div class="col-md-6">
+        <h1 class="font-size-xxl">Capitalism Is Our Future</h1>
+        <p class="font-size-xl color-muted">But What Will It Look Like?</p>
+        <p>Terms and conditions apply without notice</p>
+        <button>Buy Now</button>
+        <button>
+          Learn More
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <div class="col-md-6">
+        <img src="https://isometric.online/wp-content/uploads/2019/07/Startup_SVG.svg" alt="demo">
+      </div>
+    </div>
+    <br>
+    <div class="row justify-xs-center">
+      <div class="col-md-8 text-align-center">
+        <p class="font-size-lg margin-bottom-0.5 color-muted">Terms and conditions apply without notice</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, voluptatem, magnam culpa ipsum totam provident delectus ab, dolorem enim accusantium a quibusdam quod nesciunt. Corporis consequatur non nam! Est, blanditiis!</p>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <h1>h1 heading one</h1>
+    <p class="font-size-h3">h3 heading level three</p>
+    <p class="lead">p lead paragraph</p>
+    <p class="font-size-xl">p font-size-xl</p>
+    <div class="border padding-1 margin-trim margin-bottom-1">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
+    <p>Lorem <span class="font-size-sm">font-size-sm</span> ipsum dolor sit amet, <span class="font-size-xs">font-size-xs</span> consectetur adipisicing elit. Officiis iure accusamus magni exercitationem. <span class="font-size-lg">font-size-lg</span> Reiciendis suscipit dolorem officiis beatae dignissimos id modi facere praesentium odio eveniet. Velit optio, vel! Facilis, quo!</p>
+    <h2>h2 heading two</h2>
+    <p class="lead">p lead paragraph</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ipsa iure aliquid cum aspernatur. Voluptatem consequatur quasi placeat totam culpa commodi mollitia soluta facere ad quos, eum impedit ex? Facilis.</p>
+    <h3>h3 heading three</h3>
+    <p class="lead">p lead paragraph</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ipsa iure aliquid cum aspernatur. Voluptatem consequatur quasi placeat totam culpa commodi mollitia soluta facere ad quos, eum impedit ex? Facilis.</p>
+  </section>
+  <br>
+  <hr>
+  <section>
+    <h1>Relative font size</h1>
+    <div class="row">
+      <div class="col-xs-12">
+        <p class="font-size-xxs">font-size-xxs</p>
+        <p class="font-size-xs">font-size-xs</p>
+        <p class="font-size-sm">font-size-sm</p>
+        <p class="font-size-lg">font-size-lg</p>
+        <p class="font-size-xl">font-size-xl</p>
+        <p class="font-size-xxl">font-size-xxl</p>
+        <p class="font-size-xxxl">font-size-xxxl</p>
+      </div>
+      <div class="col-xs-12">
+        <h1 class="font-size-xxs">font-size-xxs</h1>
+        <h1 class="font-size-xs">font-size-xs</h1>
+        <h1 class="font-size-sm">font-size-sm</h1>
+        <h1 class="font-size-lg">font-size-lg</h1>
+        <h1 class="font-size-xl">font-size-xl</h1>
+        <h1 class="font-size-xxl">font-size-xxl</h1>
+        <h1 class="font-size-xxxl">font-size-xxxl</h1>
+      </div>
+    </div>
+  </section>
+  <br>
+  <hr>
+  <section>
+    <h1>Line clamp</h1>
+    <div class="padding-1 border margin-trim margin-bottom-1">
+      <p class="line-clamp-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <pre>p.line-clamp-2</pre>
+  </section>
+  <hr>
+  <section>
+    <h1>Icon alignment</h1>
+    <h3>
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M20.4 14.5L16 10 4 20"/></svg>
+      ABCDE abcde
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M20.4 14.5L16 10 4 20"/></svg>
+    </h3>
+    <h3>
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+      ABCDE abcde
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+    </h3>
+    <p>
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M20.4 14.5L16 10 4 20"/></svg>
+      ABCDE abcde
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M20.4 14.5L16 10 4 20"/></svg>
+    </p>
+    <p>
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+      ABCDE abcde
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+    </p>
+    <p>
+      <button>
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M20.4 14.5L16 10 4 20"/></svg>
+        Button
+      </button>
+      <button>
+        Button
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M20.4 14.5L16 10 4 20"/></svg>
+      </button>
+      <button>
+        Button
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8l4 4-4 4M8 12h7"/></svg>
+      </button>
+      <button>
+        Button
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+      </button>
+    </p>
+    <div class="padding-1 border margin-bottom-1 margin-trim">
+      <p>Button <button>Button</button></p>
+      <p>Button <button class="small">Button</button></p>
+      <p class="small">Button <button>Button</button></p>
+    </div>
+    <div class="small padding-1 border margin-bottom-1 margin-trim">
+      <form>
+        <label for="inline-input-text">Text field</label>
+        <input id="inline-input-text" type="text" placeholder="Text field">
+        <label for="inline-input-email">Email field</label>
+        <input id="inline-input-email" type="text" placeholder="Email field">
+        <button type="submit">Button Submit</button>
+      </form>
+    </div>
+  </section>
+  <hr>
   <section>
     <div class="row">
       <div class="col-xs-12">
-
-        <style media="screen">
-        .align-center {
-          text-align: center;
-        }
-        /* align left | right */
-        @media (max-width: 544px) {
-          [class*="align-"] img {
-            width: 100%;
-          }
-        }
-        @media (min-width: 545px) {
-          /* figure */
-          .align-left {
-            float: left;
-            margin-right: 1em;
-          }
-          .align-right {
-            float: right;
-            margin-left: 1em;
-          }
-          /* caption */
-          .align-left,
-          .align-right {
-            display: table;
-          }
-          .align-left figcaption,
-          .align-right figcaption {
-            display: table-caption;
-            caption-side: bottom;
-          }
-        }
-        </style>
+        <h1>Floats</h1>
+        <ul>
+          <li>Images use floated item > table children</li>
+          <li>Layout uses flexbox container</li>
+        </ul>
 
         <h2>figure > img</h2>
-
         <figure class="align-left">
-          <img src="https://source.unsplash.com/random/300x200" alt="">
-          <figcaption>This is just a figure caption to describe this image</figcaption>
+          <img src="image.jpg" alt="Sample image">
+          <figcaption><code>figure.align-left > img</code></figcaption>
         </figure>
 
         <p>
         Design can have different connotations in different fields of application (see design disciplines below), but there are two basic meanings of design: as a verb and as a noun.
-
-        Design (as a verb: to design) is the intentional creation of a plan or specification for the construction of an object or system or for the implementation of an activity or process.
-
-        Design (as a noun: a design) can refer to such a plan or specification (e.g. a drawing or other document) or to the created object, etc., and features of it such as aesthetic, functional, economic or socio-political.
-
-        The process of creating a design can be brief (a quick sketch) or lengthy and complicated, involving considerable research, negotiation, reflection, modeling, interactive adjustment and re-design. In some cases, the direct construction of an object without an explicit prior plan (such as in craftwork and some engineering, coding, and graphic design) is also considered to be a design activity.
+        {# Design (as a verb: to design) is the intentional creation of a plan or specification for the construction of an object or system or for the implementation of an activity or process. #}
+        {# Design (as a noun: a design) can refer to such a plan or specification (e.g. a drawing or other document) or to the created object, etc., and features of it such as aesthetic, functional, economic or socio-political. #}
+        {# The process of creating a design can be brief (a quick sketch) or lengthy and complicated, involving considerable research, negotiation, reflection, modeling, interactive adjustment and re-design. In some cases, the direct construction of an object without an explicit prior plan (such as in craftwork and some engineering, coding, and graphic design) is also considered to be a design activity. #}
+        </p>
+        <p>
+          Design (as a verb: to design) is the intentional creation of a plan or specification.
         </p>
 
         <h2>figure > img</h2>
 
         <figure class="align-right">
-          <img src="https://source.unsplash.com/random/300x200" alt="">
-          <figcaption>This is just a figure caption to describe this image</figcaption>
+          <img src="image.jpg" alt="Sample image">
+          <figcaption><code>figure.align-right > img</code></figcaption>
         </figure>
 
         <p>
         "Everyone designs who devises courses of action aimed at changing existing situations into preferred ones."
-
         More formally design has been defined as follows:
-
         > (noun) a specification of an object, manifested by an agent, intended to accomplish goals, in a particular environment, using a set of primitive components, satisfying a set of requirements, subject to constraints; (verb, transitive) to create a design, in an environment (where the designer operates)
-
         Another definition for design is "a roadmap or a strategic approach for someone to achieve a unique expectation. It defines the specifications, plans, parameters, costs, activities, processes and how and what to do within legal, political, social, environmental, safety and economic constraints in achieving that objective."
-
         Here, a "specification" can be manifested as either a plan or a finished product, and "primitives" are the elements from which the design object is composed.
-
         </p>
 
         <h2>figure > img</h2>
 
         <figure class="align-center">
-          <img src="https://source.unsplash.com/random/300x200" alt="">
-          <figcaption>This is just a figure caption to describe this image</figcaption>
+          <img src="image.jpg" alt="Sample image">
+          <figcaption><code>figure.align-center > img</code></figcaption>
         </figure>
 
         <p>
         The person designing is called a designer, which is also a term used for people who work professionally in one of the various design areas usually specifying which area is being dealt with (such as a textile designer, fashion designer, product designer, concept designer, web designer or interior designer). A designer's sequence of activities is called a design process while the scientific study of design is called design science.
-
         The rational model was independently developed by Herbert A. Simon, an American scientist, and Gerhard Pahl and Wolfgang Beitz, two German engineering design theorists. It posits that:
-
         1. designers attempt to optimize a design candidate for known constraints and objectives,
         2. the design process is plan-driven,
         3. the design process is understood in terms of a discrete sequence of stages.
+        The rational model is based on a rationalist philosophy and underlies the waterfall model, systems development life cycle, and much of the engineering design literature. According to the rationalist philosophy, design is informed by research and knowledge in a predictable and controlled manner.
+        </p>
 
+        <figure class="align-wide">
+          <img src="image.jpg" alt="Sample image">
+          <figcaption><code>figure.align-wide > img</code></figcaption>
+        </figure>
+
+        <p>
+        The person designing is called a designer, which is also a term used for people who work professionally in one of the various design areas usually specifying which area is being dealt with (such as a textile designer, fashion designer, product designer, concept designer, web designer or interior designer). A designer's sequence of activities is called a design process while the scientific study of design is called design science.
+        The rational model was independently developed by Herbert A. Simon, an American scientist, and Gerhard Pahl and Wolfgang Beitz, two German engineering design theorists. It posits that:
+        1. designers attempt to optimize a design candidate for known constraints and objectives,
+        2. the design process is plan-driven,
+        3. the design process is understood in terms of a discrete sequence of stages.
         The rational model is based on a rationalist philosophy and underlies the waterfall model, systems development life cycle, and much of the engineering design literature. According to the rationalist philosophy, design is informed by research and knowledge in a predictable and controlled manner.
         </p>
 
@@ -100,5 +616,13 @@
     </div>
   </section>
 </main>
+
+  <script type="text/javascript">
+    // const dropdown = document.querySelector('[data-component="dropdown"]');
+    // dropdown.addEventListener('click', function(event) {
+    //   event.preventDefault();
+    //   history.pushState({}, "", this.href);
+    // });
+  </script>
 
 {% endblock %}

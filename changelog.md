@@ -1,14 +1,28 @@
 # changelog
 
-## todo
+## 3.0.0
 
-- add `read-only` class to inputs, like disabled but visible
-- match variable names with hyper-reset
-- make `color-muted` based on hue
-- add `hidden` snippets
-- make headings inherit font-family first, use custom font only if explicitly declared
-- review `list-style-type` name
-- refactor class names (avoid contractions)
+- refactor components
+- [ ] add box-shadow
+- remove anchorjs
+
+## 2.0.0
+
+- add `--marker` and `--gap` to `.list-inline`
+- add `.margin-trim`
+- fix font-family inheritance for headings
+- remove unused fallbacks
+- improve `.clearfix`
+- improve `.overflow-hint`
+- add `.position-sticky`
+- add `--line-height` helper
+- add `.font-size-{xxs-xxxl}`, remove `.h1 - .h6`
+- `.small` cascades to form fields
+- add `.color-inverted`
+
+## 1.3.0
+
+- add vertical center
 
 ## 1.2.1
 
