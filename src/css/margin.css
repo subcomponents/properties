@@ -110,7 +110,12 @@
 .margin-x-n5      { margin-left:   -5rem; margin-right: -5rem; }
 .margin-y-n5      { margin-top:    -5rem; margin-bottom: -5rem; }
 
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/margin-trim */
+/**
+ * margin trim
+ * remove margin-bottom from last element in the container
+ * use this alternative until native margin-trim is supported
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/margin-trim
+ */
 .margin-trim > :last-child {
   margin-bottom: 0;
 }

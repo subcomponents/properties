@@ -19,17 +19,22 @@
 
 .bg-default    { background: var(--background-color-default); }
 .bg-highlight  { background: var(--background-color-highlight); }
-
 .bg-primary    { background: var(--color-primary); }
 .bg-secondary  { background: var(--color-secondary); }
 .bg-tertiary   { background: var(--color-tertiary); }
 .bg-quaternary { background: var(--color-quaternary); }
 .bg-complementary { background: var(--color-complementary); }
 
+.bg-highlight-hover:hover,
+.bg-highlight-hover:focus {
+  background-color: var(--background-color-highlight);
+}
+
 .bg-transparent {
   background: transparent;
 }
-.bg-transparent:hover, .bg-transparent:focus {
+.bg-transparent:hover,
+.bg-transparent:focus {
   background-image: none;
 }
 
@@ -58,7 +63,13 @@
   background-position: 0 0, 15px 15px;
 }
 
-/* fade with easing function */
 .bg-shade {
-  background: linear-gradient(to bottom, rgba(0, 0, 10, 0), ease-in-out, rgba(0, 0, 5, 0.8));
+  /**
+  * background shade
+  * uses easing function plugin
+  * color stops are processed at build time to create easing gradient
+  * doesn't accept custom values at the front-end
+  * https://www.npmjs.com/package/postcss-easing-gradients
+  */
+  background: linear-gradient(to bottom, hsla(240, 100%, 2%, 0), ease-in-out, hsla(240, 100%, 2%, 0.7));
 }

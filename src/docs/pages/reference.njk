@@ -12,16 +12,17 @@
       {% endfor %}
     </ul>
   </section>
-  <section>
-    {% for fileName, fileContent in cssFiles %}
-      {% if fileContent and (fileName !== "bundle") and (fileName !== "variables") %}
-        <section>
-          <h3 id="{{ fileName }}">{{ fileName | capitalize }} <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre class="language-css"><code>{{ fileContent }}</code></pre>
-        </section>
-      {% endif %}
-    {% endfor %}
-  </section>
+  {% for fileName, fileContent in cssFiles %}
+    {% if fileContent and (fileName !== "bundle") and (fileName !== "variables") %}
+      <section>
+        <h3 id="{{ fileName }}">
+          <a href="#{{ fileName }}" class="color-default">{{ fileName | capitalize }}</a>
+          <a href="#">↑</a>
+        </h3>
+        <pre><code class="language-css">{{ fileContent }}</code></pre>
+      </section>
+    {% endif %}
+  {% endfor %}
 </main>
 
 {% endblock %}

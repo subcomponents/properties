@@ -1,31 +1,35 @@
-/* hide from all */
-@media (max-width: 544px) {
+/**
+* visibility
+* .hide-* and .display-* are available
+* to hide content from screen reades use [aria-hidden="true"]
+* resources: https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+*/
+
+@media (--breakpoint-xs-max) {
   .hide-xs { display: none; }
 }
-@media (min-width: 544px) and (max-width: 768px) {
+@media (--breakpoint-sm-min) {
   .hide-sm { display: none; }
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (--breakpoint-md-min) {
   .hide-md { display: none; }
 }
-@media (min-width: 1024px) {
+@media (--breakpoint-lg-min) {
   .hide-lg { display: none; }
 }
+
 .hide {
-  display: none !important;
+  display: none;
 }
 
-/* hide visually, show to screan readers only */
-.sr-only:not(:focus):not(:active) {
+/* screen readers only */
+.sr-only:not(:focus):not(:focus-within):not(:active),
+.display-hidden:not(:focus):not(:focus-within):not(:active) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
+  width: 1px;
   height: 1px;
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
-  width: 1px;
 }
-
-/* to hide content from screen reades use [aria-hidden]="true" */
-
-/* reference: https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html */

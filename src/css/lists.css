@@ -1,36 +1,39 @@
 /*
-  default style type
-  - accepts image marker
-  - accepts string marker
-  - poor browser support
-  https://developer.mozilla.org/en-US/docs/Web/CSS/list-style
-  https://caniuse.com/#feat=mdn-css_properties_list-style-type_string
+ * style type string
+ *   accepts image marker
+ *   accepts string marker
+ *   poor browser support
+ *   https://developer.mozilla.org/en-US/docs/Web/CSS/list-style
+ *   https://caniuse.com/mdn-css_properties_list-style-type_string
 */
 
 /*
-  @counter-style
-  - accepts array of symbols
-  https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style
-  https://caniuse.com/#feat=mdn-css_at-rules_counter-style
+ * @counter-style
+ *   accepts array of symbols
+ *   poor browser support
+ *   https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style
+ *   https://caniuse.com/css-at-counter-style
 */
 
 /*
-  custom marker
-  - accepts string marker
-  - accepts font properties
-  https://developer.mozilla.org/en-US/docs/Web/CSS/%3A%3Amarker
-  https://caniuse.com/#feat=mdn-css_selectors_marker
+ * custom marker
+ *   accepts string marker
+ *   accepts font properties
+ *   poor browser support
+ *   https://developer.mozilla.org/en-US/docs/Web/CSS/%3A%3Amarker
+ *   https://caniuse.com/css-marker-pseudo
 */
 
 .list-unstyled,
 .list-inline,
 [style*="--marker"] {
   list-style: none;
-  padding-inline-start: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 [style*="--marker"]:not(.list-inline) ul {
-  padding-inline-start: 4ch;
+  padding-left: 4ch;
 }
 
 /* list inline */
@@ -39,7 +42,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  padding-inline-start: 0;
+  padding-left: 0;
 }
 
 /* marker */

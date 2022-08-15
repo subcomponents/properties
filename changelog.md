@@ -1,10 +1,27 @@
 # changelog
 
+## 3.1.0
+
+- switch from `gulp-minify-css` to `gulp-clean-css`
+- switch from `hover-border-primary` to `border-primary-hover`
+- switch from `hover-color-primary` to `color-primary-hover`
+- fix aspect ratio styles
+  - iframe requires container
+  - iframe can't leverage ::before pseudo element technique
+  - iframe works without container only if browser supports aspect-ratio
+
 ## 3.0.0
 
 - refactor components
-- [ ] add box-shadow
-- remove anchorjs
+- add box-shadow
+- add outline
+- add position.css (top right bottom left)
+- rename z-index
+- remove anchorjs from docs
+- fix hide-xs
+- use rem for margin and padding
+- don't preserve polyfilled css at gulpfile
+- use font size numeric values instead of prefixes
 
 ## 2.0.0
 

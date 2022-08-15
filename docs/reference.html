@@ -16,10 +16,10 @@
       }
     </style>
   </head>
-  <body class="p adding-top-1">
+  <body class="padding-top-1">
     <div class="container">
   <header role="banner">
-    <h1>@hyper-properties-css <span class="color-primary">v3.0.0</span></h1>
+    <h1>@hyper-properties-css <span class="color-primary">v3.1.0</span></h1>
     <nav role="navigation">
   <ul class="list-inline" style="--marker: '·';">
     <li><a href="./">Home</a></li>
@@ -81,6 +81,10 @@
         
       
         
+          <li><a href="#position">Position</a></li>
+        
+      
+        
           <li><a href="#typography">Typography</a></li>
         
       
@@ -92,28 +96,71 @@
       
     </ul>
   </section>
-  <section>
+  
     
-      
-        <section>
-          <h3 id="aspect-ratio">Aspect-ratio <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre class="language-css"><code>.aspect-ratio {
-  display: block;
-  position: relative;
-  padding-bottom: calc(100% / (var(--aspect-ratio)));
-  overflow: hidden; /* prevent video overflow in chrome */
+      <section>
+        <h3 id="aspect-ratio">
+          <a href="#aspect-ratio" class="color-default">Aspect-ratio</a>
+          <a href="#">↑</a>
+        </h3>
+        <pre><code class="language-css">/**
+ * aspect ratio
+ * accepts [style=&quot;--aspect-ratio: x/y&quot;]
+ * expands if content exceeds container
+ * iframe requires some extra styles to fit (because browser defaults)
+ * iframe always require a container on browsers that don&#39;t support aspect-ratio
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
+ */
+
+/* create aspect ratio */
+[class*=aspect-ratio],
+[style*=--aspect-ratio] {
+  aspect-ratio: var(--aspect-ratio);
 }
-.aspect-ratio &gt; :first-child {
-  position: absolute;
-  top: 0;
-  left: 0;
+
+/* make iframe fit */
+iframe[class*=aspect-ratio],
+iframe[style*=--aspect-ratio],
+[class*=aspect-ratio] &gt; iframe,
+[style*=--aspect-ratio] &gt; iframe {
   width: 100%;
   height: 100%;
 }
 
- /* modifiers */
+@supports not (aspect-ratio: 1 / 1) {
+  /* create aspect ratio */
+  [class*=aspect-ratio]::before,
+  [style*=--aspect-ratio]::before {
+    float: left;
+    content: &quot;&quot;;
+    padding-top: calc(100% / (var(--aspect-ratio)));
+  }
+  [class*=aspect-ratio]::after,
+  [style*=--aspect-ratio]::after {
+    display: block;
+    content: &quot;&quot;;
+    clear: both;
+  }
+  /* make iframe fit */
+  [class*=aspect-ratio],
+  [style*=--aspect-ratio] {
+    position: relative;
+  }
+  [class*=aspect-ratio] &gt; iframe,
+  [style*=--aspect-ratio] &gt; iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .aspect-ratio-1\/1 {
   --aspect-ratio: 1/1;
+}
+.aspect-ratio-2\/1 {
+  --aspect-ratio: 2/1;
 }
 .aspect-ratio-3\/2 {
   --aspect-ratio: 3/2;
@@ -124,16 +171,17 @@
 .aspect-ratio-16\/9 {
   --aspect-ratio: 16/9;
 }
-
-/* for custom ratios use .aspect-ratio[style=&quot;--aspect-ratio: x/y&quot;] */
 </code></pre>
-        </section>
-      
+      </section>
     
-      
-        <section>
-          <h3 id="background">Background <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre class="language-css"><code>.bg-left     { background-position-x: left; }
+  
+    
+      <section>
+        <h3 id="background">
+          <a href="#background" class="color-default">Background</a>
+          <a href="#">↑</a>
+        </h3>
+        <pre><code class="language-css">.bg-left     { background-position-x: left; }
 .bg-right    { background-position-x: right; }
 .bg-bottom   { background-position-y: bottom; }
 .bg-top      { background-position-y: top; }
@@ -154,17 +202,22 @@
 
 .bg-default    { background: var(--background-color-default); }
 .bg-highlight  { background: var(--background-color-highlight); }
-
 .bg-primary    { background: var(--color-primary); }
 .bg-secondary  { background: var(--color-secondary); }
 .bg-tertiary   { background: var(--color-tertiary); }
 .bg-quaternary { background: var(--color-quaternary); }
 .bg-complementary { background: var(--color-complementary); }
 
+.bg-highlight-hover:hover,
+.bg-highlight-hover:focus {
+  background-color: var(--background-color-highlight);
+}
+
 .bg-transparent {
   background: transparent;
 }
-.bg-transparent:hover, .bg-transparent:focus {
+.bg-transparent:hover,
+.bg-transparent:focus {
   background-image: none;
 }
 
@@ -193,101 +246,158 @@
   background-position: 0 0, 15px 15px;
 }
 
-/* fade with easing function */
 .bg-shade {
-  background: linear-gradient(to bottom, rgba(0, 0, 10, 0), ease-in-out, rgba(0, 0, 5, 0.8));
+  /**
+  * background shade
+  * uses easing function plugin
+  * color stops are processed at build time to create easing gradient
+  * doesn&#39;t accept custom values at the front-end
+  * https://www.npmjs.com/package/postcss-easing-gradients
+  */
+  background: linear-gradient(to bottom, hsla(240, 100%, 2%, 0), ease-in-out, hsla(240, 100%, 2%, 0.7));
 }
 </code></pre>
-        </section>
-      
+      </section>
     
-      
-        <section>
-          <h3 id="border">Border <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre class="language-css"><code>.border,
-.border-1 {
-  border: var(--border-width-default, 1px) solid var(--border-color-default);
-}
-.border-1 {
-  border-width: 1px;
-}
+  
+    
+      <section>
+        <h3 id="border">
+          <a href="#border" class="color-default">Border</a>
+          <a href="#">↑</a>
+        </h3>
+        <pre><code class="language-css">.border          { border: var(--border-width-default) solid var(--border-color-default) }
+.border-1        { border: 1px solid var(--border-color-default) }
+.border-top      { border-top: var(--border-width-default) solid var(--border-color-default) }
+.border-top-1    { border-top: 1px solid var(--border-color-default) }
+.border-right    { border-right: var(--border-width-default) solid var(--border-color-default) }
+.border-right-1  { border-right: 1px solid var(--border-color-default) }
+.border-bottom   { border-bottom: var(--border-width-default) solid var(--border-color-default) }
+.border-bottom-1 { border-bottom: 1px solid var(--border-color-default) }
+.border-left     { border-left: var(--border-width-default) solid var(--border-color-default) }
+.border-left-1   { border-left: 1 solid var(--border-color-default) }
 
-[class*=border-top] {
-  border-top: var(--border-width-default, 1px) solid var(--border-color-default);
-}
-.border-top-1 {
-  border-top-width: 1px;
-}
+.border-0        { border: 0 }
+.border-top-0    { border-top: 0 }
+.border-right-0  { border-right: 0 }
+.border-bottom-0 { border-bottom: 0 }
+.border-left-0   { border-left: 0 }
 
-[class*=border-right] {
-  border-right: var(--border-width-default, 1px) solid var(--border-color-default);
-}
-.border-right-1 {
-  border-right-width: 1px;
-}
+.border-dashed { border-style: dashed }
 
-[class*=border-bottom] {
-  border-bottom: var(--border-width-default, 1px) solid var(--border-color-default);
-}
-.border-bottom-1 {
-  border-bottom-width: 1px;
-}
+.border-radius      { border-radius: var(--border-radius-default) }
+.border-radius-0\.1 { border-radius: 0.1em }
+.border-radius-0\.2 { border-radius: 0.2em }
+.border-radius-0\.3 { border-radius: 0.3em }
+.border-radius-0\.4 { border-radius: 0.4em }
+.border-radius-0\.5 { border-radius: 0.5em }
 
-[class*=border-left] {
-  border-left: var(--border-width-default, 1px) solid var(--border-color-default);
-}
-.border-left-1 {
-  border-left-width: 1px;
-}
+.border-top-left-radius      { border-top-left-radius: var(--border-radius-default) }
+.border-top-left-radius-0\.1 { border-top-left-radius: 0.1em }
+.border-top-left-radius-0\.2 { border-top-left-radius: 0.2em }
+.border-top-left-radius-0\.3 { border-top-left-radius: 0.3em }
+.border-top-left-radius-0\.4 { border-top-left-radius: 0.4em }
+.border-top-left-radius-0\.5 { border-top-left-radius: 0.5em }
 
-.border-dashed {
-  border-color: var(--border-color-default);
-  border-style: dashed;
-}
+.border-top-right-radius      { border-top-right--radius: var(--border-radius-default) }
+.border-top-right-radius-0\.1 { border-top-right-radius: 0.1em }
+.border-top-right-radius-0\.2 { border-top-right-radius: 0.2em }
+.border-top-right-radius-0\.3 { border-top-right-radius: 0.3em }
+.border-top-right-radius-0\.4 { border-top-right-radius: 0.4em }
+.border-top-right-radius-0\.5 { border-top-right-radius: 0.5em }
 
-.border-0        { border: 0; }
-.border-top-0    { border-top: 0; }
-.border-right-0  { border-right: 0; }
-.border-bottom-0 { border-bottom: 0; }
-.border-left-0   { border-left: 0; }
+.border-bottom-right-radius      { border-bottom-right--radius: var(--border-radius-default) }
+.border-bottom-right-radius-0\.1 { border-bottom-right-radius: 0.1em }
+.border-bottom-right-radius-0\.2 { border-bottom-right-radius: 0.2em }
+.border-bottom-right-radius-0\.3 { border-bottom-right-radius: 0.3em }
+.border-bottom-right-radius-0\.4 { border-bottom-right-radius: 0.4em }
+.border-bottom-right-radius-0\.5 { border-bottom-right-radius: 0.5em }
 
-.border-radius      { border-radius: var(--border-radius-default); }
-.border-radius-0\.1 { border-radius: 0.1em; }
-.border-radius-0\.2 { border-radius: 0.2em; }
-.border-radius-0\.3 { border-radius: 0.3em; }
-.border-radius-0\.4 { border-radius: 0.4em; }
-.border-radius-0\.5 { border-radius: 0.5em; }
+.border-bottom-left-radius      { border-bottom-left--radius: var(--border-radius-default) }
+.border-bottom-left-radius-0\.1 { border-bottom-left-radius: 0.1em }
+.border-bottom-left-radius-0\.2 { border-bottom-left-radius: 0.2em }
+.border-bottom-left-radius-0\.3 { border-bottom-left-radius: 0.3em }
+.border-bottom-left-radius-0\.4 { border-bottom-left-radius: 0.4em }
+.border-bottom-left-radius-0\.5 { border-bottom-left-radius: 0.5em }
 
-.border-radius-ellipsis { border-radius: 100%; }
-.border-radius-circle   { border-radius: 1000px; }
+.border-radius-ellipsis { border-radius: 100% }
+.border-radius-circle   { border-radius: 1000px }
 
-.box-shadow { box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.box-shadow { box-shadow: 0 2px 5px rgba(0,0,0,0.1) }
 
 .border-current {
   border-color: currentColor;
 }
 
-.hover-border-primary:hover,
-.hover-border-primary:focus {
+.border-primary-hover:hover,
+.border-primary-hover:focus {
   border-color: var(--color-primary);
 }
 
 .border-light {
   border-color: var(--border-color-light);
 }
+
+@media (--breakpoint-sm-min) {
+  .border-sm          { border: var(--border-width-default) solid var(--border-color-default) }
+  .border-1-sm        { border: 1px solid var(--border-color-default) }
+  .border-top-sm      { border-top: var(--border-width-default) solid var(--border-color-default) }
+  .border-top-1-sm    { border-top: 1px solid var(--border-color-default) }
+  .border-right-sm    { border-right: var(--border-width-default) solid var(--border-color-default) }
+  .border-right-1-sm  { border-right: 1px solid var(--border-color-default) }
+  .border-bottom-sm   { border-bottom: var(--border-width-default) solid var(--border-color-default) }
+  .border-bottom-1-sm { border-bottom: 1px solid var(--border-color-default) }
+  .border-left-sm     { border-left: var(--border-width-default) solid var(--border-color-default) }
+  .border-left-1-sm   { border-left: 1 solid var(--border-color-default) }
+
+  .box-shadow-sm { box-shadow: 0 2px 5px rgba(0,0,0,0.1) }
+}
+@media (--breakpoint-md-min) {
+  .border-md          { border: var(--border-width-default) solid var(--border-color-default) }
+  .border-1-md        { border: 1px solid var(--border-color-default) }
+  .border-top-md      { border-top: var(--border-width-default) solid var(--border-color-default) }
+  .border-top-1-md    { border-top: 1px solid var(--border-color-default) }
+  .border-right-md    { border-right: var(--border-width-default) solid var(--border-color-default) }
+  .border-right-1-md  { border-right: 1px solid var(--border-color-default) }
+  .border-bottom-md   { border-bottom: var(--border-width-default) solid var(--border-color-default) }
+  .border-bottom-1-md { border-bottom: 1px solid var(--border-color-default) }
+  .border-left-md     { border-left: var(--border-width-default) solid var(--border-color-default) }
+  .border-left-1-md   { border-left: 1 solid var(--border-color-default) }
+
+  .box-shadow-md { box-shadow: 0 2px 5px rgba(0,0,0,0.1) }
+}
+@media (--breakpoint-lg-min) {
+  .border-lg          { border: var(--border-width-default) solid var(--border-color-default) }
+  .border-1-lg        { border: 1px solid var(--border-color-default) }
+  .border-top-lg      { border-top: var(--border-width-default) solid var(--border-color-default) }
+  .border-top-1-lg    { border-top: 1px solid var(--border-color-default) }
+  .border-right-lg    { border-right: var(--border-width-default) solid var(--border-color-default) }
+  .border-right-1-lg  { border-right: 1px solid var(--border-color-default) }
+  .border-bottom-lg   { border-bottom: var(--border-width-default) solid var(--border-color-default) }
+  .border-bottom-1-lg { border-bottom: 1px solid var(--border-color-default) }
+  .border-left-lg     { border-left: var(--border-width-default) solid var(--border-color-default) }
+  .border-left-1-lg   { border-left: 1 solid var(--border-color-default) }
+
+  .box-shadow-lg { box-shadow: 0 2px 5px rgba(0,0,0,0.1) }
+}
 </code></pre>
-        </section>
-      
+      </section>
     
-      
+  
     
-      
-        <section>
-          <h3 id="layout">Layout <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre class="language-css"><code>.display-inline       { display: inline }
+  
+    
+      <section>
+        <h3 id="layout">
+          <a href="#layout" class="color-default">Layout</a>
+          <a href="#">↑</a>
+        </h3>
+        <pre><code class="language-css">.display-inline       { display: inline }
 .display-inline-block { display: inline-block }
 .display-block        { display: block !important; width: 100% }
 .display-flex         { display: flex }
+.display-grid         { display: grid }
+.display-none         { display: none }
 .flex-nowrap          { flex-wrap: nowrap }
 
 .position-relative { position: relative }
@@ -296,8 +406,10 @@
 .position-sticky   {
   position: sticky;
   top: 1rem;
-  /* flex items stretch full height by default */
-  /* align item to start so it can scroll throughout container */
+  /**
+   * aling item to start
+   * if item is flex align it to start so it can scroll across container
+   */
   align-self: flex-start;
 }
 
@@ -313,6 +425,7 @@
 .width-initial     { width: initial }
 .width-inherit     { width: inherit }
 .width-unset       { width: unset }
+.width-custom      { width: var(--width) }
 
 .max-width-100 { max-width: 100% }
 .max-width-200 { max-width: 200% }
@@ -370,11 +483,11 @@
 .overflow-hint .overflow-x { -ms-overflow-style: none }
 .overflow-hint &gt; ul &gt; li:last-of-type { padding-right: 2rem }
 
-.index-1 { z-index: 1 }
-.index-2 { z-index: 2 }
-.index-3 { z-index: 3 }
-.index-4 { z-index: 4 }
-.index-5 { z-index: 5 }
+.z-index-1 { z-index: 1 }
+.z-index-2 { z-index: 2 }
+.z-index-3 { z-index: 3 }
+.z-index-4 { z-index: 4 }
+.z-index-5 { z-index: 5 }
 
 .float-left  { float: left }
 .float-right { float: right }
@@ -384,46 +497,89 @@
   display: block;
   clear: both;
 }
+
+@media (--breakpoint-sm-min) {
+  .position-relative-sm { position: relative }
+  .position-absolute-sm { position: absolute }
+  .position-fixed-sm    { position: fixed }
+  .width-custom-sm      { width: var(--width-sm) }
+  .display-inline-sm       { display: inline }
+  .display-inline-block-sm { display: inline-block }
+  .display-block-sm        { display: block !important; width: 100% }
+  .display-flex-sm         { display: flex }
+  .display-grid-sm         { display: grid }
+  .display-none-sm         { display: none }
+}
+@media (--breakpoint-md-min) {
+  .position-relative-md { position: relative }
+  .position-absolute-md { position: absolute }
+  .position-fixed-md    { position: fixed }
+  .width-custom-md      { width: var(--width-md) }
+  .display-inline-md       { display: inline }
+  .display-inline-block-md { display: inline-block }
+  .display-block-md        { display: block !important; width: 100% }
+  .display-flex-md         { display: flex }
+  .display-grid-md         { display: grid }
+  .display-none-md         { display: none }
+}
+@media (--breakpoint-lg-min) {
+  .position-relative-lg { position: relative }
+  .position-absolute-lg { position: absolute }
+  .position-fixed-lg    { position: fixed }
+  .width-custom-lg      { width: var(--width-lg) }
+  .display-inline-lg       { display: inline }
+  .display-inline-block-lg { display: inline-block }
+  .display-block-lg        { display: block !important; width: 100% }
+  .display-flex-lg         { display: flex }
+  .display-grid-lg         { display: grid }
+  .display-none-lg         { display: none }
+}
 </code></pre>
-        </section>
-      
+      </section>
     
-      
-        <section>
-          <h3 id="lists">Lists <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre class="language-css"><code>/*
-  default style type
-  - accepts image marker
-  - accepts string marker
-  - poor browser support
-  https://developer.mozilla.org/en-US/docs/Web/CSS/list-style
-  https://caniuse.com/#feat=mdn-css_properties_list-style-type_string
+  
+    
+      <section>
+        <h3 id="lists">
+          <a href="#lists" class="color-default">Lists</a>
+          <a href="#">↑</a>
+        </h3>
+        <pre><code class="language-css">/*
+ * style type string
+ *   accepts image marker
+ *   accepts string marker
+ *   poor browser support
+ *   https://developer.mozilla.org/en-US/docs/Web/CSS/list-style
+ *   https://caniuse.com/mdn-css_properties_list-style-type_string
 */
 
 /*
-  @counter-style
-  - accepts array of symbols
-  https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style
-  https://caniuse.com/#feat=mdn-css_at-rules_counter-style
+ * @counter-style
+ *   accepts array of symbols
+ *   poor browser support
+ *   https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style
+ *   https://caniuse.com/css-at-counter-style
 */
 
 /*
-  custom marker
-  - accepts string marker
-  - accepts font properties
-  https://developer.mozilla.org/en-US/docs/Web/CSS/%3A%3Amarker
-  https://caniuse.com/#feat=mdn-css_selectors_marker
+ * custom marker
+ *   accepts string marker
+ *   accepts font properties
+ *   poor browser support
+ *   https://developer.mozilla.org/en-US/docs/Web/CSS/%3A%3Amarker
+ *   https://caniuse.com/css-marker-pseudo
 */
 
 .list-unstyled,
 .list-inline,
 [style*=&quot;--marker&quot;] {
   list-style: none;
-  padding-inline-start: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 [style*=&quot;--marker&quot;]:not(.list-inline) ul {
-  padding-inline-start: 4ch;
+  padding-left: 4ch;
 }
 
 /* list inline */
@@ -432,7 +588,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  padding-inline-start: 0;
+  padding-left: 0;
 }
 
 /* marker */
@@ -474,13 +630,16 @@
   margin-right: var(--gap);
 }
 </code></pre>
-        </section>
-      
+      </section>
     
-      
-        <section>
-          <h3 id="margin">Margin <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre class="language-css"><code>.margin-0        { margin-top:    0; margin-right: 0; margin-bottom: 0; margin-left: 0; }
+  
+    
+      <section>
+        <h3 id="margin">
+          <a href="#margin" class="color-default">Margin</a>
+          <a href="#">↑</a>
+        </h3>
+        <pre><code class="language-css">.margin-0        { margin-top:    0; margin-right: 0; margin-bottom: 0; margin-left: 0; }
 .margin-top-0    { margin-top:    0; }
 .margin-right-0  { margin-right:  0; }
 .margin-bottom-0 { margin-bottom: 0; }
@@ -592,31 +751,42 @@
 .margin-x-n5      { margin-left:   -5rem; margin-right: -5rem; }
 .margin-y-n5      { margin-top:    -5rem; margin-bottom: -5rem; }
 
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/margin-trim */
+/**
+ * margin trim
+ * remove margin-bottom from last element in the container
+ * use this alternative until native margin-trim is supported
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/margin-trim
+ */
 .margin-trim &gt; :last-child {
   margin-bottom: 0;
 }
 </code></pre>
-        </section>
-      
+      </section>
     
-      
-        <section>
-          <h3 id="media">Media <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre class="language-css"><code>.img-fluid { width: 100%; }
+  
+    
+      <section>
+        <h3 id="media">
+          <a href="#media" class="color-default">Media</a>
+          <a href="#">↑</a>
+        </h3>
+        <pre><code class="language-css">.img-fluid { width: 100%; }
 
 .img-responsive {
   max-width: 100%;
   height: auto;
 }
 </code></pre>
-        </section>
-      
+      </section>
     
-      
-        <section>
-          <h3 id="misc">Misc <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre class="language-css"><code>.debug, .debug * {
+  
+    
+      <section>
+        <h3 id="misc">
+          <a href="#misc" class="color-default">Misc</a>
+          <a href="#">↑</a>
+        </h3>
+        <pre><code class="language-css">.debug, .debug * {
   outline: 2px solid rgba(0,10,200,0.2);
 }
 
@@ -635,13 +805,16 @@
   cursor: zoom-out;
 }
 </code></pre>
-        </section>
-      
+      </section>
     
-      
-        <section>
-          <h3 id="object-fit">Object-fit <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre class="language-css"><code>[class*=&quot;object-fit-&quot;] {
+  
+    
+      <section>
+        <h3 id="object-fit">
+          <a href="#object-fit" class="color-default">Object-fit</a>
+          <a href="#">↑</a>
+        </h3>
+        <pre><code class="language-css">[class*=&quot;object-fit-&quot;] {
   display: block;
   width: 100%;
   height: 100%;
@@ -651,13 +824,16 @@
 .object-fit-fill       { object-fit: fill; }
 .object-fit-scale-down { object-fit: scale-down; }
 </code></pre>
-        </section>
-      
+      </section>
     
-      
-        <section>
-          <h3 id="padding">Padding <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre class="language-css"><code>.padding-0        { padding-top:    0; padding-right: 0; padding-bottom: 0; padding-left: 0; }
+  
+    
+      <section>
+        <h3 id="padding">
+          <a href="#padding" class="color-default">Padding</a>
+          <a href="#">↑</a>
+        </h3>
+        <pre><code class="language-css">.padding-0        { padding-top:    0; padding-right: 0; padding-bottom: 0; padding-left: 0; }
 .padding-top-0    { padding-top:    0; }
 .padding-right-0  { padding-right:  0; }
 .padding-bottom-0 { padding-bottom: 0; }
@@ -665,140 +841,231 @@
 .padding-y-0      { padding-top:    0; padding-bottom: 0; }
 .padding-x-0      { padding-left:   0; padding-right:  0; }
 
-.padding-0\.25        { padding:        0.25em; }
-.padding-top-0\.25    { padding-top:    0.25em; }
-.padding-right-0\.25  { padding-right:  0.25em; }
-.padding-bottom-0\.25 { padding-bottom: 0.25em; }
-.padding-left-0\.25   { padding-left:   0.25em; }
-.padding-y-0\.25      { padding-top:    0.25em; padding-bottom: 0.25em; }
-.padding-x-0\.25      { padding-left:   0.25em; padding-right:  0.25em; }
+.padding-0\.25        { padding:        0.25rem; }
+.padding-top-0\.25    { padding-top:    0.25rem; }
+.padding-right-0\.25  { padding-right:  0.25rem; }
+.padding-bottom-0\.25 { padding-bottom: 0.25rem; }
+.padding-left-0\.25   { padding-left:   0.25rem; }
+.padding-y-0\.25      { padding-top:    0.25rem; padding-bottom: 0.25rem; }
+.padding-x-0\.25      { padding-left:   0.25rem; padding-right:  0.25rem; }
 
-.padding-0\.5        { padding:        0.5em; }
-.padding-top-0\.5    { padding-top:    0.5em; }
-.padding-right-0\.5  { padding-right:  0.5em; }
-.padding-bottom-0\.5 { padding-bottom: 0.5em; }
-.padding-left-0\.5   { padding-left:   0.5em; }
-.padding-y-0\.5      { padding-top:    0.5em; padding-bottom: 0.5em; }
-.padding-x-0\.5      { padding-left:   0.5em; padding-right:  0.5em; }
+.padding-0\.5        { padding:        0.5rem; }
+.padding-top-0\.5    { padding-top:    0.5rem; }
+.padding-right-0\.5  { padding-right:  0.5rem; }
+.padding-bottom-0\.5 { padding-bottom: 0.5rem; }
+.padding-left-0\.5   { padding-left:   0.5rem; }
+.padding-y-0\.5      { padding-top:    0.5rem; padding-bottom: 0.5rem; }
+.padding-x-0\.5      { padding-left:   0.5rem; padding-right:  0.5rem; }
 
-.padding-1        { padding:        1em; }
-.padding-top-1    { padding-top:    1em; }
-.padding-right-1  { padding-right:  1em; }
-.padding-bottom-1 { padding-bottom: 1em; }
-.padding-left-1   { padding-left:   1em; }
-.padding-y-1      { padding-top:    1em; padding-bottom: 1em; }
-.padding-x-1      { padding-left:   1em; padding-right:  1em; }
+.padding-1        { padding:        1rem; }
+.padding-top-1    { padding-top:    1rem; }
+.padding-right-1  { padding-right:  1rem; }
+.padding-bottom-1 { padding-bottom: 1rem; }
+.padding-left-1   { padding-left:   1rem; }
+.padding-y-1      { padding-top:    1rem; padding-bottom: 1rem; }
+.padding-x-1      { padding-left:   1rem; padding-right:  1rem; }
 
-.padding-1\.5        { padding:        1.5em; }
-.padding-top-1\.5    { padding-top:    1.5em; }
-.padding-right-1\.5  { padding-right:  1.5em; }
-.padding-bottom-1\.5 { padding-bottom: 1.5em; }
-.padding-left-1\.5   { padding-left:   1.5em; }
-.padding-y-1\.5      { padding-top:    1.5em; padding-bottom: 1.5em; }
-.padding-x-1\.5      { padding-left:   1.5em; padding-right:  1.5em; }
+.padding-1\.5        { padding:        1.5rem; }
+.padding-top-1\.5    { padding-top:    1.5rem; }
+.padding-right-1\.5  { padding-right:  1.5rem; }
+.padding-bottom-1\.5 { padding-bottom: 1.5rem; }
+.padding-left-1\.5   { padding-left:   1.5rem; }
+.padding-y-1\.5      { padding-top:    1.5rem; padding-bottom: 1.5rem; }
+.padding-x-1\.5      { padding-left:   1.5rem; padding-right:  1.5rem; }
 
-.padding-2        { padding:        2em; }
-.padding-top-2    { padding-top:    2em; }
-.padding-right-2  { padding-right:  2em; }
-.padding-bottom-2 { padding-bottom: 2em; }
-.padding-left-2   { padding-left:   2em; }
-.padding-y-2      { padding-top:    2em; padding-bottom: 2em; }
-.padding-x-2      { padding-left:   2em; padding-right:  2em; }
+.padding-2        { padding:        2rem; }
+.padding-top-2    { padding-top:    2rem; }
+.padding-right-2  { padding-right:  2rem; }
+.padding-bottom-2 { padding-bottom: 2rem; }
+.padding-left-2   { padding-left:   2rem; }
+.padding-y-2      { padding-top:    2rem; padding-bottom: 2rem; }
+.padding-x-2      { padding-left:   2rem; padding-right:  2rem; }
 
-.padding-3        { padding:        3em; }
-.padding-top-3    { padding-top:    3em; }
-.padding-right-3  { padding-right:  3em; }
-.padding-bottom-3 { padding-bottom: 3em; }
-.padding-left-3   { padding-left:   3em; }
-.padding-y-3      { padding-top:    3em; padding-bottom: 3em; }
-.padding-x-3      { padding-left:   3em; padding-right:  3em; }
+.padding-3        { padding:        3rem; }
+.padding-top-3    { padding-top:    3rem; }
+.padding-right-3  { padding-right:  3rem; }
+.padding-bottom-3 { padding-bottom: 3rem; }
+.padding-left-3   { padding-left:   3rem; }
+.padding-y-3      { padding-top:    3rem; padding-bottom: 3rem; }
+.padding-x-3      { padding-left:   3rem; padding-right:  3rem; }
 
-.padding-4        { padding:        4em; }
-.padding-top-4    { padding-top:    4em; }
-.padding-right-4  { padding-right:  4em; }
-.padding-bottom-4 { padding-bottom: 4em; }
-.padding-left-4   { padding-left:   4em; }
-.padding-y-4      { padding-top:    4em; padding-bottom: 4em; }
-.padding-x-4      { padding-left:   4em; padding-right:  4em; }
+.padding-4        { padding:        4rem; }
+.padding-top-4    { padding-top:    4rem; }
+.padding-right-4  { padding-right:  4rem; }
+.padding-bottom-4 { padding-bottom: 4rem; }
+.padding-left-4   { padding-left:   4rem; }
+.padding-y-4      { padding-top:    4rem; padding-bottom: 4rem; }
+.padding-x-4      { padding-left:   4rem; padding-right:  4rem; }
 
-.padding-5        { padding:        5em; }
-.padding-top-5    { padding-top:    5em; }
-.padding-right-5  { padding-right:  5em; }
-.padding-bottom-5 { padding-bottom: 5em; }
-.padding-left-5   { padding-left:   5em; }
-.padding-y-5      { padding-top:    5em; padding-bottom: 5em; }
-.padding-x-5      { padding-left:   5em; padding-right:  5em; }
+.padding-5        { padding:        5rem; }
+.padding-top-5    { padding-top:    5rem; }
+.padding-right-5  { padding-right:  5rem; }
+.padding-bottom-5 { padding-bottom: 5rem; }
+.padding-left-5   { padding-left:   5rem; }
+.padding-y-5      { padding-top:    5rem; padding-bottom: 5rem; }
+.padding-x-5      { padding-left:   5rem; padding-right:  5rem; }
 </code></pre>
-        </section>
-      
+      </section>
     
-      
-        <section>
-          <h3 id="typography">Typography <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre class="language-css"><code>.font-size-inherit { font-size: inherit; }
+  
+    
+      <section>
+        <h3 id="position">
+          <a href="#position" class="color-default">Position</a>
+          <a href="#">↑</a>
+        </h3>
+        <pre><code class="language-css">.top-0    { top:    0 }
+.right-0  { right:  0 }
+.bottom-0 { bottom: 0 }
+.left-0   { left:   0 }
 
-.font-size-h1 { font-size: var(--font-size-h1); }
-.font-size-h2 { font-size: var(--font-size-h2); }
-.font-size-h3 { font-size: var(--font-size-h3); }
-.font-size-h4 { font-size: var(--font-size-h4); }
-.font-size-h5 { font-size: var(--font-size-h5); }
-.font-size-h6 { font-size: var(--font-size-h6); }
-[class*=&quot;font-size-h&quot;] { line-height: var(--line-height-heading); }
+.top-1    { top:    1em }
+.right-1  { right:  1em }
+.bottom-1 { bottom: 1em }
+.left-1   { left:   1em }
 
-.font-size-xxs  { font-size: calc(var(--font-size-current) * 0.55); }
-.font-size-xs   { font-size: calc(var(--font-size-current) * 0.7); }
-.font-size-sm   { font-size: calc(var(--font-size-current) * 0.85); }
-.font-size-lg   { font-size: calc(var(--font-size-current) * 1.25); }
-.font-size-xl   { font-size: calc(var(--font-size-current) * 1.5); }
-.font-size-xxl  { font-size: calc(var(--font-size-current) * 1.75); }
-.font-size-xxxl { font-size: calc(var(--font-size-current) * 2); }
+.top-2    { top:    2em }
+.right-2  { right:  2em }
+.bottom-2 { bottom: 2em }
+.left-2   { left:   2em }
 
+.top-3    { top:    3em }
+.right-3  { right:  3em }
+.bottom-3 { bottom: 3em }
+.left-3   { left:   3em }
+
+.top-4    { top:    4em }
+.right-4  { right:  4em }
+.bottom-4 { bottom: 4em }
+.left-4   { left:   4em }
+
+.top-5    { top:    5em }
+.right-5  { right:  5em }
+.bottom-5 { bottom: 5em }
+.left-5   { left:   5em }
+</code></pre>
+      </section>
+    
+  
+    
+      <section>
+        <h3 id="typography">
+          <a href="#typography" class="color-default">Typography</a>
+          <a href="#">↑</a>
+        </h3>
+        <pre><code class="language-css">/* global values */
+.font-size-inherit { font-size: inherit }
+
+/* reference values */
+.font-size-h1 { font-size: var(--font-size-h1) }
+.font-size-h2 { font-size: var(--font-size-h2) }
+.font-size-h3 { font-size: var(--font-size-h3) }
+.font-size-h4 { font-size: var(--font-size-h4) }
+.font-size-h5 { font-size: var(--font-size-h5) }
+.font-size-h6 { font-size: var(--font-size-h6) }
+.small        { font-size: 0.85rem; --button-padding-y: 0.25rem; --button-padding-x: 0.5rem }
+.demi-small   { font-size: 0.90rem }
+.lead         { font-size: var(--font-size-h3) }
+
+/* line height heading */
+[class*=&quot;font-size-h&quot;] { line-height: var(--line-height-heading) }
+
+/**
+ * absolute values
+ * not using keyword values because those are based on browser&#39;s default
+ * use values based on current font size instead
+ */
+.font-size-xx-small  { font-size: calc(var(--font-size-current) * 0.55) }
+.font-size-x-small   { font-size: calc(var(--font-size-current) * 0.7) }
+.font-size-small     { font-size: calc(var(--font-size-current) * 0.85) }
+.font-size-large     { font-size: calc(var(--font-size-current) * 1.25) }
+.font-size-x-large   { font-size: calc(var(--font-size-current) * 1.5) }
+.font-size-xx-large  { font-size: calc(var(--font-size-current) * 1.75) }
+.font-size-xxx-large { font-size: calc(var(--font-size-current) * 2) }
+
+/* allow larger font sizes on larger screens only */
 @media (min-width: 768px) {
-  .font-size-lg   { font-size: calc(var(--font-size-current) * 1.5); }
-  .font-size-xl   { font-size: calc(var(--font-size-current) * 2); }
-  .font-size-xxl  { font-size: calc(var(--font-size-current) * 2.5); }
-  .font-size-xxxl { font-size: calc(var(--font-size-current) * 3); }
+  .font-size-x-large   { font-size: calc(var(--font-size-current) * 2) }
+  .font-size-xx-large  { font-size: calc(var(--font-size-current) * 2.5) }
+  .font-size-xxx-large { font-size: calc(var(--font-size-current) * 3) }
 }
 
-.small      { font-size: calc(var(--font-size-current) * 0.85); }
-.demi-small { font-size: calc(var(--font-size-current) * 0.90); }
-.lead       { font-size: var(--font-size-h3); }
+/* relative values - relative to parent */
+.font-size-smaller { font-size: smaller }
+.font-size-larger  { font-size: larger }
 
-.small {
-  --button-padding-y: 0.25em;
-  --button-padding-x: 0.5em;
+/*
+ * numeric values - small
+ * use numeric values whenever possible
+ */
+.font-size-0\.5 { font-size: 0.5rem }
+.font-size-0\.6 { font-size: 0.6rem }
+.font-size-0\.7 { font-size: 0.7rem }
+.font-size-0\.8 { font-size: 0.8rem }
+.font-size-0\.9 { font-size: 0.9rem }
+
+/*
+ * numeric values - medium
+ * use numeric values whenever possible
+ */
+.font-size-1     { font-size: 1rem }
+.font-size-1\.25 { font-size: 1.25rem }
+.font-size-1\.5  { font-size: 1.5rem }
+.font-size-1\.75 { font-size: 1.75rem }
+.font-size-2     { font-size: 2rem }
+.font-size-2\.25 { font-size: 2.25rem }
+.font-size-2\.5  { font-size: 2.5rem }
+.font-size-2\.75 { font-size: 2.75rem }
+.font-size-3     { font-size: 3rem }
+.font-size-3\.25 { font-size: 3.25rem }
+.font-size-3\.5  { font-size: 3.5rem }
+.font-size-3\.75 { font-size: 3.75rem }
+.font-size-4     { font-size: 4rem }
+.font-size-4\.25 { font-size: 4.25rem }
+.font-size-4\.5  { font-size: 4.5rem }
+.font-size-4\.75 { font-size: 4.75rem }
+.font-size-5     { font-size: 5rem }
+
+.italic, .em       { font-style: italic }
+.bold, .strong     { font-weight: bold }
+
+.text-underline    { text-decoration: underline }
+.text-strike       { text-decoration: line-through }
+.text-capitalize   { text-transform: capitalize }
+.text-uppercase    { text-transform: uppercase }
+.text-decoration-0 { text-decoration: none }
+
+.text-decoration-underline-hover:hover,
+.text-decoration-underline-hover:focus,
+a:hover .text-decoration-underline-hover,
+a:focus .text-decoration-underline-hover {
+  text-decoration: underline;
 }
 
-.italic, .em       { font-style: italic; }
-.bold, .strong     { font-weight: bold; }
+.outline-0:focus { outline: 0 }
 
-.text-underline    { text-decoration: underline; }
-.text-strike       { text-decoration: line-through; }
-.text-capitalize   { text-transform: capitalize; }
-.text-uppercase    { text-transform: uppercase; }
-.text-decoration-0 { text-decoration: none; }
+.text-align-left    { text-align: left }
+.text-align-center  { text-align: center }
+.text-align-right   { text-align: right }
+.text-align-justify { text-align: justify }
+.text-align-start   { text-align: start !important }
+.text-align-end     { text-align: end }
+.text-align-initial { text-align: initial }
 
-.hover-text-underline:hover,
-.hover-text-underline:focus,
-a:hover .hover-text-underline,
-a:focus .hover-text-underline { text-decoration: underline !important; }
-
-.text-align-left    { text-align: left; }
-.text-align-center  { text-align: center; }
-.text-align-right   { text-align: right; }
-.text-align-justify { text-align: justify; }
-.text-align-start   { text-align: start !important; }
-
-.vertical-align-top    { vertical-align: text-top; }
-.vertical-align-middle { vertical-align: middle; }
-.vertical-align-bottom { vertical-align: text-bottom; }
+.vertical-align-top    { vertical-align: text-top }
+.vertical-align-middle { vertical-align: middle }
+.vertical-align-bottom { vertical-align: text-bottom }
 
 .nowrap {
   white-space: nowrap;
   flex-wrap: nowrap !important; /* for flex elements */
 }
 
-/* icon inline */
+/**
+ * icon
+ * align icon to text baseline
+ * line-hight is assumed
+ */
 .icon {
   height: 1em;
   width: auto;
@@ -806,101 +1073,112 @@ a:focus .hover-text-underline { text-decoration: underline !important; }
   top: -0.1em;
 }
 
-.font-family-sans   { font-family: var(--font-family-sans); }
-.font-family-serif  { font-family: var(--font-family-serif); }
-.font-family-script { font-family: var(--font-family-script); }
-.font-family-mono, .code, .pre { font-family: var(--font-family-mono); }
-.font-family-inherit { font-family: inherit; }
+.font-family-sans   { font-family: var(--font-family-sans) }
+.font-family-serif  { font-family: var(--font-family-serif) }
+.font-family-script { font-family: var(--font-family-script) }
+.font-family-mono, .code, .pre { font-family: var(--font-family-mono) }
+.font-family-inherit { font-family: inherit }
 
-.font-weight-100 { font-weight: 100; } /* thin */
-.font-weight-200 { font-weight: 200; }
-.font-weight-300 { font-weight: 300; }
-.font-weight-400 { font-weight: 400; } /* normal */
-.font-weight-500 { font-weight: 500; }
-.font-weight-600 { font-weight: 600; }
-.font-weight-700 { font-weight: 700; } /* bold */
-.font-weight-800 { font-weight: 800; }
-.font-weight-900 { font-weight: 900; }
+.font-weight-100 { font-weight: 100 } /* thin */
+.font-weight-200 { font-weight: 200 }
+.font-weight-300 { font-weight: 300 }
+.font-weight-400 { font-weight: 400 } /* normal */
+.font-weight-500 { font-weight: 500 }
+.font-weight-600 { font-weight: 600 }
+.font-weight-700 { font-weight: 700 } /* bold */
+.font-weight-800 { font-weight: 800 }
+.font-weight-900 { font-weight: 900 }
 
-.color-default { color: var(--color-default); }
-.color-muted   { color: var(--color-muted); }
-.color-inverse { color: var(--color-inverse); }
-.color-current { color: currentColor; }
-.color-inherit { color: inherit; }
-.color-white   { color: #fff; }
+.color-default { color: var(--color-default) }
+.color-muted   { color: var(--color-muted) }
+.color-inverse { color: var(--color-inverse) }
+.color-current { color: currentColor }
+.color-inherit { color: inherit }
+.color-white   { color: #fff }
+.color-black   { color: #000 }
 
-.color-primary       { color: var(--color-primary); }
-.color-secondary     { color: var(--color-secondary); }
-.color-tertiary      { color: var(--color-tertiary); }
-.color-quaternary    { color: var(--color-quaternary); }
-.color-complementary { color: var(--color-complementary); }
+.color-primary       { color: var(--color-primary) }
+.color-secondary     { color: var(--color-secondary) }
+.color-tertiary      { color: var(--color-tertiary) }
+.color-quaternary    { color: var(--color-quaternary) }
+.color-complementary { color: var(--color-complementary) }
 
-.hover-color-primary:hover,
-.hover-color-primary:focus,
-a:hover .hover-color-primary,
-a:focus .hover-color-primary { color: var(--color-primary) !important; }
+.color-primary-hover:hover,
+.color-primary-hover:focus,
+a:hover .color-primary-hover,
+a:focus .color-primary-hover { color: var(--color-primary) !important }
 
-.text-shadow         { text-shadow: rgba(0,0,10,0.3) 1px 1px 1px; }
-.text-shadow-inverse { text-shadow: rgba(255,255,255,0.3) 1px 1px 1px; }
+.text-shadow         { text-shadow: 1px 1px 1px rgba(0, 0, 10, 0.3) }
+.text-shadow-inverse { text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3) }
 
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-line-clamp */
+/**
+ * line clamp
+ * limit the number of text lines
+ * most browsers support prefixed version
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-line-clamp
+ */
 [class*=&quot;line-clamp&quot;] {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: var(--max-lines, 1);
+  -webkit-line-clamp: var(--max-lines);
   overflow: hidden;
-  max-height: initial;
-  max-height: calc(var(--line-height-current) * var(--max-lines, 1) * 1em); /* fallback */
 }
-.line-clamp-2 { --max-lines: 2; }
-.line-clamp-3 { --max-lines: 3; }
-.line-clamp-4 { --max-lines: 4; }
-.line-clamp-5 { --max-lines: 5; }
+.line-clamp-1 { --max-lines: 1 }
+.line-clamp-2 { --max-lines: 2 }
+.line-clamp-3 { --max-lines: 3 }
+.line-clamp-4 { --max-lines: 4 }
+.line-clamp-5 { --max-lines: 5 }
 </code></pre>
-        </section>
-      
+      </section>
     
-      
+  
     
-      
-        <section>
-          <h3 id="visibility">Visibility <small class="extra-small font-weight-400"><a href="#">↑ Back to top</a></small> </h3>
-          <pre class="language-css"><code>/* hide from all */
-@media (max-width: 544px) {
+  
+    
+      <section>
+        <h3 id="visibility">
+          <a href="#visibility" class="color-default">Visibility</a>
+          <a href="#">↑</a>
+        </h3>
+        <pre><code class="language-css">/**
+* visibility
+* .hide-* and .display-* are available
+* to hide content from screen reades use [aria-hidden=&quot;true&quot;]
+* resources: https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+*/
+
+@media (--breakpoint-xs-max) {
   .hide-xs { display: none; }
 }
-@media (min-width: 544px) and (max-width: 768px) {
+@media (--breakpoint-sm-min) {
   .hide-sm { display: none; }
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (--breakpoint-md-min) {
   .hide-md { display: none; }
 }
-@media (min-width: 1024px) {
+@media (--breakpoint-lg-min) {
   .hide-lg { display: none; }
 }
+
 .hide {
-  display: none !important;
+  display: none;
 }
 
-/* hide visually, show to screan readers only */
-.sr-only:not(:focus):not(:active) {
+/* screen readers only */
+.sr-only:not(:focus):not(:focus-within):not(:active),
+.display-hidden:not(:focus):not(:focus-within):not(:active) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
+  width: 1px;
   height: 1px;
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
-  width: 1px;
 }
-
-/* to hide content from screen reades use [aria-hidden]=&quot;true&quot; */
-
-/* reference: https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html */
 </code></pre>
-        </section>
-      
+      </section>
     
-  </section>
+  
 </main>
 
 
@@ -924,4 +1202,11 @@ a:focus .hover-color-primary { color: var(--color-primary) !important; }
 </div>
 
   </body>
+  <script>
+    /**
+    * simple syntax highlighter
+    * experimental
+    */
+    !function(){const e=document.querySelectorAll("code[class*=lang-],code[class*=language-]");if(0===e.length)return;const t={punctuation:/[{}:,]|\.\.\.|\((?!\))|(?<!\()\)|&lt;(?:\/|\?|\?&equals;){0,1}(?!!-|&equals;)|(?<!-|&equals;)[/?]{0,1}&gt;(?!&equals;)|(?<!&[\da-z]{1,8});/g,operator:/\s(?:--|\+\+|\*\*(?:&equals;){0,1}|&equals;&gt;|&&(?:&equals;){0,1}|\|\|(?:&equals;){0,1}|(?:!|&equals;)&equals;&equals;|&lt;&lt;&equals;{0,1}|&gt;&gt;(?:&gt;){0,1}&equals;{0,1}|(?:-|\+|\*|\/|%|&|\||\^|!|&equals;|&lt;|&gt;)(?:&equals;){0,1}|\.{3}|\?\?{0,1}(?:&equals;){0,1}(?::){0,1}|\?\.{0,1}|(?:&lt;){2}|(?:&gt;){2,3}|[~:]|\|)\s/g,keyword:/\b(?:end)?(?:a(bstract|lias|nd|rguments|rray|s(m|sert|ync)?|uto|wait)|b(ase|egin|ool(ean)?|reak|yte)|c(ase|atch|har|hecked|lass|lone|ompl|onst|ontinue)|de(bugger|cimal|clare|f(ault|er)?|init|l(egate|ete)?)|do|double|e(cho|ls?if|lse(if)?|nd|nsure|num|vent|x(cept|ec|p(licit|ort)|te(nds|nsion|rn)))|f(i|allthrough|alse|inal(ly)?|ixed|loat|or(each)?|riend|rom|unc(tion)?)|global|goto|guard|i(f|mp(lements|licit|ort)|n(it|clude(_once)?|line|out|stanceof|t(erface|ernal)?)?|s)|l(ambda|et|ock|ong)|m(icrolight|odule|utable)|NaN|n(amespace|ative|ext|ew|il|ot|ull)|o(bject|f|perator|r|ut|verride)|p(ackage|arams|rivate|rotected|rotocol|ublic)|r(aise|e(adonly|do|f|gister|peat|quire(_once)?|scue|strict|try|turn))|s(byte|ealed|elf|hort|igned|izeof|tatic|tring|truct|ubscript|uper|ynchronized|witch)|t(emplate|hen|his|hrows?|ransient|rue|ry|ype(alias|def|id|name|of))|u(n(checked|def(ined)?|ion|less|signed|til)|se|sing)|v(ar|irtual|oid|olatile)|w(char_t|hen|here|hile|ith)|xor|yield)(?!=|&equals;)\b/gi,string:/&quot;(?!&quot;).{1,}?&quot;|'.{0,}?'|`.{0,}?`/g,comment:/&lt;!--[\s\S]{1,}?--&gt;|^\s{0,}?\/\/.{0,}|^\s{0,}\/\*[\s\S]{0,}?\*\/|(?:&quot;){3}[\s\S]{0,}?(?:&quot;){3}|^\s{0,}?#.{0,}/gm,selector:/^(?!@|\/)(?:.{1,}?)(?={[\s\S]{1,}?})/gm,logic:/\s(?:and|not|only)\s/g,rule:/@(?:\w|\-){1,}/gm,tag:/<[^>]{1,}>/g};function l(e="",n="punctuation",a=!1,o=null){if(o){const t=e.match(function(e,t="gm"){return new RegExp(`(?<=&lt;${e}(?: {0,}.{1,}?&equals;&quot;.{1,}?&quot; {0,}){0,1}&gt;)[\\s\\S]{0,}?(?=&lt;\\/${e}&gt;)`,t)}(o));t&&t.forEach(function(t){let a=l(t,n);e=e.replace(t,a)})}else e=e.replace(t[n],function(e){return a&&(e=e.replaceAll(t.tag,"")),`<span class="token ${n}">${e}</span>`});return e}if(e.forEach(function(e){let t=e.innerHTML;if(0===(t=t.trim()).length)return;t=t.replace(/=/g,"&equals;").replace(/"/g,"&quot;");let n=e.classList.value.match(/(?<=lang(uage)?-)\S{1,}/)[0];t=l(t=l(t=l(t=l(t="html"===n||"xml"===n?l(t=l(t=l(t,"keyword",!1,"script"),"selector",!1,"style"),"logic",!1,"style"):"css"===n?l(t=l(t,"selector"),"logic"):l(t=l(t,"keyword"),"operator",!0),"rule"),"punctuation"),"string",!0),"comment",!0),e.innerHTML=t}),"custom"===document.currentScript.dataset.theme)return;const n=document.createElement("style");n.dataset.highlighterTheme="default",document.head.appendChild(n);const a="opacity: 0.5",o="opacity: 0.6",s="opacity: 1",r="-webkit-text-stroke: 0.8px";n.sheet.insertRule(`.token.comment     { ${a} }`),n.sheet.insertRule(`.token.string      { ${o} }`),n.sheet.insertRule(`.token.punctuation { ${a} }`),n.sheet.insertRule(`.token.operator    { ${a} }`),n.sheet.insertRule(`.token.selector    { ${s} }`),n.sheet.insertRule(`.token.keyword     { ${r} }`)}();
+  </script>
 </html>

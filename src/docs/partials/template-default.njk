@@ -16,7 +16,7 @@
       }
     </style>
   </head>
-  <body class="p adding-top-1">
+  <body class="padding-top-1">
     {% include "component-default-header.njk" %}
 
     {% block content %}
@@ -25,4 +25,11 @@
 
     {% include "component-default-footer.njk" %}
   </body>
+  <script>
+    /**
+    * simple syntax highlighter
+    * experimental
+    */
+    !function(){const e=document.querySelectorAll("code[class*=lang-],code[class*=language-]");if(0===e.length)return;const t={punctuation:/[{}:,]|\.\.\.|\((?!\))|(?<!\()\)|&lt;(?:\/|\?|\?&equals;){0,1}(?!!-|&equals;)|(?<!-|&equals;)[/?]{0,1}&gt;(?!&equals;)|(?<!&[\da-z]{1,8});/g,operator:/\s(?:--|\+\+|\*\*(?:&equals;){0,1}|&equals;&gt;|&&(?:&equals;){0,1}|\|\|(?:&equals;){0,1}|(?:!|&equals;)&equals;&equals;|&lt;&lt;&equals;{0,1}|&gt;&gt;(?:&gt;){0,1}&equals;{0,1}|(?:-|\+|\*|\/|%|&|\||\^|!|&equals;|&lt;|&gt;)(?:&equals;){0,1}|\.{3}|\?\?{0,1}(?:&equals;){0,1}(?::){0,1}|\?\.{0,1}|(?:&lt;){2}|(?:&gt;){2,3}|[~:]|\|)\s/g,keyword:/\b(?:end)?(?:a(bstract|lias|nd|rguments|rray|s(m|sert|ync)?|uto|wait)|b(ase|egin|ool(ean)?|reak|yte)|c(ase|atch|har|hecked|lass|lone|ompl|onst|ontinue)|de(bugger|cimal|clare|f(ault|er)?|init|l(egate|ete)?)|do|double|e(cho|ls?if|lse(if)?|nd|nsure|num|vent|x(cept|ec|p(licit|ort)|te(nds|nsion|rn)))|f(i|allthrough|alse|inal(ly)?|ixed|loat|or(each)?|riend|rom|unc(tion)?)|global|goto|guard|i(f|mp(lements|licit|ort)|n(it|clude(_once)?|line|out|stanceof|t(erface|ernal)?)?|s)|l(ambda|et|ock|ong)|m(icrolight|odule|utable)|NaN|n(amespace|ative|ext|ew|il|ot|ull)|o(bject|f|perator|r|ut|verride)|p(ackage|arams|rivate|rotected|rotocol|ublic)|r(aise|e(adonly|do|f|gister|peat|quire(_once)?|scue|strict|try|turn))|s(byte|ealed|elf|hort|igned|izeof|tatic|tring|truct|ubscript|uper|ynchronized|witch)|t(emplate|hen|his|hrows?|ransient|rue|ry|ype(alias|def|id|name|of))|u(n(checked|def(ined)?|ion|less|signed|til)|se|sing)|v(ar|irtual|oid|olatile)|w(char_t|hen|here|hile|ith)|xor|yield)(?!=|&equals;)\b/gi,string:/&quot;(?!&quot;).{1,}?&quot;|'.{0,}?'|`.{0,}?`/g,comment:/&lt;!--[\s\S]{1,}?--&gt;|^\s{0,}?\/\/.{0,}|^\s{0,}\/\*[\s\S]{0,}?\*\/|(?:&quot;){3}[\s\S]{0,}?(?:&quot;){3}|^\s{0,}?#.{0,}/gm,selector:/^(?!@|\/)(?:.{1,}?)(?={[\s\S]{1,}?})/gm,logic:/\s(?:and|not|only)\s/g,rule:/@(?:\w|\-){1,}/gm,tag:/<[^>]{1,}>/g};function l(e="",n="punctuation",a=!1,o=null){if(o){const t=e.match(function(e,t="gm"){return new RegExp(`(?<=&lt;${e}(?: {0,}.{1,}?&equals;&quot;.{1,}?&quot; {0,}){0,1}&gt;)[\\s\\S]{0,}?(?=&lt;\\/${e}&gt;)`,t)}(o));t&&t.forEach(function(t){let a=l(t,n);e=e.replace(t,a)})}else e=e.replace(t[n],function(e){return a&&(e=e.replaceAll(t.tag,"")),`<span class="token ${n}">${e}</span>`});return e}if(e.forEach(function(e){let t=e.innerHTML;if(0===(t=t.trim()).length)return;t=t.replace(/=/g,"&equals;").replace(/"/g,"&quot;");let n=e.classList.value.match(/(?<=lang(uage)?-)\S{1,}/)[0];t=l(t=l(t=l(t=l(t="html"===n||"xml"===n?l(t=l(t=l(t,"keyword",!1,"script"),"selector",!1,"style"),"logic",!1,"style"):"css"===n?l(t=l(t,"selector"),"logic"):l(t=l(t,"keyword"),"operator",!0),"rule"),"punctuation"),"string",!0),"comment",!0),e.innerHTML=t}),"custom"===document.currentScript.dataset.theme)return;const n=document.createElement("style");n.dataset.highlighterTheme="default",document.head.appendChild(n);const a="opacity: 0.5",o="opacity: 0.6",s="opacity: 1",r="-webkit-text-stroke: 0.8px";n.sheet.insertRule(`.token.comment     { ${a} }`),n.sheet.insertRule(`.token.string      { ${o} }`),n.sheet.insertRule(`.token.punctuation { ${a} }`),n.sheet.insertRule(`.token.operator    { ${a} }`),n.sheet.insertRule(`.token.selector    { ${s} }`),n.sheet.insertRule(`.token.keyword     { ${r} }`)}();
+  </script>
 </html>

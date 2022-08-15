@@ -1,23 +1,21 @@
-/*
-  breakpoints:
-  - 544px
-  - 768px
-  - 1024px
-*/
+/* xs */
+@custom-media --breakpoint-xs-max (max-width: 30em);
+/* sm */
+@custom-media --breakpoint-sm-min (min-width: 30em);
+@custom-media --breakpoint-sm-max (max-width: 42em);
+/* md */
+@custom-media --breakpoint-md-min (min-width: 42em);
+@custom-media --breakpoint-md-max (max-width: 57em);
+/* lg */
+@custom-media --breakpoint-lg-min (min-width: 57em);
 
-:root {
-  --font-size-current: var(--font-size-default);
-  --line-height-current: var(--line-height-default);
-  --aspect-ratio: 16/9;
-}
-
-h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
-  --line-height-current: var(--line-height-heading);
-}
-
-h1, .font-size-h1 { --font-size-current: var(--font-size-h1); }
-h2, .font-size-h2 { --font-size-current: var(--font-size-h2); }
-h3, .font-size-h3 { --font-size-current: var(--font-size-h3); }
-h4, .font-size-h4 { --font-size-current: var(--font-size-h4); }
-h5, .font-size-h5 { --font-size-current: var(--font-size-h5); }
-h6, .font-size-h6 { --font-size-current: var(--font-size-h6); }
+/**
+ * current size
+ * pass current size as variable to allow local transformations
+ */
+h1, .font-size-h1 { --font-size-current: var(--font-size-h1) }
+h2, .font-size-h2 { --font-size-current: var(--font-size-h2) }
+h3, .font-size-h3 { --font-size-current: var(--font-size-h3) }
+h4, .font-size-h4 { --font-size-current: var(--font-size-h4) }
+h5, .font-size-h5 { --font-size-current: var(--font-size-h5) }
+h6, .font-size-h6 { --font-size-current: var(--font-size-h6) }

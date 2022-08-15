@@ -2,7 +2,7 @@ var { gulp, src, dest, watch, series, parallel } = require('gulp');
 var postcss      = require('gulp-postcss');
 var presetEnv    = require('postcss-preset-env');
 var atImport     = require('postcss-import');
-var minify       = require('gulp-minify-css');
+var minify       = require('gulp-clean-css');
 var rename       = require('gulp-rename');
 var header       = require('gulp-header');
 var easingGradients = require('postcss-easing-gradients');
@@ -12,9 +12,18 @@ var browserSync  = require('browser-sync').create();
 var banner       = ['/** <%= package.version %> <%= package.repo.url %> */\n'];
 var fs           = require('fs');
 
+var presetEnvOptions = {
+  preserve: false,
+  features: {
+    'custom-media-queries': true,
+    'focus-within-pseudo-class': false,
+    'logical-properties-and-values': false,
+  }
+}
+
 function css() {
   return src('./src/css/bundle.css')
-    .pipe(postcss([atImport, easingGradients, presetEnv({preserve: true})]))
+    .pipe(postcss([atImport, easingGradients, presetEnv(presetEnvOptions)]))
     .pipe(rename(pkgJson.keyword + '.css'))
     .pipe(header(banner, { package: pkgJson }))
     .pipe(dest('./dist')) // <-- deliver expanded for dist
@@ -27,16 +36,16 @@ function css() {
 }
 
 function html() {
-  var cssData = {};
+  var cssJson = {};
   fs.readdirSync('./src/css/').forEach(function(fileName) {
     var cssFileName = fileName.slice(0, -4);
     var cssContent = fs.readFileSync('./src/css/' + fileName);
-    cssData[cssFileName] = cssContent;
+    cssJson[cssFileName] = cssContent;
   });
   return src('./src/docs/pages/**/*.njk')
     .pipe(nunjucks({
       path: './src/docs/partials',
-      data: { package: pkgJson, cssFiles: cssData }
+      data: { package: pkgJson, cssFiles: cssJson }
     }))
     .pipe(dest('./docs'))
     .pipe(browserSync.stream())
