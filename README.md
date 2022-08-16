@@ -1,13 +1,13 @@
-# @hyper-properties-css
+# @subcomponents/properties
 
 ![License][LicenseBadgeURL]
 [![Donate][DonateBadgeURL]][DonateURL]
 
-> CSS properties
+> CSS properties library
 
 ## Documentation
 
-Docs and demo: <https://heyallan.github.io/hyper-properties-css>
+Docs and demo: <https://subcomponents.github.io/properties>
 
 ## Contribute
 

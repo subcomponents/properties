@@ -1,12 +1,12 @@
 {
-  "name": "hyper-properties-css",
+  "name": "@subcomponents/properties",
   "version": "3.1.0",
-  "description": "CSS properties",
+  "description": "CSS properties library",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heyallan/hyper-properties-css.git"
+    "url": "git+https://github.com/subcomponents/properties.git"
   },
-  "abstract": "Utility library to design in the browser",
+  "introduction": "CSS properties library",
   "keywords": [
     "css",
     "hyper",
@@ -21,15 +21,14 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/heyallan/hyper-properties-css/issues"
+    "url": "https://github.com/subcomponents/properties/issues"
   },
-  "homepage": "https://heyallan.github.io/hyper-properties-css",
+  "homepage": "https://subcomponents.github.io/properties",
   "main": "dist/properties.min.css",
   "repo": {
-    "url": "https://github.com/heyallan/hyper-properties-css"
+    "url": "https://github.com/subcomponents/properties"
   },
   "keyword": "properties",
-  "scope": "@metacss",
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "fs": "0.0.1-security",
