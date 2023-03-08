@@ -15,10 +15,10 @@
   {% for fileName, fileContent in cssFiles %}
     {% if fileContent and (fileName !== "bundle") and (fileName !== "variables") %}
       <section>
-        <h3 id="{{ fileName }}">
+        <h3 id="{{ fileName }}" class="margin-0">
           <a href="#{{ fileName }}" class="color-default">{{ fileName | capitalize }}</a>
-          <a href="#">↑</a>
         </h3>
+        <a href="#">Back to top ↑</a>
         <pre><code class="language-css">{{ fileContent }}</code></pre>
       </section>
     {% endif %}
