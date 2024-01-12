@@ -112,3 +112,23 @@
 
   .box-shadow-lg { box-shadow: 0 2px 5px rgba(0,0,0,0.1) }
 }
+
+/* stock colors */
+.border-color-blue          { background: var(--color-blue); }
+.border-color-blue-light    { background: var(--color-blue-light); }
+.border-color-yellow        { background: var(--color-yellow); }
+.border-color-yellow-light  { background: var(--color-yellow-light); }
+.border-color-green         { background: var(--color-green); }
+.border-color-green-light   { background: var(--color-green-light); }
+.border-color-red           { background: var(--color-red); }
+.border-color-red-light     { background: var(--color-red-light); }
+
+/* contextual colors */
+.border-color-info          { background: var(--color-blue); }
+.border-color-info-light    { background: var(--color-blue-light); }
+.border-color-warning       { background: var(--color-yellow); }
+.border-color-warning-light { background: var(--color-yellow-light); }
+.border-color-success       { background: var(--color-green); }
+.border-color-success-light { background: var(--color-green-light); }
+.border-color-error         { background: var(--color-red); }
+.border-color-error-light   { background: var(--color-red-light); }
