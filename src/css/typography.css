@@ -139,8 +139,18 @@ a:focus .text-decoration-underline-hover {
 .color-inverse { color: var(--color-inverse) }
 .color-current { color: currentColor }
 .color-inherit { color: inherit }
+
 .color-white   { color: #fff }
 .color-black   { color: #000 }
+.color-blue    { color: var(--color-blue); }
+.color-yellow  { color: var(--color-yellow); }
+.color-green   { color: var(--color-green); }
+.color-red     { color: var(--color-red); }
+
+.color-info    { color: var(--color-blue); }
+.color-warning { color: var(--color-yellow); }
+.color-success { color: var(--color-green); }
+.color-error   { color: var(--color-red); }
 
 .color-primary       { color: var(--color-primary) }
 .color-secondary     { color: var(--color-secondary) }
