@@ -1,5 +1,10 @@
 # changelog
 
+## 3.2.0
+
+- add alignment classes
+- use native aspect-ratio
+
 ## 3.1.0
 
 - switch from `gulp-minify-css` to `gulp-clean-css`

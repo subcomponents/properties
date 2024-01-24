@@ -19,7 +19,7 @@
   <body class="padding-top-1">
     <div class="container">
   <header role="banner">
-    <h1>@subcomponents/properties <span class="color-primary">v3.1.3</span></h1>
+    <h1>@subcomponents/properties <span class="color-primary">v3.2.0</span></h1>
     <nav role="navigation">
   <ul class="list-inline" style="--marker: '·';">
     <li><a href="./">Home</a></li>
@@ -37,6 +37,10 @@
 <main class="container">
   <section class="margin-bottom-2">
     <ul class="list-inline list-middot">
+      
+        
+          <li><a href="#alignment">Alignment</a></li>
+        
       
         
           <li><a href="#aspect-ratio">Aspect-ratio</a></li>
@@ -99,17 +103,100 @@
   
     
       <section>
+        <h3 id="alignment" class="margin-0">
+          <a href="#alignment" class="color-default">Alignment</a>
+        </h3>
+        <a href="#">Back to top ↑</a>
+        <pre><code class="language-css">/**
+ * media blocks alignment
+ * variants left|center|right|fill|wide|full
+ */
+
+/* left &amp;&amp; right */
+/* ----- ----- ----- ----- */
+@media (--breakpoint-md-only) {
+  .align-left &gt; img,
+  .align-right &gt; img {
+    width: 100%;
+  }
+}
+@media (--breakpoint-md) {
+  /* float media blocks on large screens */
+  .align-left {
+    float: left;
+    margin-right: 1rem;
+  }
+  .align-right {
+    float: right;
+    margin-left: 1rem;
+  }
+  .align-left,
+  .align-right {
+    /* use table to avoid caption overflow */
+    display: table;
+    width: auto;
+    max-width: 50%;
+    margin-bottom: 0.25rem;
+  }
+  .align-left &gt; div:first-child,
+  .align-right &gt; div:first-child {
+    /* img | picture | canvas | audio | video | iframe | pre | div */
+    /* expand container for video iframe */
+    display: table-cell;
+    width: 100vw;
+    max-width: 100%;
+    padding-bottom: 0.25rem;
+  }
+  .align-left &gt; figcaption,
+  .align-right &gt; figcaption {
+    /* avoid caption overflow */
+    display: table-caption;
+    caption-side: bottom;
+  }
+}
+
+
+/* fill */
+/* ----- ----- ----- ----- */
+.align-fill &gt; :first-child {
+  width: 100%;
+}
+
+/* wide &amp;&amp; full */
+/* ----- ----- ----- ----- */
+.align-wide &gt; :first-child,
+.align-full &gt; :first-child {
+  display: block;
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body:not(.has-sidebar) .align-wide &gt; :first-child {
+  max-width: calc(100% + 20%);
+}
+body:not(.has-sidebar) .align-full &gt; :first-child {
+  max-width: 100vw;
+}
+
+:not(.flex):not(.display-flex).align-center {
+	text-align: center;
+}
+</code></pre>
+      </section>
+    
+  
+    
+      <section>
         <h3 id="aspect-ratio" class="margin-0">
           <a href="#aspect-ratio" class="color-default">Aspect-ratio</a>
         </h3>
         <a href="#">Back to top ↑</a>
         <pre><code class="language-css">/**
  * aspect ratio
- * accepts [style=&quot;--aspect-ratio: x/y&quot;]
- * expands if content exceeds container
- * iframe requires some extra styles to fit (because browser defaults)
- * iframe always require a container on browsers that don&#39;t support aspect-ratio
- * https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
+ * - image does not need a container, but always requires object-fit class
+ * - iframe does not need a container, it&#39;s optional
  */
 
 /* create aspect ratio */
@@ -119,41 +206,12 @@
 }
 
 /* make iframe fit */
-iframe[class*=aspect-ratio],
-iframe[style*=--aspect-ratio],
 [class*=aspect-ratio] &gt; iframe,
-[style*=--aspect-ratio] &gt; iframe {
+[style*=--aspect-ratio] &gt; iframe,
+iframe[class*=aspect-ratio],
+iframe[style*=--aspect-ratio] {
   width: 100%;
   height: 100%;
-}
-
-@supports not (aspect-ratio: 1 / 1) {
-  /* create aspect ratio */
-  [class*=aspect-ratio]::before,
-  [style*=--aspect-ratio]::before {
-    float: left;
-    content: &quot;&quot;;
-    padding-top: calc(100% / (var(--aspect-ratio)));
-  }
-  [class*=aspect-ratio]::after,
-  [style*=--aspect-ratio]::after {
-    display: block;
-    content: &quot;&quot;;
-    clear: both;
-  }
-  /* make iframe fit */
-  [class*=aspect-ratio],
-  [style*=--aspect-ratio] {
-    position: relative;
-  }
-  [class*=aspect-ratio] &gt; iframe,
-  [style*=--aspect-ratio] &gt; iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
 }
 
 .aspect-ratio-1\/1 {

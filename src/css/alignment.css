@@ -1,0 +1,76 @@
+/**
+ * media blocks alignment
+ * variants left|center|right|fill|wide|full
+ */
+
+/* left && right */
+/* ----- ----- ----- ----- */
+@media (--breakpoint-md-only) {
+  .align-left > img,
+  .align-right > img {
+    width: 100%;
+  }
+}
+@media (--breakpoint-md) {
+  /* float media blocks on large screens */
+  .align-left {
+    float: left;
+    margin-right: 1rem;
+  }
+  .align-right {
+    float: right;
+    margin-left: 1rem;
+  }
+  .align-left,
+  .align-right {
+    /* use table to avoid caption overflow */
+    display: table;
+    width: auto;
+    max-width: 50%;
+    margin-bottom: 0.25rem;
+  }
+  .align-left > div:first-child,
+  .align-right > div:first-child {
+    /* img | picture | canvas | audio | video | iframe | pre | div */
+    /* expand container for video iframe */
+    display: table-cell;
+    width: 100vw;
+    max-width: 100%;
+    padding-bottom: 0.25rem;
+  }
+  .align-left > figcaption,
+  .align-right > figcaption {
+    /* avoid caption overflow */
+    display: table-caption;
+    caption-side: bottom;
+  }
+}
+
+
+/* fill */
+/* ----- ----- ----- ----- */
+.align-fill > :first-child {
+  width: 100%;
+}
+
+/* wide && full */
+/* ----- ----- ----- ----- */
+.align-wide > :first-child,
+.align-full > :first-child {
+  display: block;
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body:not(.has-sidebar) .align-wide > :first-child {
+  max-width: calc(100% + 20%);
+}
+body:not(.has-sidebar) .align-full > :first-child {
+  max-width: 100vw;
+}
+
+:not(.flex):not(.display-flex).align-center {
+	text-align: center;
+}

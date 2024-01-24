@@ -19,7 +19,7 @@
   <body class="padding-top-1">
     <div class="container">
   <header role="banner">
-    <h1>@subcomponents/properties <span class="color-primary">v3.1.3</span></h1>
+    <h1>@subcomponents/properties <span class="color-primary">v3.2.0</span></h1>
     <nav role="navigation">
   <ul class="list-inline" style="--marker: '·';">
     <li><a href="./">Home</a></li>
@@ -38,20 +38,28 @@
 
   <section class="margin-bottom-5">
     <h2>Aspect ratio</h2>
-    <h2>div</h2>
-    <div class="border-dashed aspect-ratio-2/1">
+    <p><code>div.aspect-ratio-2/1</code></p>
+    <div class="border-dashed aspect-ratio-2/1 margin-bottom-2">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
-    <h2>figure > iframe</h2>
-    <figure class="border-dashed aspect-ratio-2/1">
+    <p><code>figure.aspect-ratio-2/1 > iframe</code></p>
+    <figure class="border-dashed aspect-ratio-2/1 margin-bottom-2">
       <iframe src="https://player.vimeo.com/video/321513775"></iframe>
     </figure>
-    <h2>div > iframe</h2>
-    <div class="border-dashed aspect-ratio-2/1">
+    <p><code>div.aspect-ratio-2/1 > iframe</code></p>
+    <div class="border-dashed aspect-ratio-2/1 margin-bottom-2">
       <iframe src="https://player.vimeo.com/video/321513775"></iframe>
     </div>
-    <h2>iframe</h2>
-    <iframe class="aspect-ratio-2/1" style="border:2px dashed black;" src="https://player.vimeo.com/video/321513775"></iframe>
+    <p><code>iframe.aspect-ratio-2/1</code></p>
+    <iframe class="aspect-ratio-2/1 margin-bottom-2" style="border:2px dashed currentColor;" src="https://player.vimeo.com/video/321513775"></iframe>
+    <p><code>figure.aspect-ratio-2/1 > img.object-fit-cover</code></p>
+    <figure class="aspect-ratio-2/1 margin-bottom-2">
+    	<img class="object-fit-cover" src="image.jpg" alt="Sample image">
+    </figure>
+    <p><code>img.aspect-ratio-2/1.object-fit-cover</code></p>
+    <figure>
+    	<img class="aspect-ratio-2/1 object-fit-cover" src="image.jpg" alt="Sample image">
+    </figure>
   </section>
 
   <section class="margin-bottom-5">

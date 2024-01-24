@@ -1,13 +1,17 @@
-/* xs */
+
 @custom-media --breakpoint-xs-max (max-width: 30em);
-/* sm */
 @custom-media --breakpoint-sm-min (min-width: 30em);
 @custom-media --breakpoint-sm-max (max-width: 42em);
-/* md */
 @custom-media --breakpoint-md-min (min-width: 42em);
 @custom-media --breakpoint-md-max (max-width: 57em);
-/* lg */
 @custom-media --breakpoint-lg-min (min-width: 57em);
+
+@custom-media --breakpoint-sm-only (max-width: 30em);
+@custom-media --breakpoint-md-only (max-width: 42em);
+
+@custom-media --breakpoint-sm (min-width: 30em);
+@custom-media --breakpoint-md (min-width: 42em);
+@custom-media --breakpoint-lg (min-width: 57em);
 
 /**
  * current size
